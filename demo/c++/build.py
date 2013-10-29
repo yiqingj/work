@@ -26,9 +26,11 @@ Import ('env')
 
 source = Split(
     """
-    rundemo.cpp
+    debug.cpp
     """
     )
+    
+
 
 demo_env = env.Clone()
 
@@ -42,10 +44,10 @@ if env['HAS_CAIRO']:
 
 libraries = ['mapnik']
 libraries.extend(copy(env['LIBMAPNIK_LIBS']))
-rundemo = demo_env.Program('rundemo', source, LIBS=libraries)
+debug = demo_env.Program('debug', source, LIBS=libraries)
 
-Depends(rundemo, env.subst('../../src/%s' % env['MAPNIK_LIB_NAME']))
+Depends(debug, env.subst('../../src/%s' % env['MAPNIK_LIB_NAME']))
 
 # build locally if installing
 if 'install' in COMMAND_LINE_TARGETS:
-    env.Alias('install',rundemo)
+    env.Alias('install',debug)
