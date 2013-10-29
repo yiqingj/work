@@ -34,13 +34,9 @@
 #include <mapnik/expression.hpp>
 #include <mapnik/color_factory.hpp>
 #include <mapnik/image_util.hpp>
-
-#if defined(HAVE_CAIRO)
-#include <mapnik/cairo_renderer.hpp>
-#include <mapnik/cairo_context.hpp>
-#endif
-
 #include <iostream>
+
+#include "mapnik/tn_renderer.h"
 
 
 int main ( int argc , char** argv)
@@ -259,6 +255,8 @@ int main ( int argc , char** argv)
         }
 
         m.zoom_to_box(box2d<double>(-8024477.28459,5445190.38849,-7381388.20071,5662941.44855));
+        
+        tn_renderer
 
         image_32 buf(m.width(),m.height());
         agg_renderer<image_32> ren(m,buf);
@@ -285,40 +283,7 @@ int main ( int argc , char** argv)
         msg += "Have a look!\n";
         std::cout << msg;
 
-#if defined(HAVE_CAIRO)
-        // save to pdf/svg files
-        save_to_cairo_file(m,"cairo-demo.pdf");
-        save_to_cairo_file(m,"cairo-demo.svg");
 
-        /* we could also do:
-
-           save_to_cairo_file(m,"cairo-demo.png");
-
-           but instead let's build up a surface for more flexibility
-        */
-
-        cairo_surface_ptr image_surface(
-            cairo_image_surface_create(CAIRO_FORMAT_ARGB32,m.width(),m.height()),
-            cairo_surface_closer());
-        double scale_factor = 1.0;
-        cairo_ptr image_context = (create_context(image_surface));
-        mapnik::cairo_renderer<cairo_ptr> png_render(m,image_context,scale_factor);
-        png_render.apply();
-        // we can now write to png with cairo functionality
-        cairo_surface_write_to_png(&*image_surface, "cairo-demo.png");
-        // but we can also benefit from quantization by converting
-        // to a mapnik image object and then saving that
-        image_32 im(image_surface);
-        save_to_file(im, "cairo-demo256.png","png8");
-        cairo_surface_finish(&*image_surface);
-
-        std::cout << "Three maps have been rendered using Cairo in the current directory:\n"
-            "- cairo-demo.png\n"
-            "- cairo-demo256.png\n"
-            "- cairo-demo.pdf\n"
-            "- cairo-demo.svg\n"
-            "Have a look!\n";
-#endif
 
     }
     catch ( const std::exception & ex )
