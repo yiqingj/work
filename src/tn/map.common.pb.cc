@@ -2,7 +2,7 @@
 // source: map.common.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "map.common.pb.h"
+#include "mapnik/map.common.pb.h"
 
 #include <algorithm>
 
@@ -10,6 +10,10 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
 namespace com {
@@ -17,38 +21,86 @@ namespace telenav {
 namespace proto {
 namespace map {
 
+namespace {
+
+const ::google::protobuf::EnumDescriptor* RoadType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* MapServiceStatus_descriptor_ = NULL;
+
+}  // namespace
+
+
+void protobuf_AssignDesc_map_2ecommon_2eproto() {
+  protobuf_AddDesc_map_2ecommon_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "map.common.proto");
+  GOOGLE_CHECK(file != NULL);
+  RoadType_descriptor_ = file->enum_type(0);
+  MapServiceStatus_descriptor_ = file->enum_type(1);
+}
+
+namespace {
+
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+inline void protobuf_AssignDescriptorsOnce() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_map_2ecommon_2eproto);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+}
+
+}  // namespace
+
 void protobuf_ShutdownFile_map_2ecommon_2eproto() {
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-void protobuf_AddDesc_map_2ecommon_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#else
 void protobuf_AddDesc_map_2ecommon_2eproto() {
   static bool already_here = false;
   if (already_here) return;
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#endif
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+    "\n\020map.common.proto\022\025com.telenav.proto.ma"
+    "p*\237\002\n\010RoadType\022\016\n\nRT_UNKNOWN\020\000\022\016\n\nRT_HIG"
+    "HWAY\020\001\022\017\n\013RT_ARTERIAL\020\002\022\014\n\010RT_LOCAL\020\003\022\017\n"
+    "\013RT_TERMINAL\020\004\022\020\n\014RT_FREE_RAMP\020\005\022\024\n\020RT_A"
+    "RTERIAL_RAMP\020\006\022\014\n\010RT_FERRY\020\007\022\021\n\rRT_LOCAL"
+    "_RAMP\020\010\022\021\n\rRT_SMALL_RAMP\020\t\022\016\n\nRT_PRIVATE"
+    "\020\n\022\024\n\020RT_NON_NAVIGABLE\020\013\022\021\n\rRT_PEDESTRIA"
+    "N\020\014\022\017\n\013RT_CYCLEWAY\020\r\022\r\n\tRT_LAYOUT\020\016\022\016\n\nR"
+    "T_SERVICE\020\017*\222\004\n\020MapServiceStatus\022\013\n\006MAP_"
+    "OK\020\300W\022\023\n\016MAP_NO_CONTENT\020\304W\022\024\n\017MAP_BAD_RE"
+    "QUEST\020\210Y\022\032\n\025MAP_SERVICE_NOT_FOUND\020\214Y\022\026\n\021"
+    "MAP_UNKNOWN_ERROR\020\354Y\022\034\n\027MAP_SERVICE_UNAV"
+    "AILABLE\020\357Y\022\030\n\023MAP_SERVICE_TIMEOUT\020\360Y\022\021\n\014"
+    "MAP_DB_ERROR\020\366Y\022\026\n\021MAP_DB_CONN_ERROR\020\367Y\022"
+    "\032\n\025MAP_DB_DATA_NOT_FOUND\020\370Y\022\033\n\026MAP_DB_DU"
+    "PLICATE_ENTRY\020\371Y\022\024\n\017ROUTE_NOT_FOUND\020\321Z\022\027"
+    "\n\022ROUTE_OD_TOO_CLOSE\020\322Z\022\025\n\020ORIGIN_NOT_CO"
+    "VER\020\323Z\022\032\n\025DESTINATION_NOT_COVER\020\324Z\022\025\n\020OR"
+    "IGIN_NOT_FOUND\020\325Z\022\032\n\025DESTINATION_NOT_FOU"
+    "ND\020\326Z\022%\n ORIGIN_DESTINATION_ACROSS_REGIO"
+    "N\020\327Z\022\036\n\031PEDESTRIAN_ROUTE_TOO_LONG\020\333Z\022\032\n\025"
+    "PEDESTRIAN_ON_HIGHWAY\020\334ZB(\n\025com.telenav."
+    "map.protoB\017MapCommonProtoc", 906);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "map.common.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_map_2ecommon_2eproto);
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_map_2ecommon_2eproto_once_);
-void protobuf_AddDesc_map_2ecommon_2eproto() {
-  ::google::protobuf::::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_map_2ecommon_2eproto_once_,
-                 &protobuf_AddDesc_map_2ecommon_2eproto_impl);
-}
-#else
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_map_2ecommon_2eproto {
   StaticDescriptorInitializer_map_2ecommon_2eproto() {
     protobuf_AddDesc_map_2ecommon_2eproto();
   }
 } static_descriptor_initializer_map_2ecommon_2eproto_;
-#endif
+const ::google::protobuf::EnumDescriptor* RoadType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RoadType_descriptor_;
+}
 bool RoadType_IsValid(int value) {
   switch(value) {
     case 0:
@@ -73,6 +125,10 @@ bool RoadType_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* MapServiceStatus_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MapServiceStatus_descriptor_;
+}
 bool MapServiceStatus_IsValid(int value) {
   switch(value) {
     case 11200:

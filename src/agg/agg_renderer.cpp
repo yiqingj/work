@@ -66,7 +66,7 @@ namespace mapnik
 template <typename T>
 agg_renderer<T>::agg_renderer(Map const& m, T & pixmap, double scale_factor, unsigned offset_x, unsigned offset_y)
     : feature_style_processor<agg_renderer>(m, scale_factor),
-      pixmap_(pixmap),
+      pixmap_(pixmap), 
       internal_buffer_(),
       current_buffer_(&pixmap),
       t_(m.width(),m.height(),m.get_current_extent(),offset_x,offset_y),

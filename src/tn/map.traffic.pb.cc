@@ -2,7 +2,7 @@
 // source: map.traffic.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "map.traffic.pb.h"
+#include "mapnik/map.traffic.pb.h"
 
 #include <algorithm>
 
@@ -386,7 +386,7 @@ void TrafficRequest::SerializeWithCachedSizes(
 
   // optional .com.telenav.proto.Context context = 4;
   if (has_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->context(), output);
   }
 
@@ -758,7 +758,7 @@ void ReportIncidentRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.Context context = 1;
   if (has_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->context(), output);
   }
 
@@ -1346,7 +1346,7 @@ void TrafficResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.ServiceStatus status = 1;
   if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->status(), output);
   }
 
@@ -2175,7 +2175,7 @@ void TrafficIncident::SerializeWithCachedSizes(
 
   // optional .com.telenav.proto.LatLon incident_location = 4;
   if (has_incident_location()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->incident_location(), output);
   }
 

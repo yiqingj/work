@@ -2,7 +2,7 @@
 // source: services.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "services.pb.h"
+#include "mapnik/services.pb.h"
 
 #include <algorithm>
 
@@ -10,33 +10,229 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
 namespace com {
 namespace telenav {
 namespace proto {
 
-void protobuf_ShutdownFile_services_2eproto() {
-  delete Context::default_instance_;
-  delete ApplicationContext::default_instance_;
-  delete UserContext::default_instance_;
-  delete TransactionContext::default_instance_;
-  delete NetworkContext::default_instance_;
-  delete ServiceStatus::default_instance_;
+namespace {
+
+const ::google::protobuf::Descriptor* Context_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Context_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ApplicationContext_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ApplicationContext_reflection_ = NULL;
+const ::google::protobuf::Descriptor* UserContext_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  UserContext_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TransactionContext_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TransactionContext_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NetworkContext_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NetworkContext_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ServiceStatus_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ServiceStatus_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* ResponseFormat_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* InternetConnectionType_descriptor_ = NULL;
+
+}  // namespace
+
+
+void protobuf_AssignDesc_services_2eproto() {
+  protobuf_AddDesc_services_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "services.proto");
+  GOOGLE_CHECK(file != NULL);
+  Context_descriptor_ = file->message_type(0);
+  static const int Context_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Context, application_context_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Context, user_context_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Context, transaction_context_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Context, network_context_),
+  };
+  Context_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Context_descriptor_,
+      Context::default_instance_,
+      Context_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Context, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Context, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Context));
+  ApplicationContext_descriptor_ = file->message_type(1);
+  static const int ApplicationContext_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ApplicationContext, application_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ApplicationContext, application_signature_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ApplicationContext, application_name_),
+  };
+  ApplicationContext_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ApplicationContext_descriptor_,
+      ApplicationContext::default_instance_,
+      ApplicationContext_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ApplicationContext, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ApplicationContext, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ApplicationContext));
+  UserContext_descriptor_ = file->message_type(2);
+  static const int UserContext_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserContext, secure_token_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserContext, user_id_),
+  };
+  UserContext_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      UserContext_descriptor_,
+      UserContext::default_instance_,
+      UserContext_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserContext, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserContext, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(UserContext));
+  TransactionContext_descriptor_ = file->message_type(3);
+  static const int TransactionContext_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionContext, transaction_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionContext, transaction_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionContext, transaction_timestamp_),
+  };
+  TransactionContext_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TransactionContext_descriptor_,
+      TransactionContext::default_instance_,
+      TransactionContext_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionContext, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TransactionContext, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TransactionContext));
+  NetworkContext_descriptor_ = file->message_type(4);
+  static const int NetworkContext_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkContext, connection_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkContext, mobile_carrier_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkContext, bandwidth_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkContext, ip_),
+  };
+  NetworkContext_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NetworkContext_descriptor_,
+      NetworkContext::default_instance_,
+      NetworkContext_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkContext, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NetworkContext, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NetworkContext));
+  ServiceStatus_descriptor_ = file->message_type(5);
+  static const int ServiceStatus_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServiceStatus, status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServiceStatus, message_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServiceStatus, info_link_),
+  };
+  ServiceStatus_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ServiceStatus_descriptor_,
+      ServiceStatus::default_instance_,
+      ServiceStatus_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServiceStatus, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ServiceStatus, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ServiceStatus));
+  ResponseFormat_descriptor_ = file->enum_type(0);
+  InternetConnectionType_descriptor_ = file->enum_type(1);
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-void protobuf_AddDesc_services_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+namespace {
 
-#else
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+inline void protobuf_AssignDescriptorsOnce() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_services_2eproto);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Context_descriptor_, &Context::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ApplicationContext_descriptor_, &ApplicationContext::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    UserContext_descriptor_, &UserContext::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TransactionContext_descriptor_, &TransactionContext::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NetworkContext_descriptor_, &NetworkContext::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ServiceStatus_descriptor_, &ServiceStatus::default_instance());
+}
+
+}  // namespace
+
+void protobuf_ShutdownFile_services_2eproto() {
+  delete Context::default_instance_;
+  delete Context_reflection_;
+  delete ApplicationContext::default_instance_;
+  delete ApplicationContext_reflection_;
+  delete UserContext::default_instance_;
+  delete UserContext_reflection_;
+  delete TransactionContext::default_instance_;
+  delete TransactionContext_reflection_;
+  delete NetworkContext::default_instance_;
+  delete NetworkContext_reflection_;
+  delete ServiceStatus::default_instance_;
+  delete ServiceStatus_reflection_;
+}
+
 void protobuf_AddDesc_services_2eproto() {
   static bool already_here = false;
   if (already_here) return;
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#endif
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+    "\n\016services.proto\022\021com.telenav.proto\"\203\002\n\007"
+    "Context\022B\n\023application_context\030\n \002(\0132%.c"
+    "om.telenav.proto.ApplicationContext\0224\n\014u"
+    "ser_context\030\024 \001(\0132\036.com.telenav.proto.Us"
+    "erContext\022B\n\023transaction_context\030\036 \001(\0132%"
+    ".com.telenav.proto.TransactionContext\022:\n"
+    "\017network_context\030( \001(\0132!.com.telenav.pro"
+    "to.NetworkContext\"e\n\022ApplicationContext\022"
+    "\026\n\016application_id\030\n \002(\t\022\035\n\025application_s"
+    "ignature\030\024 \002(\t\022\030\n\020application_name\030\036 \002(\t"
+    "\"4\n\013UserContext\022\024\n\014secure_token\030\n \002(\t\022\017\n"
+    "\007user_id\030\024 \001(\t\"e\n\022TransactionContext\022\026\n\016"
+    "transaction_id\030\n \002(\t\022\030\n\020transaction_name"
+    "\030\024 \002(\t\022\035\n\025transaction_timestamp\030\036 \002(\004\"\213\001"
+    "\n\016NetworkContext\022B\n\017connection_type\030\n \002("
+    "\0162).com.telenav.proto.InternetConnection"
+    "Type\022\026\n\016mobile_carrier\030\024 \001(\t\022\021\n\tbandwidt"
+    "h\030\036 \001(\t\022\n\n\002ip\030( \001(\t\"C\n\rServiceStatus\022\016\n\006"
+    "status\030\n \002(\005\022\017\n\007message\030\024 \001(\t\022\021\n\tinfo_li"
+    "nk\030\036 \001(\t*>\n\016ResponseFormat\022\010\n\004html\020d\022\t\n\004"
+    "json\020\310\001\022\r\n\010protobuf\020\254\002\022\010\n\003xml\020\220\003*=\n\026Inte"
+    "rnetConnectionType\022\013\n\007OFFLINE\020\n\022\014\n\010CELLU"
+    "LAR\020\013\022\010\n\004WIFI\020\014B2\n\032com.telenav.proto.ser"
+    "vicesB\017ServiceProtocolP\001\210\001\001", 947);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "services.proto", &protobuf_RegisterTypes);
   Context::default_instance_ = new Context();
   ApplicationContext::default_instance_ = new ApplicationContext();
   UserContext::default_instance_ = new UserContext();
@@ -52,20 +248,16 @@ void protobuf_AddDesc_services_2eproto() {
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_services_2eproto);
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_services_2eproto_once_);
-void protobuf_AddDesc_services_2eproto() {
-  ::google::protobuf::::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_services_2eproto_once_,
-                 &protobuf_AddDesc_services_2eproto_impl);
-}
-#else
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_services_2eproto {
   StaticDescriptorInitializer_services_2eproto() {
     protobuf_AddDesc_services_2eproto();
   }
 } static_descriptor_initializer_services_2eproto_;
-#endif
+const ::google::protobuf::EnumDescriptor* ResponseFormat_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ResponseFormat_descriptor_;
+}
 bool ResponseFormat_IsValid(int value) {
   switch(value) {
     case 100:
@@ -78,6 +270,10 @@ bool ResponseFormat_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* InternetConnectionType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return InternetConnectionType_descriptor_;
+}
 bool InternetConnectionType_IsValid(int value) {
   switch(value) {
     case 10:
@@ -100,39 +296,19 @@ const int Context::kNetworkContextFieldNumber;
 #endif  // !_MSC_VER
 
 Context::Context()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
 void Context::InitAsDefaultInstance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  application_context_ = const_cast< ::com::telenav::proto::ApplicationContext*>(
-      ::com::telenav::proto::ApplicationContext::internal_default_instance());
-#else
   application_context_ = const_cast< ::com::telenav::proto::ApplicationContext*>(&::com::telenav::proto::ApplicationContext::default_instance());
-#endif
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  user_context_ = const_cast< ::com::telenav::proto::UserContext*>(
-      ::com::telenav::proto::UserContext::internal_default_instance());
-#else
   user_context_ = const_cast< ::com::telenav::proto::UserContext*>(&::com::telenav::proto::UserContext::default_instance());
-#endif
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  transaction_context_ = const_cast< ::com::telenav::proto::TransactionContext*>(
-      ::com::telenav::proto::TransactionContext::internal_default_instance());
-#else
   transaction_context_ = const_cast< ::com::telenav::proto::TransactionContext*>(&::com::telenav::proto::TransactionContext::default_instance());
-#endif
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  network_context_ = const_cast< ::com::telenav::proto::NetworkContext*>(
-      ::com::telenav::proto::NetworkContext::internal_default_instance());
-#else
   network_context_ = const_cast< ::com::telenav::proto::NetworkContext*>(&::com::telenav::proto::NetworkContext::default_instance());
-#endif
 }
 
 Context::Context(const Context& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -151,11 +327,7 @@ Context::~Context() {
 }
 
 void Context::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
     delete application_context_;
     delete user_context_;
     delete transaction_context_;
@@ -168,12 +340,13 @@ void Context::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* Context::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Context_descriptor_;
+}
+
 const Context& Context::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_services_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_services_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -199,6 +372,7 @@ void Context::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool Context::MergePartialFromCodedStream(
@@ -268,7 +442,8 @@ bool Context::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -281,28 +456,69 @@ void Context::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required .com.telenav.proto.ApplicationContext application_context = 10;
   if (has_application_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, this->application_context(), output);
   }
 
   // optional .com.telenav.proto.UserContext user_context = 20;
   if (has_user_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       20, this->user_context(), output);
   }
 
   // optional .com.telenav.proto.TransactionContext transaction_context = 30;
   if (has_transaction_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       30, this->transaction_context(), output);
   }
 
   // optional .com.telenav.proto.NetworkContext network_context = 40;
   if (has_network_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       40, this->network_context(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Context::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .com.telenav.proto.ApplicationContext application_context = 10;
+  if (has_application_context()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        10, this->application_context(), target);
+  }
+
+  // optional .com.telenav.proto.UserContext user_context = 20;
+  if (has_user_context()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        20, this->user_context(), target);
+  }
+
+  // optional .com.telenav.proto.TransactionContext transaction_context = 30;
+  if (has_transaction_context()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        30, this->transaction_context(), target);
+  }
+
+  // optional .com.telenav.proto.NetworkContext network_context = 40;
+  if (has_network_context()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        40, this->network_context(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int Context::ByteSize() const {
@@ -338,15 +554,27 @@ int Context::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void Context::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const Context*>(&from));
+void Context::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Context* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Context*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void Context::MergeFrom(const Context& from) {
@@ -365,6 +593,13 @@ void Context::MergeFrom(const Context& from) {
       mutable_network_context()->::com::telenav::proto::NetworkContext::MergeFrom(from.network_context());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Context::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Context::CopyFrom(const Context& from) {
@@ -398,12 +633,17 @@ void Context::Swap(Context* other) {
     std::swap(transaction_context_, other->transaction_context_);
     std::swap(network_context_, other->network_context_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string Context::GetTypeName() const {
-  return "com.telenav.proto.Context";
+::google::protobuf::Metadata Context::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Context_descriptor_;
+  metadata.reflection = Context_reflection_;
+  return metadata;
 }
 
 
@@ -416,7 +656,7 @@ const int ApplicationContext::kApplicationNameFieldNumber;
 #endif  // !_MSC_VER
 
 ApplicationContext::ApplicationContext()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -424,7 +664,7 @@ void ApplicationContext::InitAsDefaultInstance() {
 }
 
 ApplicationContext::ApplicationContext(const ApplicationContext& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -451,11 +691,7 @@ void ApplicationContext::SharedDtor() {
   if (application_name_ != &::google::protobuf::internal::kEmptyString) {
     delete application_name_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -464,12 +700,13 @@ void ApplicationContext::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* ApplicationContext::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ApplicationContext_descriptor_;
+}
+
 const ApplicationContext& ApplicationContext::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_services_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_services_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -498,6 +735,7 @@ void ApplicationContext::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool ApplicationContext::MergePartialFromCodedStream(
@@ -512,6 +750,9 @@ bool ApplicationContext::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_application_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->application_id().data(), this->application_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -526,6 +767,9 @@ bool ApplicationContext::MergePartialFromCodedStream(
          parse_application_signature:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_application_signature()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->application_signature().data(), this->application_signature().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -540,6 +784,9 @@ bool ApplicationContext::MergePartialFromCodedStream(
          parse_application_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_application_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->application_name().data(), this->application_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -553,7 +800,8 @@ bool ApplicationContext::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -566,22 +814,74 @@ void ApplicationContext::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string application_id = 10;
   if (has_application_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->application_id().data(), this->application_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->application_id(), output);
   }
 
   // required string application_signature = 20;
   if (has_application_signature()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->application_signature().data(), this->application_signature().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->application_signature(), output);
   }
 
   // required string application_name = 30;
   if (has_application_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->application_name().data(), this->application_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       30, this->application_name(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ApplicationContext::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string application_id = 10;
+  if (has_application_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->application_id().data(), this->application_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->application_id(), target);
+  }
+
+  // required string application_signature = 20;
+  if (has_application_signature()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->application_signature().data(), this->application_signature().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->application_signature(), target);
+  }
+
+  // required string application_name = 30;
+  if (has_application_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->application_name().data(), this->application_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        30, this->application_name(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int ApplicationContext::ByteSize() const {
@@ -610,15 +910,27 @@ int ApplicationContext::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void ApplicationContext::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const ApplicationContext*>(&from));
+void ApplicationContext::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ApplicationContext* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ApplicationContext*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void ApplicationContext::MergeFrom(const ApplicationContext& from) {
@@ -634,6 +946,13 @@ void ApplicationContext::MergeFrom(const ApplicationContext& from) {
       set_application_name(from.application_name());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ApplicationContext::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void ApplicationContext::CopyFrom(const ApplicationContext& from) {
@@ -654,12 +973,17 @@ void ApplicationContext::Swap(ApplicationContext* other) {
     std::swap(application_signature_, other->application_signature_);
     std::swap(application_name_, other->application_name_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string ApplicationContext::GetTypeName() const {
-  return "com.telenav.proto.ApplicationContext";
+::google::protobuf::Metadata ApplicationContext::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ApplicationContext_descriptor_;
+  metadata.reflection = ApplicationContext_reflection_;
+  return metadata;
 }
 
 
@@ -671,7 +995,7 @@ const int UserContext::kUserIdFieldNumber;
 #endif  // !_MSC_VER
 
 UserContext::UserContext()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -679,7 +1003,7 @@ void UserContext::InitAsDefaultInstance() {
 }
 
 UserContext::UserContext(const UserContext& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -702,11 +1026,7 @@ void UserContext::SharedDtor() {
   if (user_id_ != &::google::protobuf::internal::kEmptyString) {
     delete user_id_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -715,12 +1035,13 @@ void UserContext::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* UserContext::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return UserContext_descriptor_;
+}
+
 const UserContext& UserContext::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_services_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_services_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -744,6 +1065,7 @@ void UserContext::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool UserContext::MergePartialFromCodedStream(
@@ -758,6 +1080,9 @@ bool UserContext::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_secure_token()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->secure_token().data(), this->secure_token().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -772,6 +1097,9 @@ bool UserContext::MergePartialFromCodedStream(
          parse_user_id:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_user_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->user_id().data(), this->user_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -785,7 +1113,8 @@ bool UserContext::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -798,16 +1127,55 @@ void UserContext::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string secure_token = 10;
   if (has_secure_token()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->secure_token().data(), this->secure_token().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->secure_token(), output);
   }
 
   // optional string user_id = 20;
   if (has_user_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->user_id(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* UserContext::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string secure_token = 10;
+  if (has_secure_token()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->secure_token().data(), this->secure_token().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->secure_token(), target);
+  }
+
+  // optional string user_id = 20;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->user_id().data(), this->user_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->user_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int UserContext::ByteSize() const {
@@ -829,15 +1197,27 @@ int UserContext::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void UserContext::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const UserContext*>(&from));
+void UserContext::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const UserContext* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const UserContext*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void UserContext::MergeFrom(const UserContext& from) {
@@ -850,6 +1230,13 @@ void UserContext::MergeFrom(const UserContext& from) {
       set_user_id(from.user_id());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void UserContext::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void UserContext::CopyFrom(const UserContext& from) {
@@ -869,12 +1256,17 @@ void UserContext::Swap(UserContext* other) {
     std::swap(secure_token_, other->secure_token_);
     std::swap(user_id_, other->user_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string UserContext::GetTypeName() const {
-  return "com.telenav.proto.UserContext";
+::google::protobuf::Metadata UserContext::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = UserContext_descriptor_;
+  metadata.reflection = UserContext_reflection_;
+  return metadata;
 }
 
 
@@ -887,7 +1279,7 @@ const int TransactionContext::kTransactionTimestampFieldNumber;
 #endif  // !_MSC_VER
 
 TransactionContext::TransactionContext()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -895,7 +1287,7 @@ void TransactionContext::InitAsDefaultInstance() {
 }
 
 TransactionContext::TransactionContext(const TransactionContext& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -919,11 +1311,7 @@ void TransactionContext::SharedDtor() {
   if (transaction_name_ != &::google::protobuf::internal::kEmptyString) {
     delete transaction_name_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -932,12 +1320,13 @@ void TransactionContext::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* TransactionContext::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TransactionContext_descriptor_;
+}
+
 const TransactionContext& TransactionContext::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_services_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_services_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -962,6 +1351,7 @@ void TransactionContext::Clear() {
     transaction_timestamp_ = GOOGLE_ULONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool TransactionContext::MergePartialFromCodedStream(
@@ -976,6 +1366,9 @@ bool TransactionContext::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_transaction_id()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->transaction_id().data(), this->transaction_id().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -990,6 +1383,9 @@ bool TransactionContext::MergePartialFromCodedStream(
          parse_transaction_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_transaction_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->transaction_name().data(), this->transaction_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1019,7 +1415,8 @@ bool TransactionContext::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1032,12 +1429,18 @@ void TransactionContext::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string transaction_id = 10;
   if (has_transaction_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->transaction_id().data(), this->transaction_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->transaction_id(), output);
   }
 
   // required string transaction_name = 20;
   if (has_transaction_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->transaction_name().data(), this->transaction_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->transaction_name(), output);
   }
@@ -1047,6 +1450,44 @@ void TransactionContext::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(30, this->transaction_timestamp(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* TransactionContext::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string transaction_id = 10;
+  if (has_transaction_id()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->transaction_id().data(), this->transaction_id().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->transaction_id(), target);
+  }
+
+  // required string transaction_name = 20;
+  if (has_transaction_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->transaction_name().data(), this->transaction_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->transaction_name(), target);
+  }
+
+  // required uint64 transaction_timestamp = 30;
+  if (has_transaction_timestamp()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(30, this->transaction_timestamp(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int TransactionContext::ByteSize() const {
@@ -1075,15 +1516,27 @@ int TransactionContext::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void TransactionContext::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const TransactionContext*>(&from));
+void TransactionContext::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TransactionContext* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TransactionContext*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void TransactionContext::MergeFrom(const TransactionContext& from) {
@@ -1099,6 +1552,13 @@ void TransactionContext::MergeFrom(const TransactionContext& from) {
       set_transaction_timestamp(from.transaction_timestamp());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TransactionContext::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void TransactionContext::CopyFrom(const TransactionContext& from) {
@@ -1119,12 +1579,17 @@ void TransactionContext::Swap(TransactionContext* other) {
     std::swap(transaction_name_, other->transaction_name_);
     std::swap(transaction_timestamp_, other->transaction_timestamp_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string TransactionContext::GetTypeName() const {
-  return "com.telenav.proto.TransactionContext";
+::google::protobuf::Metadata TransactionContext::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TransactionContext_descriptor_;
+  metadata.reflection = TransactionContext_reflection_;
+  return metadata;
 }
 
 
@@ -1138,7 +1603,7 @@ const int NetworkContext::kIpFieldNumber;
 #endif  // !_MSC_VER
 
 NetworkContext::NetworkContext()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1146,7 +1611,7 @@ void NetworkContext::InitAsDefaultInstance() {
 }
 
 NetworkContext::NetworkContext(const NetworkContext& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1174,11 +1639,7 @@ void NetworkContext::SharedDtor() {
   if (ip_ != &::google::protobuf::internal::kEmptyString) {
     delete ip_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1187,12 +1648,13 @@ void NetworkContext::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* NetworkContext::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NetworkContext_descriptor_;
+}
+
 const NetworkContext& NetworkContext::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_services_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_services_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1222,6 +1684,7 @@ void NetworkContext::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool NetworkContext::MergePartialFromCodedStream(
@@ -1240,6 +1703,8 @@ bool NetworkContext::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::InternetConnectionType_IsValid(value)) {
             set_connection_type(static_cast< ::com::telenav::proto::InternetConnectionType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(10, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -1255,6 +1720,9 @@ bool NetworkContext::MergePartialFromCodedStream(
          parse_mobile_carrier:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_mobile_carrier()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->mobile_carrier().data(), this->mobile_carrier().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1269,6 +1737,9 @@ bool NetworkContext::MergePartialFromCodedStream(
          parse_bandwidth:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_bandwidth()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->bandwidth().data(), this->bandwidth().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1283,6 +1754,9 @@ bool NetworkContext::MergePartialFromCodedStream(
          parse_ip:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_ip()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->ip().data(), this->ip().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1296,7 +1770,8 @@ bool NetworkContext::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1315,22 +1790,80 @@ void NetworkContext::SerializeWithCachedSizes(
 
   // optional string mobile_carrier = 20;
   if (has_mobile_carrier()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mobile_carrier().data(), this->mobile_carrier().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->mobile_carrier(), output);
   }
 
   // optional string bandwidth = 30;
   if (has_bandwidth()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->bandwidth().data(), this->bandwidth().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       30, this->bandwidth(), output);
   }
 
   // optional string ip = 40;
   if (has_ip()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->ip().data(), this->ip().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       40, this->ip(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NetworkContext::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required .com.telenav.proto.InternetConnectionType connection_type = 10;
+  if (has_connection_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      10, this->connection_type(), target);
+  }
+
+  // optional string mobile_carrier = 20;
+  if (has_mobile_carrier()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->mobile_carrier().data(), this->mobile_carrier().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->mobile_carrier(), target);
+  }
+
+  // optional string bandwidth = 30;
+  if (has_bandwidth()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->bandwidth().data(), this->bandwidth().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        30, this->bandwidth(), target);
+  }
+
+  // optional string ip = 40;
+  if (has_ip()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->ip().data(), this->ip().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        40, this->ip(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int NetworkContext::ByteSize() const {
@@ -1365,15 +1898,27 @@ int NetworkContext::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void NetworkContext::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const NetworkContext*>(&from));
+void NetworkContext::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NetworkContext* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NetworkContext*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void NetworkContext::MergeFrom(const NetworkContext& from) {
@@ -1392,6 +1937,13 @@ void NetworkContext::MergeFrom(const NetworkContext& from) {
       set_ip(from.ip());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NetworkContext::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void NetworkContext::CopyFrom(const NetworkContext& from) {
@@ -1413,12 +1965,17 @@ void NetworkContext::Swap(NetworkContext* other) {
     std::swap(bandwidth_, other->bandwidth_);
     std::swap(ip_, other->ip_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string NetworkContext::GetTypeName() const {
-  return "com.telenav.proto.NetworkContext";
+::google::protobuf::Metadata NetworkContext::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NetworkContext_descriptor_;
+  metadata.reflection = NetworkContext_reflection_;
+  return metadata;
 }
 
 
@@ -1431,7 +1988,7 @@ const int ServiceStatus::kInfoLinkFieldNumber;
 #endif  // !_MSC_VER
 
 ServiceStatus::ServiceStatus()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1439,7 +1996,7 @@ void ServiceStatus::InitAsDefaultInstance() {
 }
 
 ServiceStatus::ServiceStatus(const ServiceStatus& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1463,11 +2020,7 @@ void ServiceStatus::SharedDtor() {
   if (info_link_ != &::google::protobuf::internal::kEmptyString) {
     delete info_link_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1476,12 +2029,13 @@ void ServiceStatus::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* ServiceStatus::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ServiceStatus_descriptor_;
+}
+
 const ServiceStatus& ServiceStatus::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_services_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_services_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1506,6 +2060,7 @@ void ServiceStatus::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool ServiceStatus::MergePartialFromCodedStream(
@@ -1536,6 +2091,9 @@ bool ServiceStatus::MergePartialFromCodedStream(
          parse_message:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_message()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->message().data(), this->message().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1550,6 +2108,9 @@ bool ServiceStatus::MergePartialFromCodedStream(
          parse_info_link:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_info_link()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->info_link().data(), this->info_link().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1563,7 +2124,8 @@ bool ServiceStatus::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1581,16 +2143,60 @@ void ServiceStatus::SerializeWithCachedSizes(
 
   // optional string message = 20;
   if (has_message()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->message().data(), this->message().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->message(), output);
   }
 
   // optional string info_link = 30;
   if (has_info_link()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->info_link().data(), this->info_link().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       30, this->info_link(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ServiceStatus::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required int32 status = 10;
+  if (has_status()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->status(), target);
+  }
+
+  // optional string message = 20;
+  if (has_message()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->message().data(), this->message().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->message(), target);
+  }
+
+  // optional string info_link = 30;
+  if (has_info_link()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->info_link().data(), this->info_link().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        30, this->info_link(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int ServiceStatus::ByteSize() const {
@@ -1619,15 +2225,27 @@ int ServiceStatus::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void ServiceStatus::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const ServiceStatus*>(&from));
+void ServiceStatus::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ServiceStatus* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ServiceStatus*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void ServiceStatus::MergeFrom(const ServiceStatus& from) {
@@ -1643,6 +2261,13 @@ void ServiceStatus::MergeFrom(const ServiceStatus& from) {
       set_info_link(from.info_link());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ServiceStatus::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void ServiceStatus::CopyFrom(const ServiceStatus& from) {
@@ -1663,12 +2288,17 @@ void ServiceStatus::Swap(ServiceStatus* other) {
     std::swap(message_, other->message_);
     std::swap(info_link_, other->info_link_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string ServiceStatus::GetTypeName() const {
-  return "com.telenav.proto.ServiceStatus";
+::google::protobuf::Metadata ServiceStatus::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ServiceStatus_descriptor_;
+  metadata.reflection = ServiceStatus_reflection_;
+  return metadata;
 }
 
 

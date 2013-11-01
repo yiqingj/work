@@ -2,7 +2,7 @@
 // source: map.vector.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "map.vector.pb.h"
+#include "mapnik/map.vector.pb.h"
 
 #include <algorithm>
 
@@ -10,6 +10,10 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
 namespace com {
@@ -17,40 +21,565 @@ namespace telenav {
 namespace proto {
 namespace map {
 
-void protobuf_ShutdownFile_map_2evector_2eproto() {
-  delete VectorMapRequest::default_instance_;
-  delete TfcObj::default_instance_;
-  delete Polygon::default_instance_;
-  delete Polyline::default_instance_;
-  delete VectorTrafficTile::default_instance_;
-  delete VectorMapTile::default_instance_;
-  delete FeatureName::default_instance_;
-  delete HighwayShield::default_instance_;
-  delete RoadFeature::default_instance_;
-  delete AreaFeature::default_instance_;
-  delete LineFeature::default_instance_;
-  delete PointFeature::default_instance_;
-  delete BuildingBlockRef::default_instance_;
-  delete BuildingBlockList::default_instance_;
-  delete BigTileConfig::default_instance_;
-  delete ZoomLevel::default_instance_;
+namespace {
+
+const ::google::protobuf::Descriptor* VectorMapRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  VectorMapRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* TfcObj_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  TfcObj_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Polygon_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Polygon_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Polyline_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Polyline_reflection_ = NULL;
+const ::google::protobuf::Descriptor* VectorTrafficTile_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  VectorTrafficTile_reflection_ = NULL;
+const ::google::protobuf::Descriptor* VectorMapTile_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  VectorMapTile_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FeatureName_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FeatureName_reflection_ = NULL;
+const ::google::protobuf::Descriptor* HighwayShield_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  HighwayShield_reflection_ = NULL;
+const ::google::protobuf::Descriptor* RoadFeature_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  RoadFeature_reflection_ = NULL;
+const ::google::protobuf::Descriptor* AreaFeature_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  AreaFeature_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LineFeature_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LineFeature_reflection_ = NULL;
+const ::google::protobuf::Descriptor* PointFeature_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  PointFeature_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BuildingBlockRef_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BuildingBlockRef_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BuildingBlockList_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BuildingBlockList_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BigTileConfig_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BigTileConfig_reflection_ = NULL;
+const ::google::protobuf::Descriptor* ZoomLevel_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  ZoomLevel_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* RoadSubType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* RoadDirection_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* RoadFunctionClass_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* AreaType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* RingOrientation_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* PointType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* LineType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* FontStyle_descriptor_ = NULL;
+
+}  // namespace
+
+
+void protobuf_AssignDesc_map_2evector_2eproto() {
+  protobuf_AddDesc_map_2evector_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "map.vector.proto");
+  GOOGLE_CHECK(file != NULL);
+  VectorMapRequest_descriptor_ = file->message_type(0);
+  static const int VectorMapRequest_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapRequest, zoomlevel_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapRequest, x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapRequest, y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapRequest, context_),
+  };
+  VectorMapRequest_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      VectorMapRequest_descriptor_,
+      VectorMapRequest::default_instance_,
+      VectorMapRequest_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapRequest, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapRequest, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(VectorMapRequest));
+  TfcObj_descriptor_ = file->message_type(1);
+  static const int TfcObj_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TfcObj, trafficid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TfcObj, start_idx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TfcObj, end_idx_),
+  };
+  TfcObj_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      TfcObj_descriptor_,
+      TfcObj::default_instance_,
+      TfcObj_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TfcObj, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(TfcObj, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(TfcObj));
+  Polygon_descriptor_ = file->message_type(2);
+  static const int Polygon_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, latlon_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, orient_),
+  };
+  Polygon_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Polygon_descriptor_,
+      Polygon::default_instance_,
+      Polygon_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polygon, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Polygon));
+  Polyline_descriptor_ = file->message_type(3);
+  static const int Polyline_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polyline, latlon_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polyline, tfcid_right_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polyline, tfcid_left_),
+  };
+  Polyline_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Polyline_descriptor_,
+      Polyline::default_instance_,
+      Polyline_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polyline, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Polyline, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Polyline));
+  VectorTrafficTile_descriptor_ = file->message_type(4);
+  static const int VectorTrafficTile_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorTrafficTile, tmcids_),
+  };
+  VectorTrafficTile_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      VectorTrafficTile_descriptor_,
+      VectorTrafficTile::default_instance_,
+      VectorTrafficTile_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorTrafficTile, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorTrafficTile, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(VectorTrafficTile));
+  VectorMapTile_descriptor_ = file->message_type(5);
+  static const int VectorMapTile_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, rf_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, af_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, lf_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, pf_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, buildingblocklist_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, dataversion_),
+  };
+  VectorMapTile_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      VectorMapTile_descriptor_,
+      VectorMapTile::default_instance_,
+      VectorMapTile_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VectorMapTile, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(VectorMapTile));
+  FeatureName_descriptor_ = file->message_type(6);
+  static const int FeatureName_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FeatureName, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FeatureName, alias_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FeatureName, language_),
+  };
+  FeatureName_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FeatureName_descriptor_,
+      FeatureName::default_instance_,
+      FeatureName_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FeatureName, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FeatureName, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FeatureName));
+  HighwayShield_descriptor_ = file->message_type(7);
+  static const int HighwayShield_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HighwayShield, number_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HighwayShield, iconid_),
+  };
+  HighwayShield_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      HighwayShield_descriptor_,
+      HighwayShield::default_instance_,
+      HighwayShield_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HighwayShield, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HighwayShield, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(HighwayShield));
+  RoadFeature_descriptor_ = file->message_type(8);
+  static const int RoadFeature_offsets_[10] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, lines_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, roadtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, roadsubtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, roadname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, roadalias_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, featureid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, roadnames_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, shields_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, roadfunctionclass_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, roaddirection_),
+  };
+  RoadFeature_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      RoadFeature_descriptor_,
+      RoadFeature::default_instance_,
+      RoadFeature_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoadFeature, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(RoadFeature));
+  AreaFeature_descriptor_ = file->message_type(9);
+  static const int AreaFeature_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, rings_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, maintype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, subtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, featureid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, areanames_),
+  };
+  AreaFeature_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      AreaFeature_descriptor_,
+      AreaFeature::default_instance_,
+      AreaFeature_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AreaFeature, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(AreaFeature));
+  LineFeature_descriptor_ = file->message_type(10);
+  static const int LineFeature_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, lines_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, maintype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, subtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, featureid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, names_),
+  };
+  LineFeature_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LineFeature_descriptor_,
+      LineFeature::default_instance_,
+      LineFeature_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LineFeature, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LineFeature));
+  PointFeature_descriptor_ = file->message_type(11);
+  static const int PointFeature_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, latlon_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, maintype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, subtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, fontsize_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, country_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, rdnameori_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, fontstyle_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, spline_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, p_featureid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, featureid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, pointnames_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, landmark_icon_),
+  };
+  PointFeature_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      PointFeature_descriptor_,
+      PointFeature::default_instance_,
+      PointFeature_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PointFeature, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(PointFeature));
+  BuildingBlockRef_descriptor_ = file->message_type(12);
+  static const int BuildingBlockRef_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockRef, depth_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockRef, col_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockRef, row_),
+  };
+  BuildingBlockRef_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BuildingBlockRef_descriptor_,
+      BuildingBlockRef::default_instance_,
+      BuildingBlockRef_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockRef, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockRef, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BuildingBlockRef));
+  BuildingBlockList_descriptor_ = file->message_type(13);
+  static const int BuildingBlockList_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockList, version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockList, blockrefs_),
+  };
+  BuildingBlockList_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BuildingBlockList_descriptor_,
+      BuildingBlockList::default_instance_,
+      BuildingBlockList_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockList, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BuildingBlockList, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BuildingBlockList));
+  BigTileConfig_descriptor_ = file->message_type(14);
+  static const int BigTileConfig_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BigTileConfig, zoomlevel_),
+  };
+  BigTileConfig_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BigTileConfig_descriptor_,
+      BigTileConfig::default_instance_,
+      BigTileConfig_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BigTileConfig, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BigTileConfig, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BigTileConfig));
+  ZoomLevel_descriptor_ = file->message_type(15);
+  static const int ZoomLevel_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoomLevel, level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoomLevel, power_),
+  };
+  ZoomLevel_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      ZoomLevel_descriptor_,
+      ZoomLevel::default_instance_,
+      ZoomLevel_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoomLevel, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZoomLevel, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(ZoomLevel));
+  RoadSubType_descriptor_ = file->enum_type(0);
+  RoadDirection_descriptor_ = file->enum_type(1);
+  RoadFunctionClass_descriptor_ = file->enum_type(2);
+  AreaType_descriptor_ = file->enum_type(3);
+  RingOrientation_descriptor_ = file->enum_type(4);
+  PointType_descriptor_ = file->enum_type(5);
+  LineType_descriptor_ = file->enum_type(6);
+  FontStyle_descriptor_ = file->enum_type(7);
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-void protobuf_AddDesc_map_2evector_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+namespace {
 
-#else
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+inline void protobuf_AssignDescriptorsOnce() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_map_2evector_2eproto);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    VectorMapRequest_descriptor_, &VectorMapRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    TfcObj_descriptor_, &TfcObj::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Polygon_descriptor_, &Polygon::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Polyline_descriptor_, &Polyline::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    VectorTrafficTile_descriptor_, &VectorTrafficTile::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    VectorMapTile_descriptor_, &VectorMapTile::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FeatureName_descriptor_, &FeatureName::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    HighwayShield_descriptor_, &HighwayShield::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    RoadFeature_descriptor_, &RoadFeature::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    AreaFeature_descriptor_, &AreaFeature::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LineFeature_descriptor_, &LineFeature::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PointFeature_descriptor_, &PointFeature::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BuildingBlockRef_descriptor_, &BuildingBlockRef::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BuildingBlockList_descriptor_, &BuildingBlockList::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BigTileConfig_descriptor_, &BigTileConfig::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    ZoomLevel_descriptor_, &ZoomLevel::default_instance());
+}
+
+}  // namespace
+
+void protobuf_ShutdownFile_map_2evector_2eproto() {
+  delete VectorMapRequest::default_instance_;
+  delete VectorMapRequest_reflection_;
+  delete TfcObj::default_instance_;
+  delete TfcObj_reflection_;
+  delete Polygon::default_instance_;
+  delete Polygon_reflection_;
+  delete Polyline::default_instance_;
+  delete Polyline_reflection_;
+  delete VectorTrafficTile::default_instance_;
+  delete VectorTrafficTile_reflection_;
+  delete VectorMapTile::default_instance_;
+  delete VectorMapTile_reflection_;
+  delete FeatureName::default_instance_;
+  delete FeatureName_reflection_;
+  delete HighwayShield::default_instance_;
+  delete HighwayShield_reflection_;
+  delete RoadFeature::default_instance_;
+  delete RoadFeature_reflection_;
+  delete AreaFeature::default_instance_;
+  delete AreaFeature_reflection_;
+  delete LineFeature::default_instance_;
+  delete LineFeature_reflection_;
+  delete PointFeature::default_instance_;
+  delete PointFeature_reflection_;
+  delete BuildingBlockRef::default_instance_;
+  delete BuildingBlockRef_reflection_;
+  delete BuildingBlockList::default_instance_;
+  delete BuildingBlockList_reflection_;
+  delete BigTileConfig::default_instance_;
+  delete BigTileConfig_reflection_;
+  delete ZoomLevel::default_instance_;
+  delete ZoomLevel_reflection_;
+}
+
 void protobuf_AddDesc_map_2evector_2eproto() {
   static bool already_here = false;
   if (already_here) return;
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#endif
   ::com::telenav::proto::protobuf_AddDesc_common_2eproto();
   ::com::telenav::proto::map::protobuf_AddDesc_map_2ecommon_2eproto();
   ::com::telenav::proto::protobuf_AddDesc_services_2eproto();
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+    "\n\020map.vector.proto\022\025com.telenav.proto.ma"
+    "p\032\014common.proto\032\020map.common.proto\032\016servi"
+    "ces.proto\"h\n\020VectorMapRequest\022\021\n\tzoomLev"
+    "el\030\001 \001(\005\022\t\n\001x\030\002 \001(\005\022\t\n\001y\030\003 \001(\005\022+\n\007contex"
+    "t\030\004 \001(\0132\032.com.telenav.proto.Context\"\?\n\006T"
+    "fcObj\022\021\n\ttrafficId\030\001 \001(\t\022\021\n\tstart_idx\030\002 "
+    "\001(\r\022\017\n\007end_idx\030\003 \001(\r\"a\n\007Polygon\022\022\n\006latlo"
+    "n\030\001 \003(\021B\002\020\001\022B\n\006orient\030\002 \001(\0162&.com.telena"
+    "v.proto.map.RingOrientation:\nOR_UNKNOWN\""
+    "\205\001\n\010Polyline\022\022\n\006latlon\030\001 \003(\021B\002\020\001\0222\n\013tfcI"
+    "d_right\030\002 \003(\0132\035.com.telenav.proto.map.Tf"
+    "cObj\0221\n\ntfcId_left\030\003 \003(\0132\035.com.telenav.p"
+    "roto.map.TfcObj\"\'\n\021VectorTrafficTile\022\022\n\006"
+    "tmcIds\030\001 \003(\rB\002\020\001\"\252\002\n\rVectorMapTile\022.\n\002rf"
+    "\030\001 \003(\0132\".com.telenav.proto.map.RoadFeatu"
+    "re\022.\n\002af\030\002 \003(\0132\".com.telenav.proto.map.A"
+    "reaFeature\022.\n\002lf\030\003 \003(\0132\".com.telenav.pro"
+    "to.map.LineFeature\022/\n\002pf\030\004 \003(\0132#.com.tel"
+    "enav.proto.map.PointFeature\022C\n\021buildingB"
+    "lockList\030\005 \001(\0132(.com.telenav.proto.map.B"
+    "uildingBlockList\022\023\n\013dataVersion\030\006 \001(\t\"<\n"
+    "\013FeatureName\022\014\n\004name\030\001 \001(\t\022\r\n\005alias\030\002 \001("
+    "\t\022\020\n\010language\030\003 \001(\t\"/\n\rHighwayShield\022\016\n\006"
+    "number\030\001 \001(\t\022\016\n\006iconID\030\002 \001(\t\"\363\003\n\013RoadFea"
+    "ture\022.\n\005lines\030\001 \003(\0132\037.com.telenav.proto."
+    "map.Polyline\022=\n\010roadType\030\002 \001(\0162\037.com.tel"
+    "enav.proto.map.RoadType:\nRT_UNKNOWN\022D\n\013r"
+    "oadSubType\030\003 \001(\0162\".com.telenav.proto.map"
+    ".RoadSubType:\013RST_UNKNOWN\022\020\n\010roadName\030\004 "
+    "\001(\t\022\021\n\troadAlias\030\005 \001(\t\022\021\n\tfeatureID\030\017 \001("
+    "\004\0225\n\troadNames\030\006 \003(\0132\".com.telenav.proto"
+    ".map.FeatureName\0225\n\007shields\030\007 \003(\0132$.com."
+    "telenav.proto.map.HighwayShield\022C\n\021roadF"
+    "unctionClass\030\010 \001(\0162(.com.telenav.proto.m"
+    "ap.RoadFunctionClass\022D\n\rroadDirection\030\t "
+    "\001(\0162$.com.telenav.proto.map.RoadDirectio"
+    "n:\007UNKONWN\"\351\001\n\013AreaFeature\022-\n\005rings\030\001 \003("
+    "\0132\036.com.telenav.proto.map.Polygon\022\014\n\004nam"
+    "e\030\002 \001(\t\022B\n\010mainType\030\003 \001(\0162\037.com.telenav."
+    "proto.map.AreaType:\017BK_AREA_UNKNOWN\022\017\n\007s"
+    "ubType\030\004 \001(\t\022\021\n\tfeatureID\030\017 \001(\004\0225\n\tareaN"
+    "ames\030\005 \003(\0132\".com.telenav.proto.map.Featu"
+    "reName\"\346\001\n\013LineFeature\022.\n\005lines\030\001 \003(\0132\037."
+    "com.telenav.proto.map.Polyline\022\014\n\004name\030\002"
+    " \001(\t\022B\n\010mainType\030\003 \001(\0162\037.com.telenav.pro"
+    "to.map.LineType:\017BK_LINE_UNKNOWN\022\017\n\007subT"
+    "ype\030\004 \001(\t\022\021\n\tfeatureID\030\017 \001(\004\0221\n\005names\030\006 "
+    "\003(\0132\".com.telenav.proto.map.FeatureName\""
+    "\230\003\n\014PointFeature\022\022\n\006latlon\030\001 \003(\021B\002\020\001\022>\n\010"
+    "mainType\030\002 \001(\0162 .com.telenav.proto.map.P"
+    "ointType:\nPT_UNKNOWN\022\017\n\007subType\030\003 \001(\t\022\014\n"
+    "\004name\030\004 \001(\t\022\020\n\010fontSize\030\005 \001(\005\022\017\n\007country"
+    "\030\006 \001(\t\022\025\n\trdNameOri\030\007 \003(\005B\002\020\001\0223\n\tfontSty"
+    "le\030\010 \001(\0162 .com.telenav.proto.map.FontSty"
+    "le\022/\n\006spline\030\t \001(\0132\037.com.telenav.proto.m"
+    "ap.Polyline\022\023\n\013p_featureID\030\016 \003(\004\022\021\n\tfeat"
+    "ureID\030\017 \001(\004\0226\n\npointNames\030\n \003(\0132\".com.te"
+    "lenav.proto.map.FeatureName\022\025\n\rlandmark_"
+    "icon\030\013 \001(\t\";\n\020BuildingBlockRef\022\r\n\005depth\030"
+    "\001 \001(\r\022\013\n\003col\030\002 \001(\r\022\013\n\003row\030\003 \001(\r\"`\n\021Build"
+    "ingBlockList\022\017\n\007version\030\001 \001(\005\022:\n\tblockRe"
+    "fs\030\002 \003(\0132\'.com.telenav.proto.map.Buildin"
+    "gBlockRef\"D\n\rBigTileConfig\0223\n\tzoomlevel\030"
+    "\001 \003(\0132 .com.telenav.proto.map.ZoomLevel\""
+    ")\n\tZoomLevel\022\r\n\005level\030\001 \001(\005\022\r\n\005power\030\002 \001"
+    "(\005*n\n\013RoadSubType\022\017\n\013RST_UNKNOWN\020\000\022\016\n\nRS"
+    "T_COMMON\020\001\022\020\n\014RST_JUNCTION\020\002\022\014\n\010RST_RAMP"
+    "\020\003\022\016\n\nRST_BRIDGE\020\004\022\016\n\nRST_TUNNEL\020\005*Q\n\rRo"
+    "adDirection\022\n\n\006CLOSED\020\000\022\014\n\010POSITIVE\020\001\022\014\n"
+    "\010NEGATIVE\020\002\022\013\n\007BOTHWAY\020\003\022\013\n\007UNKONWN\020\004*E\n"
+    "\021RoadFunctionClass\022\010\n\004FC_1\020\001\022\010\n\004FC_2\020\002\022\010"
+    "\n\004FC_3\020\003\022\010\n\004FC_4\020\004\022\010\n\004FC_5\020\005*\320\003\n\010AreaTyp"
+    "e\022\023\n\017BK_AREA_UNKNOWN\020\000\022\024\n\020BK_AREA_BUILDI"
+    "NG\020\001\022\024\n\020BK_AREA_WOODLAND\020\002\022\021\n\rBK_AREA_BE"
+    "ACH\020\003\022\020\n\014BK_AREA_PARK\020\004\022\022\n\016BK_AREA_ISLAN"
+    "D\020\005\022\023\n\017BK_AREA_AIRPORT\020\006\022\031\n\025BK_AREA_AIRC"
+    "RAFT_ROAD\020\007\022\026\n\022BK_AREA_PEDESTRIAN\020\010\022\024\n\020B"
+    "K_AREA_MILITARY\020\t\022\027\n\023BK_AREA_RESERVATION"
+    "\020\n\022\026\n\022BK_AREA_ELEVATIONI\020\013\022\023\n\017BK_AREA_CO"
+    "LONIA\020\014\022\026\n\022BK_AREA_CONGESTION\020\r\022\033\n\027BK_AR"
+    "EA_HURRICANE_PRONE\020\016\022\027\n\023BK_AREA_FLOOD_PR"
+    "ONE\020\017\022\031\n\025BK_AREA_TSUNAMI_PRONE\020\020\022\021\n\rBK_A"
+    "REA_WATER\020\021\022\023\n\017BK_AREA_BUILTUP\020\022\022\025\n\021BK_A"
+    "REA_EXPO_AREA\020\023*J\n\017RingOrientation\022\016\n\nOR"
+    "_UNKNOWN\020\000\022\020\n\014OR_CLOCKWISE\020\001\022\025\n\021OR_ANTI_"
+    "CLOCKWISE\020\002*\252\001\n\tPointType\022\016\n\nPT_UNKNOWN\020"
+    "\000\022\013\n\007PT_ROAD\020\001\022\013\n\007PT_ICON\020\002\022\013\n\007PT_LINE\020\003"
+    "\022\013\n\007PT_AREA\020\004\022\013\n\007PT_CITY\020\005\022\014\n\010PT_POINT\020\006"
+    "\022\024\n\020PT_GLOBAL_CENTER\020\007\022\023\n\017PT_HOUSE_NUMBE"
+    "R\020\010\022\023\n\017PT_NEIGHBORHOOD\020\t*\225\001\n\010LineType\022\023\n"
+    "\017BK_LINE_UNKNOWN\020\000\022\021\n\rBK_LINE_CANAL\020\001\022\020\n"
+    "\014BK_LINE_RAIL\020\002\022\022\n\016BK_LINE_BORDER\020\003\022\022\n\016B"
+    "K_LINE_DENOTE\020\004\022\022\n\016BK_LINE_RUNWAY\020\005\022\023\n\017B"
+    "K_LINE_TAXIWAY\020\006*E\n\tFontStyle\022\016\n\nFT_UNKN"
+    "OWN\020\000\022\014\n\010FT_PLAIN\020\001\022\r\n\tFT_ITALIC\020\002\022\013\n\007FT"
+    "_BOLD\020\003B%\n\025com.telenav.map.protoB\014Vector"
+    "Protoc", 3846);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "map.vector.proto", &protobuf_RegisterTypes);
   VectorMapRequest::default_instance_ = new VectorMapRequest();
   TfcObj::default_instance_ = new TfcObj();
   Polygon::default_instance_ = new Polygon();
@@ -86,20 +615,16 @@ void protobuf_AddDesc_map_2evector_2eproto() {
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_map_2evector_2eproto);
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_map_2evector_2eproto_once_);
-void protobuf_AddDesc_map_2evector_2eproto() {
-  ::google::protobuf::::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_map_2evector_2eproto_once_,
-                 &protobuf_AddDesc_map_2evector_2eproto_impl);
-}
-#else
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_map_2evector_2eproto {
   StaticDescriptorInitializer_map_2evector_2eproto() {
     protobuf_AddDesc_map_2evector_2eproto();
   }
 } static_descriptor_initializer_map_2evector_2eproto_;
-#endif
+const ::google::protobuf::EnumDescriptor* RoadSubType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RoadSubType_descriptor_;
+}
 bool RoadSubType_IsValid(int value) {
   switch(value) {
     case 0:
@@ -114,6 +639,10 @@ bool RoadSubType_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* RoadDirection_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RoadDirection_descriptor_;
+}
 bool RoadDirection_IsValid(int value) {
   switch(value) {
     case 0:
@@ -127,6 +656,10 @@ bool RoadDirection_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* RoadFunctionClass_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RoadFunctionClass_descriptor_;
+}
 bool RoadFunctionClass_IsValid(int value) {
   switch(value) {
     case 1:
@@ -140,6 +673,10 @@ bool RoadFunctionClass_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* AreaType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return AreaType_descriptor_;
+}
 bool AreaType_IsValid(int value) {
   switch(value) {
     case 0:
@@ -168,6 +705,10 @@ bool AreaType_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* RingOrientation_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RingOrientation_descriptor_;
+}
 bool RingOrientation_IsValid(int value) {
   switch(value) {
     case 0:
@@ -179,6 +720,10 @@ bool RingOrientation_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* PointType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PointType_descriptor_;
+}
 bool PointType_IsValid(int value) {
   switch(value) {
     case 0:
@@ -197,6 +742,10 @@ bool PointType_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* LineType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LineType_descriptor_;
+}
 bool LineType_IsValid(int value) {
   switch(value) {
     case 0:
@@ -212,6 +761,10 @@ bool LineType_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* FontStyle_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FontStyle_descriptor_;
+}
 bool FontStyle_IsValid(int value) {
   switch(value) {
     case 0:
@@ -235,21 +788,16 @@ const int VectorMapRequest::kContextFieldNumber;
 #endif  // !_MSC_VER
 
 VectorMapRequest::VectorMapRequest()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
 void VectorMapRequest::InitAsDefaultInstance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  context_ = const_cast< ::com::telenav::proto::Context*>(
-      ::com::telenav::proto::Context::internal_default_instance());
-#else
   context_ = const_cast< ::com::telenav::proto::Context*>(&::com::telenav::proto::Context::default_instance());
-#endif
 }
 
 VectorMapRequest::VectorMapRequest(const VectorMapRequest& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -268,11 +816,7 @@ VectorMapRequest::~VectorMapRequest() {
 }
 
 void VectorMapRequest::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
     delete context_;
   }
 }
@@ -282,12 +826,13 @@ void VectorMapRequest::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* VectorMapRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return VectorMapRequest_descriptor_;
+}
+
 const VectorMapRequest& VectorMapRequest::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -307,6 +852,7 @@ void VectorMapRequest::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool VectorMapRequest::MergePartialFromCodedStream(
@@ -382,7 +928,8 @@ bool VectorMapRequest::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -410,10 +957,45 @@ void VectorMapRequest::SerializeWithCachedSizes(
 
   // optional .com.telenav.proto.Context context = 4;
   if (has_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->context(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* VectorMapRequest::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 zoomLevel = 1;
+  if (has_zoomlevel()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->zoomlevel(), target);
+  }
+
+  // optional int32 x = 2;
+  if (has_x()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->x(), target);
+  }
+
+  // optional int32 y = 3;
+  if (has_y()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->y(), target);
+  }
+
+  // optional .com.telenav.proto.Context context = 4;
+  if (has_context()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->context(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int VectorMapRequest::ByteSize() const {
@@ -449,15 +1031,27 @@ int VectorMapRequest::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void VectorMapRequest::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const VectorMapRequest*>(&from));
+void VectorMapRequest::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const VectorMapRequest* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const VectorMapRequest*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void VectorMapRequest::MergeFrom(const VectorMapRequest& from) {
@@ -476,6 +1070,13 @@ void VectorMapRequest::MergeFrom(const VectorMapRequest& from) {
       mutable_context()->::com::telenav::proto::Context::MergeFrom(from.context());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void VectorMapRequest::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void VectorMapRequest::CopyFrom(const VectorMapRequest& from) {
@@ -499,12 +1100,17 @@ void VectorMapRequest::Swap(VectorMapRequest* other) {
     std::swap(y_, other->y_);
     std::swap(context_, other->context_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string VectorMapRequest::GetTypeName() const {
-  return "com.telenav.proto.map.VectorMapRequest";
+::google::protobuf::Metadata VectorMapRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = VectorMapRequest_descriptor_;
+  metadata.reflection = VectorMapRequest_reflection_;
+  return metadata;
 }
 
 
@@ -517,7 +1123,7 @@ const int TfcObj::kEndIdxFieldNumber;
 #endif  // !_MSC_VER
 
 TfcObj::TfcObj()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -525,7 +1131,7 @@ void TfcObj::InitAsDefaultInstance() {
 }
 
 TfcObj::TfcObj(const TfcObj& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -546,11 +1152,7 @@ void TfcObj::SharedDtor() {
   if (trafficid_ != &::google::protobuf::internal::kEmptyString) {
     delete trafficid_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -559,12 +1161,13 @@ void TfcObj::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* TfcObj::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return TfcObj_descriptor_;
+}
+
 const TfcObj& TfcObj::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -585,6 +1188,7 @@ void TfcObj::Clear() {
     end_idx_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool TfcObj::MergePartialFromCodedStream(
@@ -599,6 +1203,9 @@ bool TfcObj::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_trafficid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->trafficid().data(), this->trafficid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -644,7 +1251,8 @@ bool TfcObj::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -657,6 +1265,9 @@ void TfcObj::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional string trafficId = 1;
   if (has_trafficid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->trafficid().data(), this->trafficid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->trafficid(), output);
   }
@@ -671,6 +1282,39 @@ void TfcObj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->end_idx(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* TfcObj::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string trafficId = 1;
+  if (has_trafficid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->trafficid().data(), this->trafficid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->trafficid(), target);
+  }
+
+  // optional uint32 start_idx = 2;
+  if (has_start_idx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->start_idx(), target);
+  }
+
+  // optional uint32 end_idx = 3;
+  if (has_end_idx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->end_idx(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int TfcObj::ByteSize() const {
@@ -699,15 +1343,27 @@ int TfcObj::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void TfcObj::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const TfcObj*>(&from));
+void TfcObj::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const TfcObj* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const TfcObj*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void TfcObj::MergeFrom(const TfcObj& from) {
@@ -723,6 +1379,13 @@ void TfcObj::MergeFrom(const TfcObj& from) {
       set_end_idx(from.end_idx());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void TfcObj::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void TfcObj::CopyFrom(const TfcObj& from) {
@@ -742,12 +1405,17 @@ void TfcObj::Swap(TfcObj* other) {
     std::swap(start_idx_, other->start_idx_);
     std::swap(end_idx_, other->end_idx_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string TfcObj::GetTypeName() const {
-  return "com.telenav.proto.map.TfcObj";
+::google::protobuf::Metadata TfcObj::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = TfcObj_descriptor_;
+  metadata.reflection = TfcObj_reflection_;
+  return metadata;
 }
 
 
@@ -759,7 +1427,7 @@ const int Polygon::kOrientFieldNumber;
 #endif  // !_MSC_VER
 
 Polygon::Polygon()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -767,7 +1435,7 @@ void Polygon::InitAsDefaultInstance() {
 }
 
 Polygon::Polygon(const Polygon& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -783,11 +1451,7 @@ Polygon::~Polygon() {
 }
 
 void Polygon::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -796,12 +1460,13 @@ void Polygon::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* Polygon::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Polygon_descriptor_;
+}
+
 const Polygon& Polygon::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -817,6 +1482,7 @@ void Polygon::Clear() {
   }
   latlon_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool Polygon::MergePartialFromCodedStream(
@@ -856,6 +1522,8 @@ bool Polygon::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::RingOrientation_IsValid(value)) {
             set_orient(static_cast< ::com::telenav::proto::map::RingOrientation >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -870,7 +1538,8 @@ bool Polygon::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -897,6 +1566,39 @@ void Polygon::SerializeWithCachedSizes(
       2, this->orient(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Polygon::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated sint32 latlon = 1 [packed = true];
+  if (this->latlon_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _latlon_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->latlon_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteSInt32NoTagToArray(this->latlon(i), target);
+  }
+
+  // optional .com.telenav.proto.map.RingOrientation orient = 2 [default = OR_UNKNOWN];
+  if (has_orient()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->orient(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int Polygon::ByteSize() const {
@@ -927,15 +1629,27 @@ int Polygon::ByteSize() const {
     total_size += data_size;
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void Polygon::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const Polygon*>(&from));
+void Polygon::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Polygon* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Polygon*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void Polygon::MergeFrom(const Polygon& from) {
@@ -946,6 +1660,13 @@ void Polygon::MergeFrom(const Polygon& from) {
       set_orient(from.orient());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Polygon::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Polygon::CopyFrom(const Polygon& from) {
@@ -964,12 +1685,17 @@ void Polygon::Swap(Polygon* other) {
     latlon_.Swap(&other->latlon_);
     std::swap(orient_, other->orient_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string Polygon::GetTypeName() const {
-  return "com.telenav.proto.map.Polygon";
+::google::protobuf::Metadata Polygon::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Polygon_descriptor_;
+  metadata.reflection = Polygon_reflection_;
+  return metadata;
 }
 
 
@@ -982,7 +1708,7 @@ const int Polyline::kTfcIdLeftFieldNumber;
 #endif  // !_MSC_VER
 
 Polyline::Polyline()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -990,7 +1716,7 @@ void Polyline::InitAsDefaultInstance() {
 }
 
 Polyline::Polyline(const Polyline& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1005,11 +1731,7 @@ Polyline::~Polyline() {
 }
 
 void Polyline::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1018,12 +1740,13 @@ void Polyline::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* Polyline::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Polyline_descriptor_;
+}
+
 const Polyline& Polyline::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1038,6 +1761,7 @@ void Polyline::Clear() {
   tfcid_right_.Clear();
   tfcid_left_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool Polyline::MergePartialFromCodedStream(
@@ -1102,7 +1826,8 @@ bool Polyline::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1125,16 +1850,57 @@ void Polyline::SerializeWithCachedSizes(
 
   // repeated .com.telenav.proto.map.TfcObj tfcId_right = 2;
   for (int i = 0; i < this->tfcid_right_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->tfcid_right(i), output);
   }
 
   // repeated .com.telenav.proto.map.TfcObj tfcId_left = 3;
   for (int i = 0; i < this->tfcid_left_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->tfcid_left(i), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Polyline::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated sint32 latlon = 1 [packed = true];
+  if (this->latlon_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _latlon_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->latlon_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteSInt32NoTagToArray(this->latlon(i), target);
+  }
+
+  // repeated .com.telenav.proto.map.TfcObj tfcId_right = 2;
+  for (int i = 0; i < this->tfcid_right_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->tfcid_right(i), target);
+  }
+
+  // repeated .com.telenav.proto.map.TfcObj tfcId_left = 3;
+  for (int i = 0; i < this->tfcid_left_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->tfcid_left(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int Polyline::ByteSize() const {
@@ -1173,15 +1939,27 @@ int Polyline::ByteSize() const {
         this->tfcid_left(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void Polyline::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const Polyline*>(&from));
+void Polyline::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Polyline* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Polyline*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void Polyline::MergeFrom(const Polyline& from) {
@@ -1189,6 +1967,13 @@ void Polyline::MergeFrom(const Polyline& from) {
   latlon_.MergeFrom(from.latlon_);
   tfcid_right_.MergeFrom(from.tfcid_right_);
   tfcid_left_.MergeFrom(from.tfcid_left_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Polyline::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Polyline::CopyFrom(const Polyline& from) {
@@ -1208,12 +1993,17 @@ void Polyline::Swap(Polyline* other) {
     tfcid_right_.Swap(&other->tfcid_right_);
     tfcid_left_.Swap(&other->tfcid_left_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string Polyline::GetTypeName() const {
-  return "com.telenav.proto.map.Polyline";
+::google::protobuf::Metadata Polyline::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Polyline_descriptor_;
+  metadata.reflection = Polyline_reflection_;
+  return metadata;
 }
 
 
@@ -1224,7 +2014,7 @@ const int VectorTrafficTile::kTmcIdsFieldNumber;
 #endif  // !_MSC_VER
 
 VectorTrafficTile::VectorTrafficTile()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1232,7 +2022,7 @@ void VectorTrafficTile::InitAsDefaultInstance() {
 }
 
 VectorTrafficTile::VectorTrafficTile(const VectorTrafficTile& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1247,11 +2037,7 @@ VectorTrafficTile::~VectorTrafficTile() {
 }
 
 void VectorTrafficTile::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1260,12 +2046,13 @@ void VectorTrafficTile::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* VectorTrafficTile::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return VectorTrafficTile_descriptor_;
+}
+
 const VectorTrafficTile& VectorTrafficTile::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1278,6 +2065,7 @@ VectorTrafficTile* VectorTrafficTile::New() const {
 void VectorTrafficTile::Clear() {
   tmcids_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool VectorTrafficTile::MergePartialFromCodedStream(
@@ -1312,7 +2100,8 @@ bool VectorTrafficTile::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1333,6 +2122,33 @@ void VectorTrafficTile::SerializeWithCachedSizes(
       this->tmcids(i), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* VectorTrafficTile::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated uint32 tmcIds = 1 [packed = true];
+  if (this->tmcids_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _tmcids_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->tmcids_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt32NoTagToArray(this->tmcids(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int VectorTrafficTile::ByteSize() const {
@@ -1355,20 +2171,39 @@ int VectorTrafficTile::ByteSize() const {
     total_size += data_size;
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void VectorTrafficTile::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const VectorTrafficTile*>(&from));
+void VectorTrafficTile::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const VectorTrafficTile* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const VectorTrafficTile*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void VectorTrafficTile::MergeFrom(const VectorTrafficTile& from) {
   GOOGLE_CHECK_NE(&from, this);
   tmcids_.MergeFrom(from.tmcids_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void VectorTrafficTile::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void VectorTrafficTile::CopyFrom(const VectorTrafficTile& from) {
@@ -1386,12 +2221,17 @@ void VectorTrafficTile::Swap(VectorTrafficTile* other) {
   if (other != this) {
     tmcids_.Swap(&other->tmcids_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string VectorTrafficTile::GetTypeName() const {
-  return "com.telenav.proto.map.VectorTrafficTile";
+::google::protobuf::Metadata VectorTrafficTile::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = VectorTrafficTile_descriptor_;
+  metadata.reflection = VectorTrafficTile_reflection_;
+  return metadata;
 }
 
 
@@ -1407,21 +2247,16 @@ const int VectorMapTile::kDataVersionFieldNumber;
 #endif  // !_MSC_VER
 
 VectorMapTile::VectorMapTile()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
 void VectorMapTile::InitAsDefaultInstance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  buildingblocklist_ = const_cast< ::com::telenav::proto::map::BuildingBlockList*>(
-      ::com::telenav::proto::map::BuildingBlockList::internal_default_instance());
-#else
   buildingblocklist_ = const_cast< ::com::telenav::proto::map::BuildingBlockList*>(&::com::telenav::proto::map::BuildingBlockList::default_instance());
-#endif
 }
 
 VectorMapTile::VectorMapTile(const VectorMapTile& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1441,11 +2276,7 @@ void VectorMapTile::SharedDtor() {
   if (dataversion_ != &::google::protobuf::internal::kEmptyString) {
     delete dataversion_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
     delete buildingblocklist_;
   }
 }
@@ -1455,12 +2286,13 @@ void VectorMapTile::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* VectorMapTile::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return VectorMapTile_descriptor_;
+}
+
 const VectorMapTile& VectorMapTile::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1486,6 +2318,7 @@ void VectorMapTile::Clear() {
   lf_.Clear();
   pf_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool VectorMapTile::MergePartialFromCodedStream(
@@ -1575,6 +2408,9 @@ bool VectorMapTile::MergePartialFromCodedStream(
          parse_dataVersion:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_dataversion()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->dataversion().data(), this->dataversion().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1588,7 +2424,8 @@ bool VectorMapTile::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1601,40 +2438,101 @@ void VectorMapTile::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated .com.telenav.proto.map.RoadFeature rf = 1;
   for (int i = 0; i < this->rf_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->rf(i), output);
   }
 
   // repeated .com.telenav.proto.map.AreaFeature af = 2;
   for (int i = 0; i < this->af_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->af(i), output);
   }
 
   // repeated .com.telenav.proto.map.LineFeature lf = 3;
   for (int i = 0; i < this->lf_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->lf(i), output);
   }
 
   // repeated .com.telenav.proto.map.PointFeature pf = 4;
   for (int i = 0; i < this->pf_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->pf(i), output);
   }
 
   // optional .com.telenav.proto.map.BuildingBlockList buildingBlockList = 5;
   if (has_buildingblocklist()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->buildingblocklist(), output);
   }
 
   // optional string dataVersion = 6;
   if (has_dataversion()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->dataversion().data(), this->dataversion().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       6, this->dataversion(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* VectorMapTile::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .com.telenav.proto.map.RoadFeature rf = 1;
+  for (int i = 0; i < this->rf_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->rf(i), target);
+  }
+
+  // repeated .com.telenav.proto.map.AreaFeature af = 2;
+  for (int i = 0; i < this->af_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->af(i), target);
+  }
+
+  // repeated .com.telenav.proto.map.LineFeature lf = 3;
+  for (int i = 0; i < this->lf_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->lf(i), target);
+  }
+
+  // repeated .com.telenav.proto.map.PointFeature pf = 4;
+  for (int i = 0; i < this->pf_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->pf(i), target);
+  }
+
+  // optional .com.telenav.proto.map.BuildingBlockList buildingBlockList = 5;
+  if (has_buildingblocklist()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->buildingblocklist(), target);
+  }
+
+  // optional string dataVersion = 6;
+  if (has_dataversion()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->dataversion().data(), this->dataversion().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->dataversion(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int VectorMapTile::ByteSize() const {
@@ -1688,15 +2586,27 @@ int VectorMapTile::ByteSize() const {
         this->pf(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void VectorMapTile::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const VectorMapTile*>(&from));
+void VectorMapTile::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const VectorMapTile* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const VectorMapTile*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void VectorMapTile::MergeFrom(const VectorMapTile& from) {
@@ -1713,6 +2623,13 @@ void VectorMapTile::MergeFrom(const VectorMapTile& from) {
       set_dataversion(from.dataversion());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void VectorMapTile::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void VectorMapTile::CopyFrom(const VectorMapTile& from) {
@@ -1735,12 +2652,17 @@ void VectorMapTile::Swap(VectorMapTile* other) {
     std::swap(buildingblocklist_, other->buildingblocklist_);
     std::swap(dataversion_, other->dataversion_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string VectorMapTile::GetTypeName() const {
-  return "com.telenav.proto.map.VectorMapTile";
+::google::protobuf::Metadata VectorMapTile::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = VectorMapTile_descriptor_;
+  metadata.reflection = VectorMapTile_reflection_;
+  return metadata;
 }
 
 
@@ -1753,7 +2675,7 @@ const int FeatureName::kLanguageFieldNumber;
 #endif  // !_MSC_VER
 
 FeatureName::FeatureName()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1761,7 +2683,7 @@ void FeatureName::InitAsDefaultInstance() {
 }
 
 FeatureName::FeatureName(const FeatureName& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1788,11 +2710,7 @@ void FeatureName::SharedDtor() {
   if (language_ != &::google::protobuf::internal::kEmptyString) {
     delete language_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1801,12 +2719,13 @@ void FeatureName::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* FeatureName::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FeatureName_descriptor_;
+}
+
 const FeatureName& FeatureName::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1835,6 +2754,7 @@ void FeatureName::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool FeatureName::MergePartialFromCodedStream(
@@ -1849,6 +2769,9 @@ bool FeatureName::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1863,6 +2786,9 @@ bool FeatureName::MergePartialFromCodedStream(
          parse_alias:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_alias()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->alias().data(), this->alias().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1877,6 +2803,9 @@ bool FeatureName::MergePartialFromCodedStream(
          parse_language:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_language()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->language().data(), this->language().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1890,7 +2819,8 @@ bool FeatureName::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1903,22 +2833,74 @@ void FeatureName::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional string name = 1;
   if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->name(), output);
   }
 
   // optional string alias = 2;
   if (has_alias()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->alias().data(), this->alias().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->alias(), output);
   }
 
   // optional string language = 3;
   if (has_language()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->language().data(), this->language().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       3, this->language(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FeatureName::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string name = 1;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->name(), target);
+  }
+
+  // optional string alias = 2;
+  if (has_alias()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->alias().data(), this->alias().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->alias(), target);
+  }
+
+  // optional string language = 3;
+  if (has_language()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->language().data(), this->language().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->language(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int FeatureName::ByteSize() const {
@@ -1947,15 +2929,27 @@ int FeatureName::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void FeatureName::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const FeatureName*>(&from));
+void FeatureName::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FeatureName* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FeatureName*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void FeatureName::MergeFrom(const FeatureName& from) {
@@ -1971,6 +2965,13 @@ void FeatureName::MergeFrom(const FeatureName& from) {
       set_language(from.language());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FeatureName::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void FeatureName::CopyFrom(const FeatureName& from) {
@@ -1990,12 +2991,17 @@ void FeatureName::Swap(FeatureName* other) {
     std::swap(alias_, other->alias_);
     std::swap(language_, other->language_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string FeatureName::GetTypeName() const {
-  return "com.telenav.proto.map.FeatureName";
+::google::protobuf::Metadata FeatureName::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FeatureName_descriptor_;
+  metadata.reflection = FeatureName_reflection_;
+  return metadata;
 }
 
 
@@ -2007,7 +3013,7 @@ const int HighwayShield::kIconIDFieldNumber;
 #endif  // !_MSC_VER
 
 HighwayShield::HighwayShield()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -2015,7 +3021,7 @@ void HighwayShield::InitAsDefaultInstance() {
 }
 
 HighwayShield::HighwayShield(const HighwayShield& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -2038,11 +3044,7 @@ void HighwayShield::SharedDtor() {
   if (iconid_ != &::google::protobuf::internal::kEmptyString) {
     delete iconid_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -2051,12 +3053,13 @@ void HighwayShield::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* HighwayShield::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return HighwayShield_descriptor_;
+}
+
 const HighwayShield& HighwayShield::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -2080,6 +3083,7 @@ void HighwayShield::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool HighwayShield::MergePartialFromCodedStream(
@@ -2094,6 +3098,9 @@ bool HighwayShield::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_number()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->number().data(), this->number().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2108,6 +3115,9 @@ bool HighwayShield::MergePartialFromCodedStream(
          parse_iconID:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_iconid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->iconid().data(), this->iconid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2121,7 +3131,8 @@ bool HighwayShield::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -2134,16 +3145,55 @@ void HighwayShield::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional string number = 1;
   if (has_number()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->number().data(), this->number().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->number(), output);
   }
 
   // optional string iconID = 2;
   if (has_iconid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->iconid().data(), this->iconid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->iconid(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* HighwayShield::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string number = 1;
+  if (has_number()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->number().data(), this->number().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->number(), target);
+  }
+
+  // optional string iconID = 2;
+  if (has_iconid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->iconid().data(), this->iconid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->iconid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int HighwayShield::ByteSize() const {
@@ -2165,15 +3215,27 @@ int HighwayShield::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void HighwayShield::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const HighwayShield*>(&from));
+void HighwayShield::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const HighwayShield* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const HighwayShield*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void HighwayShield::MergeFrom(const HighwayShield& from) {
@@ -2186,6 +3248,13 @@ void HighwayShield::MergeFrom(const HighwayShield& from) {
       set_iconid(from.iconid());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void HighwayShield::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void HighwayShield::CopyFrom(const HighwayShield& from) {
@@ -2204,12 +3273,17 @@ void HighwayShield::Swap(HighwayShield* other) {
     std::swap(number_, other->number_);
     std::swap(iconid_, other->iconid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string HighwayShield::GetTypeName() const {
-  return "com.telenav.proto.map.HighwayShield";
+::google::protobuf::Metadata HighwayShield::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = HighwayShield_descriptor_;
+  metadata.reflection = HighwayShield_reflection_;
+  return metadata;
 }
 
 
@@ -2229,7 +3303,7 @@ const int RoadFeature::kRoadDirectionFieldNumber;
 #endif  // !_MSC_VER
 
 RoadFeature::RoadFeature()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -2237,7 +3311,7 @@ void RoadFeature::InitAsDefaultInstance() {
 }
 
 RoadFeature::RoadFeature(const RoadFeature& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -2265,11 +3339,7 @@ void RoadFeature::SharedDtor() {
   if (roadalias_ != &::google::protobuf::internal::kEmptyString) {
     delete roadalias_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -2278,12 +3348,13 @@ void RoadFeature::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* RoadFeature::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RoadFeature_descriptor_;
+}
+
 const RoadFeature& RoadFeature::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -2317,6 +3388,7 @@ void RoadFeature::Clear() {
   roadnames_.Clear();
   shields_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool RoadFeature::MergePartialFromCodedStream(
@@ -2351,6 +3423,8 @@ bool RoadFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::RoadType_IsValid(value)) {
             set_roadtype(static_cast< ::com::telenav::proto::map::RoadType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -2370,6 +3444,8 @@ bool RoadFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::RoadSubType_IsValid(value)) {
             set_roadsubtype(static_cast< ::com::telenav::proto::map::RoadSubType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(3, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -2385,6 +3461,9 @@ bool RoadFeature::MergePartialFromCodedStream(
          parse_roadName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_roadname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->roadname().data(), this->roadname().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2399,6 +3478,9 @@ bool RoadFeature::MergePartialFromCodedStream(
          parse_roadAlias:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_roadalias()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->roadalias().data(), this->roadalias().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2447,6 +3529,8 @@ bool RoadFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::RoadFunctionClass_IsValid(value)) {
             set_roadfunctionclass(static_cast< ::com::telenav::proto::map::RoadFunctionClass >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(8, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -2466,6 +3550,8 @@ bool RoadFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::RoadDirection_IsValid(value)) {
             set_roaddirection(static_cast< ::com::telenav::proto::map::RoadDirection >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(9, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -2496,7 +3582,8 @@ bool RoadFeature::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -2509,7 +3596,7 @@ void RoadFeature::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated .com.telenav.proto.map.Polyline lines = 1;
   for (int i = 0; i < this->lines_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->lines(i), output);
   }
 
@@ -2527,25 +3614,31 @@ void RoadFeature::SerializeWithCachedSizes(
 
   // optional string roadName = 4;
   if (has_roadname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->roadname().data(), this->roadname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       4, this->roadname(), output);
   }
 
   // optional string roadAlias = 5;
   if (has_roadalias()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->roadalias().data(), this->roadalias().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       5, this->roadalias(), output);
   }
 
   // repeated .com.telenav.proto.map.FeatureName roadNames = 6;
   for (int i = 0; i < this->roadnames_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, this->roadnames(i), output);
   }
 
   // repeated .com.telenav.proto.map.HighwayShield shields = 7;
   for (int i = 0; i < this->shields_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       7, this->shields(i), output);
   }
 
@@ -2566,6 +3659,89 @@ void RoadFeature::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(15, this->featureid(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* RoadFeature::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .com.telenav.proto.map.Polyline lines = 1;
+  for (int i = 0; i < this->lines_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->lines(i), target);
+  }
+
+  // optional .com.telenav.proto.map.RoadType roadType = 2 [default = RT_UNKNOWN];
+  if (has_roadtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->roadtype(), target);
+  }
+
+  // optional .com.telenav.proto.map.RoadSubType roadSubType = 3 [default = RST_UNKNOWN];
+  if (has_roadsubtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->roadsubtype(), target);
+  }
+
+  // optional string roadName = 4;
+  if (has_roadname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->roadname().data(), this->roadname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->roadname(), target);
+  }
+
+  // optional string roadAlias = 5;
+  if (has_roadalias()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->roadalias().data(), this->roadalias().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->roadalias(), target);
+  }
+
+  // repeated .com.telenav.proto.map.FeatureName roadNames = 6;
+  for (int i = 0; i < this->roadnames_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        6, this->roadnames(i), target);
+  }
+
+  // repeated .com.telenav.proto.map.HighwayShield shields = 7;
+  for (int i = 0; i < this->shields_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        7, this->shields(i), target);
+  }
+
+  // optional .com.telenav.proto.map.RoadFunctionClass roadFunctionClass = 8;
+  if (has_roadfunctionclass()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      8, this->roadfunctionclass(), target);
+  }
+
+  // optional .com.telenav.proto.map.RoadDirection roadDirection = 9 [default = UNKONWN];
+  if (has_roaddirection()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      9, this->roaddirection(), target);
+  }
+
+  // optional uint64 featureID = 15;
+  if (has_featureid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(15, this->featureid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int RoadFeature::ByteSize() const {
@@ -2644,15 +3820,27 @@ int RoadFeature::ByteSize() const {
         this->shields(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void RoadFeature::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const RoadFeature*>(&from));
+void RoadFeature::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const RoadFeature* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const RoadFeature*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void RoadFeature::MergeFrom(const RoadFeature& from) {
@@ -2685,6 +3873,13 @@ void RoadFeature::MergeFrom(const RoadFeature& from) {
       set_roaddirection(from.roaddirection());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void RoadFeature::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void RoadFeature::CopyFrom(const RoadFeature& from) {
@@ -2711,12 +3906,17 @@ void RoadFeature::Swap(RoadFeature* other) {
     std::swap(roadfunctionclass_, other->roadfunctionclass_);
     std::swap(roaddirection_, other->roaddirection_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string RoadFeature::GetTypeName() const {
-  return "com.telenav.proto.map.RoadFeature";
+::google::protobuf::Metadata RoadFeature::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = RoadFeature_descriptor_;
+  metadata.reflection = RoadFeature_reflection_;
+  return metadata;
 }
 
 
@@ -2732,7 +3932,7 @@ const int AreaFeature::kAreaNamesFieldNumber;
 #endif  // !_MSC_VER
 
 AreaFeature::AreaFeature()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -2740,7 +3940,7 @@ void AreaFeature::InitAsDefaultInstance() {
 }
 
 AreaFeature::AreaFeature(const AreaFeature& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -2765,11 +3965,7 @@ void AreaFeature::SharedDtor() {
   if (subtype_ != &::google::protobuf::internal::kEmptyString) {
     delete subtype_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -2778,12 +3974,13 @@ void AreaFeature::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* AreaFeature::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return AreaFeature_descriptor_;
+}
+
 const AreaFeature& AreaFeature::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -2811,6 +4008,7 @@ void AreaFeature::Clear() {
   rings_.Clear();
   areanames_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool AreaFeature::MergePartialFromCodedStream(
@@ -2841,6 +4039,9 @@ bool AreaFeature::MergePartialFromCodedStream(
          parse_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2859,6 +4060,8 @@ bool AreaFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::AreaType_IsValid(value)) {
             set_maintype(static_cast< ::com::telenav::proto::map::AreaType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(3, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -2874,6 +4077,9 @@ bool AreaFeature::MergePartialFromCodedStream(
          parse_subType:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_subtype()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->subtype().data(), this->subtype().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2918,7 +4124,8 @@ bool AreaFeature::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -2931,12 +4138,15 @@ void AreaFeature::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated .com.telenav.proto.map.Polygon rings = 1;
   for (int i = 0; i < this->rings_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->rings(i), output);
   }
 
   // optional string name = 2;
   if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->name(), output);
   }
@@ -2949,13 +4159,16 @@ void AreaFeature::SerializeWithCachedSizes(
 
   // optional string subType = 4;
   if (has_subtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->subtype().data(), this->subtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       4, this->subtype(), output);
   }
 
   // repeated .com.telenav.proto.map.FeatureName areaNames = 5;
   for (int i = 0; i < this->areanames_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->areanames(i), output);
   }
 
@@ -2964,6 +4177,64 @@ void AreaFeature::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(15, this->featureid(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* AreaFeature::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .com.telenav.proto.map.Polygon rings = 1;
+  for (int i = 0; i < this->rings_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->rings(i), target);
+  }
+
+  // optional string name = 2;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->name(), target);
+  }
+
+  // optional .com.telenav.proto.map.AreaType mainType = 3 [default = BK_AREA_UNKNOWN];
+  if (has_maintype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->maintype(), target);
+  }
+
+  // optional string subType = 4;
+  if (has_subtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->subtype().data(), this->subtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->subtype(), target);
+  }
+
+  // repeated .com.telenav.proto.map.FeatureName areaNames = 5;
+  for (int i = 0; i < this->areanames_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->areanames(i), target);
+  }
+
+  // optional uint64 featureID = 15;
+  if (has_featureid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(15, this->featureid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int AreaFeature::ByteSize() const {
@@ -3014,15 +4285,27 @@ int AreaFeature::ByteSize() const {
         this->areanames(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void AreaFeature::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const AreaFeature*>(&from));
+void AreaFeature::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const AreaFeature* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const AreaFeature*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void AreaFeature::MergeFrom(const AreaFeature& from) {
@@ -3043,6 +4326,13 @@ void AreaFeature::MergeFrom(const AreaFeature& from) {
       set_featureid(from.featureid());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void AreaFeature::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void AreaFeature::CopyFrom(const AreaFeature& from) {
@@ -3065,12 +4355,17 @@ void AreaFeature::Swap(AreaFeature* other) {
     std::swap(featureid_, other->featureid_);
     areanames_.Swap(&other->areanames_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string AreaFeature::GetTypeName() const {
-  return "com.telenav.proto.map.AreaFeature";
+::google::protobuf::Metadata AreaFeature::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = AreaFeature_descriptor_;
+  metadata.reflection = AreaFeature_reflection_;
+  return metadata;
 }
 
 
@@ -3086,7 +4381,7 @@ const int LineFeature::kNamesFieldNumber;
 #endif  // !_MSC_VER
 
 LineFeature::LineFeature()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -3094,7 +4389,7 @@ void LineFeature::InitAsDefaultInstance() {
 }
 
 LineFeature::LineFeature(const LineFeature& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -3119,11 +4414,7 @@ void LineFeature::SharedDtor() {
   if (subtype_ != &::google::protobuf::internal::kEmptyString) {
     delete subtype_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -3132,12 +4423,13 @@ void LineFeature::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* LineFeature::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LineFeature_descriptor_;
+}
+
 const LineFeature& LineFeature::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -3165,6 +4457,7 @@ void LineFeature::Clear() {
   lines_.Clear();
   names_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool LineFeature::MergePartialFromCodedStream(
@@ -3195,6 +4488,9 @@ bool LineFeature::MergePartialFromCodedStream(
          parse_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -3213,6 +4509,8 @@ bool LineFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::LineType_IsValid(value)) {
             set_maintype(static_cast< ::com::telenav::proto::map::LineType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(3, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -3228,6 +4526,9 @@ bool LineFeature::MergePartialFromCodedStream(
          parse_subType:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_subtype()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->subtype().data(), this->subtype().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -3272,7 +4573,8 @@ bool LineFeature::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -3285,12 +4587,15 @@ void LineFeature::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated .com.telenav.proto.map.Polyline lines = 1;
   for (int i = 0; i < this->lines_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->lines(i), output);
   }
 
   // optional string name = 2;
   if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       2, this->name(), output);
   }
@@ -3303,13 +4608,16 @@ void LineFeature::SerializeWithCachedSizes(
 
   // optional string subType = 4;
   if (has_subtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->subtype().data(), this->subtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       4, this->subtype(), output);
   }
 
   // repeated .com.telenav.proto.map.FeatureName names = 6;
   for (int i = 0; i < this->names_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       6, this->names(i), output);
   }
 
@@ -3318,6 +4626,64 @@ void LineFeature::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(15, this->featureid(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LineFeature::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .com.telenav.proto.map.Polyline lines = 1;
+  for (int i = 0; i < this->lines_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->lines(i), target);
+  }
+
+  // optional string name = 2;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->name(), target);
+  }
+
+  // optional .com.telenav.proto.map.LineType mainType = 3 [default = BK_LINE_UNKNOWN];
+  if (has_maintype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->maintype(), target);
+  }
+
+  // optional string subType = 4;
+  if (has_subtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->subtype().data(), this->subtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->subtype(), target);
+  }
+
+  // repeated .com.telenav.proto.map.FeatureName names = 6;
+  for (int i = 0; i < this->names_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        6, this->names(i), target);
+  }
+
+  // optional uint64 featureID = 15;
+  if (has_featureid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(15, this->featureid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int LineFeature::ByteSize() const {
@@ -3368,15 +4734,27 @@ int LineFeature::ByteSize() const {
         this->names(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void LineFeature::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const LineFeature*>(&from));
+void LineFeature::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LineFeature* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LineFeature*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void LineFeature::MergeFrom(const LineFeature& from) {
@@ -3397,6 +4775,13 @@ void LineFeature::MergeFrom(const LineFeature& from) {
       set_featureid(from.featureid());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LineFeature::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void LineFeature::CopyFrom(const LineFeature& from) {
@@ -3419,12 +4804,17 @@ void LineFeature::Swap(LineFeature* other) {
     std::swap(featureid_, other->featureid_);
     names_.Swap(&other->names_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string LineFeature::GetTypeName() const {
-  return "com.telenav.proto.map.LineFeature";
+::google::protobuf::Metadata LineFeature::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LineFeature_descriptor_;
+  metadata.reflection = LineFeature_reflection_;
+  return metadata;
 }
 
 
@@ -3447,21 +4837,16 @@ const int PointFeature::kLandmarkIconFieldNumber;
 #endif  // !_MSC_VER
 
 PointFeature::PointFeature()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
 void PointFeature::InitAsDefaultInstance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  spline_ = const_cast< ::com::telenav::proto::map::Polyline*>(
-      ::com::telenav::proto::map::Polyline::internal_default_instance());
-#else
   spline_ = const_cast< ::com::telenav::proto::map::Polyline*>(&::com::telenav::proto::map::Polyline::default_instance());
-#endif
 }
 
 PointFeature::PointFeature(const PointFeature& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -3497,11 +4882,7 @@ void PointFeature::SharedDtor() {
   if (landmark_icon_ != &::google::protobuf::internal::kEmptyString) {
     delete landmark_icon_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
     delete spline_;
   }
 }
@@ -3511,12 +4892,13 @@ void PointFeature::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* PointFeature::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PointFeature_descriptor_;
+}
+
 const PointFeature& PointFeature::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -3563,6 +4945,7 @@ void PointFeature::Clear() {
   p_featureid_.Clear();
   pointnames_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool PointFeature::MergePartialFromCodedStream(
@@ -3602,6 +4985,8 @@ bool PointFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::PointType_IsValid(value)) {
             set_maintype(static_cast< ::com::telenav::proto::map::PointType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(2, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -3617,6 +5002,9 @@ bool PointFeature::MergePartialFromCodedStream(
          parse_subType:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_subtype()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->subtype().data(), this->subtype().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -3631,6 +5019,9 @@ bool PointFeature::MergePartialFromCodedStream(
          parse_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -3661,6 +5052,9 @@ bool PointFeature::MergePartialFromCodedStream(
          parse_country:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_country()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->country().data(), this->country().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -3700,6 +5094,8 @@ bool PointFeature::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::map::FontStyle_IsValid(value)) {
             set_fontstyle(static_cast< ::com::telenav::proto::map::FontStyle >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(8, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -3744,6 +5140,9 @@ bool PointFeature::MergePartialFromCodedStream(
          parse_landmark_icon:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_landmark_icon()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->landmark_icon().data(), this->landmark_icon().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -3795,7 +5194,8 @@ bool PointFeature::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -3824,12 +5224,18 @@ void PointFeature::SerializeWithCachedSizes(
 
   // optional string subType = 3;
   if (has_subtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->subtype().data(), this->subtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       3, this->subtype(), output);
   }
 
   // optional string name = 4;
   if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       4, this->name(), output);
   }
@@ -3841,6 +5247,9 @@ void PointFeature::SerializeWithCachedSizes(
 
   // optional string country = 6;
   if (has_country()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->country().data(), this->country().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       6, this->country(), output);
   }
@@ -3863,18 +5272,21 @@ void PointFeature::SerializeWithCachedSizes(
 
   // optional .com.telenav.proto.map.Polyline spline = 9;
   if (has_spline()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       9, this->spline(), output);
   }
 
   // repeated .com.telenav.proto.map.FeatureName pointNames = 10;
   for (int i = 0; i < this->pointnames_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       10, this->pointnames(i), output);
   }
 
   // optional string landmark_icon = 11;
   if (has_landmark_icon()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->landmark_icon().data(), this->landmark_icon().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       11, this->landmark_icon(), output);
   }
@@ -3890,6 +5302,129 @@ void PointFeature::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(15, this->featureid(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* PointFeature::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated sint32 latlon = 1 [packed = true];
+  if (this->latlon_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _latlon_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->latlon_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteSInt32NoTagToArray(this->latlon(i), target);
+  }
+
+  // optional .com.telenav.proto.map.PointType mainType = 2 [default = PT_UNKNOWN];
+  if (has_maintype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->maintype(), target);
+  }
+
+  // optional string subType = 3;
+  if (has_subtype()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->subtype().data(), this->subtype().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->subtype(), target);
+  }
+
+  // optional string name = 4;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->name(), target);
+  }
+
+  // optional int32 fontSize = 5;
+  if (has_fontsize()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->fontsize(), target);
+  }
+
+  // optional string country = 6;
+  if (has_country()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->country().data(), this->country().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->country(), target);
+  }
+
+  // repeated int32 rdNameOri = 7 [packed = true];
+  if (this->rdnameori_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      7,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _rdnameori_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->rdnameori_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32NoTagToArray(this->rdnameori(i), target);
+  }
+
+  // optional .com.telenav.proto.map.FontStyle fontStyle = 8;
+  if (has_fontstyle()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      8, this->fontstyle(), target);
+  }
+
+  // optional .com.telenav.proto.map.Polyline spline = 9;
+  if (has_spline()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->spline(), target);
+  }
+
+  // repeated .com.telenav.proto.map.FeatureName pointNames = 10;
+  for (int i = 0; i < this->pointnames_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        10, this->pointnames(i), target);
+  }
+
+  // optional string landmark_icon = 11;
+  if (has_landmark_icon()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->landmark_icon().data(), this->landmark_icon().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        11, this->landmark_icon(), target);
+  }
+
+  // repeated uint64 p_featureID = 14;
+  for (int i = 0; i < this->p_featureid_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt64ToArray(14, this->p_featureid(i), target);
+  }
+
+  // optional uint64 featureID = 15;
+  if (has_featureid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(15, this->featureid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int PointFeature::ByteSize() const {
@@ -4012,15 +5547,27 @@ int PointFeature::ByteSize() const {
         this->pointnames(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void PointFeature::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const PointFeature*>(&from));
+void PointFeature::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PointFeature* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const PointFeature*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void PointFeature::MergeFrom(const PointFeature& from) {
@@ -4060,6 +5607,13 @@ void PointFeature::MergeFrom(const PointFeature& from) {
       set_landmark_icon(from.landmark_icon());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PointFeature::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void PointFeature::CopyFrom(const PointFeature& from) {
@@ -4089,12 +5643,17 @@ void PointFeature::Swap(PointFeature* other) {
     pointnames_.Swap(&other->pointnames_);
     std::swap(landmark_icon_, other->landmark_icon_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string PointFeature::GetTypeName() const {
-  return "com.telenav.proto.map.PointFeature";
+::google::protobuf::Metadata PointFeature::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = PointFeature_descriptor_;
+  metadata.reflection = PointFeature_reflection_;
+  return metadata;
 }
 
 
@@ -4107,7 +5666,7 @@ const int BuildingBlockRef::kRowFieldNumber;
 #endif  // !_MSC_VER
 
 BuildingBlockRef::BuildingBlockRef()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -4115,7 +5674,7 @@ void BuildingBlockRef::InitAsDefaultInstance() {
 }
 
 BuildingBlockRef::BuildingBlockRef(const BuildingBlockRef& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -4133,11 +5692,7 @@ BuildingBlockRef::~BuildingBlockRef() {
 }
 
 void BuildingBlockRef::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -4146,12 +5701,13 @@ void BuildingBlockRef::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* BuildingBlockRef::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BuildingBlockRef_descriptor_;
+}
+
 const BuildingBlockRef& BuildingBlockRef::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -4168,6 +5724,7 @@ void BuildingBlockRef::Clear() {
     row_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool BuildingBlockRef::MergePartialFromCodedStream(
@@ -4229,7 +5786,8 @@ bool BuildingBlockRef::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -4255,6 +5813,34 @@ void BuildingBlockRef::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->row(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BuildingBlockRef::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 depth = 1;
+  if (has_depth()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->depth(), target);
+  }
+
+  // optional uint32 col = 2;
+  if (has_col()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->col(), target);
+  }
+
+  // optional uint32 row = 3;
+  if (has_row()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->row(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int BuildingBlockRef::ByteSize() const {
@@ -4283,15 +5869,27 @@ int BuildingBlockRef::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void BuildingBlockRef::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const BuildingBlockRef*>(&from));
+void BuildingBlockRef::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BuildingBlockRef* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BuildingBlockRef*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void BuildingBlockRef::MergeFrom(const BuildingBlockRef& from) {
@@ -4307,6 +5905,13 @@ void BuildingBlockRef::MergeFrom(const BuildingBlockRef& from) {
       set_row(from.row());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BuildingBlockRef::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void BuildingBlockRef::CopyFrom(const BuildingBlockRef& from) {
@@ -4326,12 +5931,17 @@ void BuildingBlockRef::Swap(BuildingBlockRef* other) {
     std::swap(col_, other->col_);
     std::swap(row_, other->row_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string BuildingBlockRef::GetTypeName() const {
-  return "com.telenav.proto.map.BuildingBlockRef";
+::google::protobuf::Metadata BuildingBlockRef::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BuildingBlockRef_descriptor_;
+  metadata.reflection = BuildingBlockRef_reflection_;
+  return metadata;
 }
 
 
@@ -4343,7 +5953,7 @@ const int BuildingBlockList::kBlockRefsFieldNumber;
 #endif  // !_MSC_VER
 
 BuildingBlockList::BuildingBlockList()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -4351,7 +5961,7 @@ void BuildingBlockList::InitAsDefaultInstance() {
 }
 
 BuildingBlockList::BuildingBlockList(const BuildingBlockList& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -4367,11 +5977,7 @@ BuildingBlockList::~BuildingBlockList() {
 }
 
 void BuildingBlockList::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -4380,12 +5986,13 @@ void BuildingBlockList::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* BuildingBlockList::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BuildingBlockList_descriptor_;
+}
+
 const BuildingBlockList& BuildingBlockList::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -4401,6 +6008,7 @@ void BuildingBlockList::Clear() {
   }
   blockrefs_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool BuildingBlockList::MergePartialFromCodedStream(
@@ -4445,7 +6053,8 @@ bool BuildingBlockList::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -4463,10 +6072,35 @@ void BuildingBlockList::SerializeWithCachedSizes(
 
   // repeated .com.telenav.proto.map.BuildingBlockRef blockRefs = 2;
   for (int i = 0; i < this->blockrefs_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->blockrefs(i), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BuildingBlockList::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 version = 1;
+  if (has_version()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->version(), target);
+  }
+
+  // repeated .com.telenav.proto.map.BuildingBlockRef blockRefs = 2;
+  for (int i = 0; i < this->blockrefs_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->blockrefs(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int BuildingBlockList::ByteSize() const {
@@ -4489,15 +6123,27 @@ int BuildingBlockList::ByteSize() const {
         this->blockrefs(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void BuildingBlockList::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const BuildingBlockList*>(&from));
+void BuildingBlockList::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BuildingBlockList* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BuildingBlockList*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void BuildingBlockList::MergeFrom(const BuildingBlockList& from) {
@@ -4508,6 +6154,13 @@ void BuildingBlockList::MergeFrom(const BuildingBlockList& from) {
       set_version(from.version());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BuildingBlockList::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void BuildingBlockList::CopyFrom(const BuildingBlockList& from) {
@@ -4526,12 +6179,17 @@ void BuildingBlockList::Swap(BuildingBlockList* other) {
     std::swap(version_, other->version_);
     blockrefs_.Swap(&other->blockrefs_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string BuildingBlockList::GetTypeName() const {
-  return "com.telenav.proto.map.BuildingBlockList";
+::google::protobuf::Metadata BuildingBlockList::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BuildingBlockList_descriptor_;
+  metadata.reflection = BuildingBlockList_reflection_;
+  return metadata;
 }
 
 
@@ -4542,7 +6200,7 @@ const int BigTileConfig::kZoomlevelFieldNumber;
 #endif  // !_MSC_VER
 
 BigTileConfig::BigTileConfig()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -4550,7 +6208,7 @@ void BigTileConfig::InitAsDefaultInstance() {
 }
 
 BigTileConfig::BigTileConfig(const BigTileConfig& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -4565,11 +6223,7 @@ BigTileConfig::~BigTileConfig() {
 }
 
 void BigTileConfig::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -4578,12 +6232,13 @@ void BigTileConfig::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* BigTileConfig::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BigTileConfig_descriptor_;
+}
+
 const BigTileConfig& BigTileConfig::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -4596,6 +6251,7 @@ BigTileConfig* BigTileConfig::New() const {
 void BigTileConfig::Clear() {
   zoomlevel_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool BigTileConfig::MergePartialFromCodedStream(
@@ -4625,7 +6281,8 @@ bool BigTileConfig::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -4638,10 +6295,30 @@ void BigTileConfig::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated .com.telenav.proto.map.ZoomLevel zoomlevel = 1;
   for (int i = 0; i < this->zoomlevel_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->zoomlevel(i), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BigTileConfig::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .com.telenav.proto.map.ZoomLevel zoomlevel = 1;
+  for (int i = 0; i < this->zoomlevel_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->zoomlevel(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int BigTileConfig::ByteSize() const {
@@ -4655,20 +6332,39 @@ int BigTileConfig::ByteSize() const {
         this->zoomlevel(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void BigTileConfig::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const BigTileConfig*>(&from));
+void BigTileConfig::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BigTileConfig* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BigTileConfig*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void BigTileConfig::MergeFrom(const BigTileConfig& from) {
   GOOGLE_CHECK_NE(&from, this);
   zoomlevel_.MergeFrom(from.zoomlevel_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BigTileConfig::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void BigTileConfig::CopyFrom(const BigTileConfig& from) {
@@ -4686,12 +6382,17 @@ void BigTileConfig::Swap(BigTileConfig* other) {
   if (other != this) {
     zoomlevel_.Swap(&other->zoomlevel_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string BigTileConfig::GetTypeName() const {
-  return "com.telenav.proto.map.BigTileConfig";
+::google::protobuf::Metadata BigTileConfig::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BigTileConfig_descriptor_;
+  metadata.reflection = BigTileConfig_reflection_;
+  return metadata;
 }
 
 
@@ -4703,7 +6404,7 @@ const int ZoomLevel::kPowerFieldNumber;
 #endif  // !_MSC_VER
 
 ZoomLevel::ZoomLevel()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -4711,7 +6412,7 @@ void ZoomLevel::InitAsDefaultInstance() {
 }
 
 ZoomLevel::ZoomLevel(const ZoomLevel& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -4728,11 +6429,7 @@ ZoomLevel::~ZoomLevel() {
 }
 
 void ZoomLevel::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -4741,12 +6438,13 @@ void ZoomLevel::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* ZoomLevel::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return ZoomLevel_descriptor_;
+}
+
 const ZoomLevel& ZoomLevel::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_map_2evector_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_map_2evector_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -4762,6 +6460,7 @@ void ZoomLevel::Clear() {
     power_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool ZoomLevel::MergePartialFromCodedStream(
@@ -4807,7 +6506,8 @@ bool ZoomLevel::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -4828,6 +6528,29 @@ void ZoomLevel::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->power(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* ZoomLevel::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 level = 1;
+  if (has_level()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->level(), target);
+  }
+
+  // optional int32 power = 2;
+  if (has_power()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->power(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int ZoomLevel::ByteSize() const {
@@ -4849,15 +6572,27 @@ int ZoomLevel::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void ZoomLevel::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const ZoomLevel*>(&from));
+void ZoomLevel::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const ZoomLevel* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const ZoomLevel*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void ZoomLevel::MergeFrom(const ZoomLevel& from) {
@@ -4870,6 +6605,13 @@ void ZoomLevel::MergeFrom(const ZoomLevel& from) {
       set_power(from.power());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void ZoomLevel::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void ZoomLevel::CopyFrom(const ZoomLevel& from) {
@@ -4888,12 +6630,17 @@ void ZoomLevel::Swap(ZoomLevel* other) {
     std::swap(level_, other->level_);
     std::swap(power_, other->power_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string ZoomLevel::GetTypeName() const {
-  return "com.telenav.proto.map.ZoomLevel";
+::google::protobuf::Metadata ZoomLevel::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = ZoomLevel_descriptor_;
+  metadata.reflection = ZoomLevel_reflection_;
+  return metadata;
 }
 
 

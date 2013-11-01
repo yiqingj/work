@@ -85,7 +85,7 @@ if len(env['EXTRA_FREETYPE_LIBS']):
 
 lib_env['LIBS'].append('xml2')
 lib_env['LIBS'].append('z')
-
+lib_env['LIBS'].append('protobuf')
 #if env['THREADING'] == 'multi':
 #    lib_env['LIBS'].append('boost_thread%s' % env['BOOST_APPEND'])
 
@@ -219,6 +219,11 @@ source = Split(
     xml_tree.cpp
     config_error.cpp
     color_factory.cpp
+    tn/common.pb.cc
+    tn/services.pb.cc
+    tn/map.common.pb.cc
+    tn/map.vector.pb.cc
+    tn/telenav_protobuf_renderer.cpp
     """
     )
 

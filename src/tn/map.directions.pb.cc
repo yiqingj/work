@@ -2,7 +2,7 @@
 // source: map.directions.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "map.directions.pb.h"
+#include "mapnik/map.directions.pb.h"
 
 #include <algorithm>
 
@@ -755,7 +755,7 @@ void RouteRequest::SerializeWithCachedSizes(
 
   // repeated .com.telenav.proto.LatLon dest_candidate = 12;
   for (int i = 0; i < this->dest_candidate_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       12, this->dest_candidate(i), output);
   }
 
@@ -767,7 +767,7 @@ void RouteRequest::SerializeWithCachedSizes(
 
   // optional .com.telenav.proto.Context context = 16;
   if (has_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       16, this->context(), output);
   }
 
@@ -1796,13 +1796,13 @@ void Location::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.LatLon lat_lon = 1;
   if (has_lat_lon()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->lat_lon(), output);
   }
 
   // optional .com.telenav.proto.Address address = 2;
   if (has_address()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->address(), output);
   }
 
@@ -2775,7 +2775,7 @@ void BasicRouteResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.ServiceStatus status = 1;
   if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->status(), output);
   }
 
@@ -3043,7 +3043,7 @@ void RouteResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.ServiceStatus status = 1;
   if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->status(), output);
   }
 
@@ -3302,7 +3302,7 @@ void FindMeRequest::SerializeWithCachedSizes(
 
   // optional .com.telenav.proto.Context context = 3;
   if (has_context()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->context(), output);
   }
 
@@ -3542,7 +3542,7 @@ void FindMeResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.ServiceStatus status = 1;
   if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->status(), output);
   }
 
@@ -3823,7 +3823,7 @@ void SystemInfoResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.ServiceStatus status = 1;
   if (has_status()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->status(), output);
   }
 
@@ -4486,13 +4486,13 @@ void Candidate::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .com.telenav.proto.LatLon lat_lon = 1;
   if (has_lat_lon()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->lat_lon(), output);
   }
 
   // optional .com.telenav.proto.Address address = 2;
   if (has_address()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, this->address(), output);
   }
 

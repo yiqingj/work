@@ -22,7 +22,7 @@
 #include <mapnik/pixel_position.hpp>
 #include <mapnik/request.hpp>
 
-#include "map.vector.pb.h"
+#include "mapnik/map.vector.pb.h"
 
 // boost
 
@@ -43,8 +43,9 @@ namespace mapnik {
     struct rasterizer;
 }
 
+using namespace com::telenav::proto::map;
+
 namespace mapnik {
-    
     template <typename T>
     class MAPNIK_DECL tn_renderer : public feature_style_processor<tn_renderer<T> >,
     private mapnik::noncopyable
@@ -54,7 +55,7 @@ namespace mapnik {
         typedef T buffer_type;
         typedef tn_renderer<T> processor_impl_type;
         // create with default, empty placement detector
-        tn_renderer(Map const& m, T & protobuf);
+        tn_renderer(Map const& m, T & protobuf,double scale_factor=1.0, unsigned offset_x=0, unsigned offset_y=0);
         ~tn_renderer();
         
         void start_map_processing(Map const& map);

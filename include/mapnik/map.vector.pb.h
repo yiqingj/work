@@ -20,12 +20,14 @@
 #endif
 
 #include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/message_lite.h>
+#include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include "common.pb.h"
-#include "map.common.pb.h"
-#include "services.pb.h"
+#include <google/protobuf/generated_enum_reflection.h>
+#include <google/protobuf/unknown_field_set.h>
+#include "mapnik/common.pb.h"
+#include "mapnik/map.common.pb.h"
+#include "mapnik/services.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace com {
@@ -68,6 +70,16 @@ const RoadSubType RoadSubType_MIN = RST_UNKNOWN;
 const RoadSubType RoadSubType_MAX = RST_TUNNEL;
 const int RoadSubType_ARRAYSIZE = RoadSubType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* RoadSubType_descriptor();
+inline const ::std::string& RoadSubType_Name(RoadSubType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    RoadSubType_descriptor(), value);
+}
+inline bool RoadSubType_Parse(
+    const ::std::string& name, RoadSubType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RoadSubType>(
+    RoadSubType_descriptor(), name, value);
+}
 enum RoadDirection {
   CLOSED = 0,
   POSITIVE = 1,
@@ -80,6 +92,16 @@ const RoadDirection RoadDirection_MIN = CLOSED;
 const RoadDirection RoadDirection_MAX = UNKONWN;
 const int RoadDirection_ARRAYSIZE = RoadDirection_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* RoadDirection_descriptor();
+inline const ::std::string& RoadDirection_Name(RoadDirection value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    RoadDirection_descriptor(), value);
+}
+inline bool RoadDirection_Parse(
+    const ::std::string& name, RoadDirection* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RoadDirection>(
+    RoadDirection_descriptor(), name, value);
+}
 enum RoadFunctionClass {
   FC_1 = 1,
   FC_2 = 2,
@@ -92,6 +114,16 @@ const RoadFunctionClass RoadFunctionClass_MIN = FC_1;
 const RoadFunctionClass RoadFunctionClass_MAX = FC_5;
 const int RoadFunctionClass_ARRAYSIZE = RoadFunctionClass_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* RoadFunctionClass_descriptor();
+inline const ::std::string& RoadFunctionClass_Name(RoadFunctionClass value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    RoadFunctionClass_descriptor(), value);
+}
+inline bool RoadFunctionClass_Parse(
+    const ::std::string& name, RoadFunctionClass* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RoadFunctionClass>(
+    RoadFunctionClass_descriptor(), name, value);
+}
 enum AreaType {
   BK_AREA_UNKNOWN = 0,
   BK_AREA_BUILDING = 1,
@@ -119,6 +151,16 @@ const AreaType AreaType_MIN = BK_AREA_UNKNOWN;
 const AreaType AreaType_MAX = BK_AREA_EXPO_AREA;
 const int AreaType_ARRAYSIZE = AreaType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* AreaType_descriptor();
+inline const ::std::string& AreaType_Name(AreaType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    AreaType_descriptor(), value);
+}
+inline bool AreaType_Parse(
+    const ::std::string& name, AreaType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<AreaType>(
+    AreaType_descriptor(), name, value);
+}
 enum RingOrientation {
   OR_UNKNOWN = 0,
   OR_CLOCKWISE = 1,
@@ -129,6 +171,16 @@ const RingOrientation RingOrientation_MIN = OR_UNKNOWN;
 const RingOrientation RingOrientation_MAX = OR_ANTI_CLOCKWISE;
 const int RingOrientation_ARRAYSIZE = RingOrientation_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* RingOrientation_descriptor();
+inline const ::std::string& RingOrientation_Name(RingOrientation value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    RingOrientation_descriptor(), value);
+}
+inline bool RingOrientation_Parse(
+    const ::std::string& name, RingOrientation* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RingOrientation>(
+    RingOrientation_descriptor(), name, value);
+}
 enum PointType {
   PT_UNKNOWN = 0,
   PT_ROAD = 1,
@@ -146,6 +198,16 @@ const PointType PointType_MIN = PT_UNKNOWN;
 const PointType PointType_MAX = PT_NEIGHBORHOOD;
 const int PointType_ARRAYSIZE = PointType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* PointType_descriptor();
+inline const ::std::string& PointType_Name(PointType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    PointType_descriptor(), value);
+}
+inline bool PointType_Parse(
+    const ::std::string& name, PointType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PointType>(
+    PointType_descriptor(), name, value);
+}
 enum LineType {
   BK_LINE_UNKNOWN = 0,
   BK_LINE_CANAL = 1,
@@ -160,6 +222,16 @@ const LineType LineType_MIN = BK_LINE_UNKNOWN;
 const LineType LineType_MAX = BK_LINE_TAXIWAY;
 const int LineType_ARRAYSIZE = LineType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* LineType_descriptor();
+inline const ::std::string& LineType_Name(LineType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    LineType_descriptor(), value);
+}
+inline bool LineType_Parse(
+    const ::std::string& name, LineType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<LineType>(
+    LineType_descriptor(), name, value);
+}
 enum FontStyle {
   FT_UNKNOWN = 0,
   FT_PLAIN = 1,
@@ -171,9 +243,19 @@ const FontStyle FontStyle_MIN = FT_UNKNOWN;
 const FontStyle FontStyle_MAX = FT_BOLD;
 const int FontStyle_ARRAYSIZE = FontStyle_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* FontStyle_descriptor();
+inline const ::std::string& FontStyle_Name(FontStyle value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    FontStyle_descriptor(), value);
+}
+inline bool FontStyle_Parse(
+    const ::std::string& name, FontStyle* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<FontStyle>(
+    FontStyle_descriptor(), name, value);
+}
 // ===================================================================
 
-class VectorMapRequest : public ::google::protobuf::MessageLite {
+class VectorMapRequest : public ::google::protobuf::Message {
  public:
   VectorMapRequest();
   virtual ~VectorMapRequest();
@@ -185,24 +267,24 @@ class VectorMapRequest : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const VectorMapRequest& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const VectorMapRequest* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const VectorMapRequest& default_instance();
 
   void Swap(VectorMapRequest* other);
 
   // implements Message ----------------------------------------------
 
   VectorMapRequest* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const VectorMapRequest& from);
   void MergeFrom(const VectorMapRequest& from);
   void Clear();
@@ -213,6 +295,7 @@ class VectorMapRequest : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -220,7 +303,7 @@ class VectorMapRequest : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -267,6 +350,8 @@ class VectorMapRequest : public ::google::protobuf::MessageLite {
   inline void set_has_context();
   inline void clear_has_context();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::int32 zoomlevel_;
   ::google::protobuf::int32 x_;
   ::com::telenav::proto::Context* context_;
@@ -275,11 +360,7 @@ class VectorMapRequest : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -288,7 +369,7 @@ class VectorMapRequest : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class TfcObj : public ::google::protobuf::MessageLite {
+class TfcObj : public ::google::protobuf::Message {
  public:
   TfcObj();
   virtual ~TfcObj();
@@ -300,24 +381,24 @@ class TfcObj : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const TfcObj& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const TfcObj* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TfcObj& default_instance();
 
   void Swap(TfcObj* other);
 
   // implements Message ----------------------------------------------
 
   TfcObj* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const TfcObj& from);
   void MergeFrom(const TfcObj& from);
   void Clear();
@@ -328,6 +409,7 @@ class TfcObj : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -335,7 +417,7 @@ class TfcObj : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -376,6 +458,8 @@ class TfcObj : public ::google::protobuf::MessageLite {
   inline void set_has_end_idx();
   inline void clear_has_end_idx();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* trafficid_;
   ::google::protobuf::uint32 start_idx_;
   ::google::protobuf::uint32 end_idx_;
@@ -383,11 +467,7 @@ class TfcObj : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -396,7 +476,7 @@ class TfcObj : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class Polygon : public ::google::protobuf::MessageLite {
+class Polygon : public ::google::protobuf::Message {
  public:
   Polygon();
   virtual ~Polygon();
@@ -408,24 +488,24 @@ class Polygon : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const Polygon& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const Polygon* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Polygon& default_instance();
 
   void Swap(Polygon* other);
 
   // implements Message ----------------------------------------------
 
   Polygon* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const Polygon& from);
   void MergeFrom(const Polygon& from);
   void Clear();
@@ -436,6 +516,7 @@ class Polygon : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -443,7 +524,7 @@ class Polygon : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -473,6 +554,8 @@ class Polygon : public ::google::protobuf::MessageLite {
   inline void set_has_orient();
   inline void clear_has_orient();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > latlon_;
   mutable int _latlon_cached_byte_size_;
   int orient_;
@@ -480,11 +563,7 @@ class Polygon : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -493,7 +572,7 @@ class Polygon : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class Polyline : public ::google::protobuf::MessageLite {
+class Polyline : public ::google::protobuf::Message {
  public:
   Polyline();
   virtual ~Polyline();
@@ -505,24 +584,24 @@ class Polyline : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const Polyline& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const Polyline* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Polyline& default_instance();
 
   void Swap(Polyline* other);
 
   // implements Message ----------------------------------------------
 
   Polyline* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const Polyline& from);
   void MergeFrom(const Polyline& from);
   void Clear();
@@ -533,6 +612,7 @@ class Polyline : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -540,7 +620,7 @@ class Polyline : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -585,6 +665,8 @@ class Polyline : public ::google::protobuf::MessageLite {
   // @@protoc_insertion_point(class_scope:com.telenav.proto.map.Polyline)
  private:
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > latlon_;
   mutable int _latlon_cached_byte_size_;
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::TfcObj > tfcid_right_;
@@ -593,11 +675,7 @@ class Polyline : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -606,7 +684,7 @@ class Polyline : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class VectorTrafficTile : public ::google::protobuf::MessageLite {
+class VectorTrafficTile : public ::google::protobuf::Message {
  public:
   VectorTrafficTile();
   virtual ~VectorTrafficTile();
@@ -618,24 +696,24 @@ class VectorTrafficTile : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const VectorTrafficTile& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const VectorTrafficTile* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const VectorTrafficTile& default_instance();
 
   void Swap(VectorTrafficTile* other);
 
   // implements Message ----------------------------------------------
 
   VectorTrafficTile* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const VectorTrafficTile& from);
   void MergeFrom(const VectorTrafficTile& from);
   void Clear();
@@ -646,6 +724,7 @@ class VectorTrafficTile : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -653,7 +732,7 @@ class VectorTrafficTile : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -674,17 +753,15 @@ class VectorTrafficTile : public ::google::protobuf::MessageLite {
   // @@protoc_insertion_point(class_scope:com.telenav.proto.map.VectorTrafficTile)
  private:
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > tmcids_;
   mutable int _tmcids_cached_byte_size_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -693,7 +770,7 @@ class VectorTrafficTile : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class VectorMapTile : public ::google::protobuf::MessageLite {
+class VectorMapTile : public ::google::protobuf::Message {
  public:
   VectorMapTile();
   virtual ~VectorMapTile();
@@ -705,24 +782,24 @@ class VectorMapTile : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const VectorMapTile& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const VectorMapTile* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const VectorMapTile& default_instance();
 
   void Swap(VectorMapTile* other);
 
   // implements Message ----------------------------------------------
 
   VectorMapTile* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const VectorMapTile& from);
   void MergeFrom(const VectorMapTile& from);
   void Clear();
@@ -733,6 +810,7 @@ class VectorMapTile : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -740,7 +818,7 @@ class VectorMapTile : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -822,6 +900,8 @@ class VectorMapTile : public ::google::protobuf::MessageLite {
   inline void set_has_dataversion();
   inline void clear_has_dataversion();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::RoadFeature > rf_;
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::AreaFeature > af_;
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::LineFeature > lf_;
@@ -832,11 +912,7 @@ class VectorMapTile : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -845,7 +921,7 @@ class VectorMapTile : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class FeatureName : public ::google::protobuf::MessageLite {
+class FeatureName : public ::google::protobuf::Message {
  public:
   FeatureName();
   virtual ~FeatureName();
@@ -857,24 +933,24 @@ class FeatureName : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const FeatureName& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const FeatureName* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FeatureName& default_instance();
 
   void Swap(FeatureName* other);
 
   // implements Message ----------------------------------------------
 
   FeatureName* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const FeatureName& from);
   void MergeFrom(const FeatureName& from);
   void Clear();
@@ -885,6 +961,7 @@ class FeatureName : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -892,7 +969,7 @@ class FeatureName : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -943,6 +1020,8 @@ class FeatureName : public ::google::protobuf::MessageLite {
   inline void set_has_language();
   inline void clear_has_language();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* name_;
   ::std::string* alias_;
   ::std::string* language_;
@@ -950,11 +1029,7 @@ class FeatureName : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -963,7 +1038,7 @@ class FeatureName : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class HighwayShield : public ::google::protobuf::MessageLite {
+class HighwayShield : public ::google::protobuf::Message {
  public:
   HighwayShield();
   virtual ~HighwayShield();
@@ -975,24 +1050,24 @@ class HighwayShield : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const HighwayShield& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const HighwayShield* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const HighwayShield& default_instance();
 
   void Swap(HighwayShield* other);
 
   // implements Message ----------------------------------------------
 
   HighwayShield* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const HighwayShield& from);
   void MergeFrom(const HighwayShield& from);
   void Clear();
@@ -1003,6 +1078,7 @@ class HighwayShield : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1010,7 +1086,7 @@ class HighwayShield : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -1047,17 +1123,15 @@ class HighwayShield : public ::google::protobuf::MessageLite {
   inline void set_has_iconid();
   inline void clear_has_iconid();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* number_;
   ::std::string* iconid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -1066,7 +1140,7 @@ class HighwayShield : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class RoadFeature : public ::google::protobuf::MessageLite {
+class RoadFeature : public ::google::protobuf::Message {
  public:
   RoadFeature();
   virtual ~RoadFeature();
@@ -1078,24 +1152,24 @@ class RoadFeature : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const RoadFeature& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const RoadFeature* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RoadFeature& default_instance();
 
   void Swap(RoadFeature* other);
 
   // implements Message ----------------------------------------------
 
   RoadFeature* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const RoadFeature& from);
   void MergeFrom(const RoadFeature& from);
   void Clear();
@@ -1106,6 +1180,7 @@ class RoadFeature : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1113,7 +1188,7 @@ class RoadFeature : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -1231,6 +1306,8 @@ class RoadFeature : public ::google::protobuf::MessageLite {
   inline void set_has_roaddirection();
   inline void clear_has_roaddirection();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::Polyline > lines_;
   int roadtype_;
   int roadsubtype_;
@@ -1245,11 +1322,7 @@ class RoadFeature : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -1258,7 +1331,7 @@ class RoadFeature : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class AreaFeature : public ::google::protobuf::MessageLite {
+class AreaFeature : public ::google::protobuf::Message {
  public:
   AreaFeature();
   virtual ~AreaFeature();
@@ -1270,24 +1343,24 @@ class AreaFeature : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const AreaFeature& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const AreaFeature* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AreaFeature& default_instance();
 
   void Swap(AreaFeature* other);
 
   // implements Message ----------------------------------------------
 
   AreaFeature* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const AreaFeature& from);
   void MergeFrom(const AreaFeature& from);
   void Clear();
@@ -1298,6 +1371,7 @@ class AreaFeature : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1305,7 +1379,7 @@ class AreaFeature : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -1384,6 +1458,8 @@ class AreaFeature : public ::google::protobuf::MessageLite {
   inline void set_has_featureid();
   inline void clear_has_featureid();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::Polygon > rings_;
   ::std::string* name_;
   ::std::string* subtype_;
@@ -1394,11 +1470,7 @@ class AreaFeature : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -1407,7 +1479,7 @@ class AreaFeature : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class LineFeature : public ::google::protobuf::MessageLite {
+class LineFeature : public ::google::protobuf::Message {
  public:
   LineFeature();
   virtual ~LineFeature();
@@ -1419,24 +1491,24 @@ class LineFeature : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const LineFeature& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const LineFeature* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LineFeature& default_instance();
 
   void Swap(LineFeature* other);
 
   // implements Message ----------------------------------------------
 
   LineFeature* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const LineFeature& from);
   void MergeFrom(const LineFeature& from);
   void Clear();
@@ -1447,6 +1519,7 @@ class LineFeature : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1454,7 +1527,7 @@ class LineFeature : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -1533,6 +1606,8 @@ class LineFeature : public ::google::protobuf::MessageLite {
   inline void set_has_featureid();
   inline void clear_has_featureid();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::Polyline > lines_;
   ::std::string* name_;
   ::std::string* subtype_;
@@ -1543,11 +1618,7 @@ class LineFeature : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -1556,7 +1627,7 @@ class LineFeature : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class PointFeature : public ::google::protobuf::MessageLite {
+class PointFeature : public ::google::protobuf::Message {
  public:
   PointFeature();
   virtual ~PointFeature();
@@ -1568,24 +1639,24 @@ class PointFeature : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const PointFeature& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const PointFeature* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PointFeature& default_instance();
 
   void Swap(PointFeature* other);
 
   // implements Message ----------------------------------------------
 
   PointFeature* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const PointFeature& from);
   void MergeFrom(const PointFeature& from);
   void Clear();
@@ -1596,6 +1667,7 @@ class PointFeature : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1603,7 +1675,7 @@ class PointFeature : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -1763,6 +1835,8 @@ class PointFeature : public ::google::protobuf::MessageLite {
   inline void set_has_landmark_icon();
   inline void clear_has_landmark_icon();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > latlon_;
   mutable int _latlon_cached_byte_size_;
   ::std::string* subtype_;
@@ -1782,11 +1856,7 @@ class PointFeature : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -1795,7 +1865,7 @@ class PointFeature : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class BuildingBlockRef : public ::google::protobuf::MessageLite {
+class BuildingBlockRef : public ::google::protobuf::Message {
  public:
   BuildingBlockRef();
   virtual ~BuildingBlockRef();
@@ -1807,24 +1877,24 @@ class BuildingBlockRef : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const BuildingBlockRef& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const BuildingBlockRef* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BuildingBlockRef& default_instance();
 
   void Swap(BuildingBlockRef* other);
 
   // implements Message ----------------------------------------------
 
   BuildingBlockRef* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const BuildingBlockRef& from);
   void MergeFrom(const BuildingBlockRef& from);
   void Clear();
@@ -1835,6 +1905,7 @@ class BuildingBlockRef : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1842,7 +1913,7 @@ class BuildingBlockRef : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -1878,6 +1949,8 @@ class BuildingBlockRef : public ::google::protobuf::MessageLite {
   inline void set_has_row();
   inline void clear_has_row();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::uint32 depth_;
   ::google::protobuf::uint32 col_;
   ::google::protobuf::uint32 row_;
@@ -1885,11 +1958,7 @@ class BuildingBlockRef : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -1898,7 +1967,7 @@ class BuildingBlockRef : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class BuildingBlockList : public ::google::protobuf::MessageLite {
+class BuildingBlockList : public ::google::protobuf::Message {
  public:
   BuildingBlockList();
   virtual ~BuildingBlockList();
@@ -1910,24 +1979,24 @@ class BuildingBlockList : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const BuildingBlockList& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const BuildingBlockList* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BuildingBlockList& default_instance();
 
   void Swap(BuildingBlockList* other);
 
   // implements Message ----------------------------------------------
 
   BuildingBlockList* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const BuildingBlockList& from);
   void MergeFrom(const BuildingBlockList& from);
   void Clear();
@@ -1938,6 +2007,7 @@ class BuildingBlockList : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1945,7 +2015,7 @@ class BuildingBlockList : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -1975,17 +2045,15 @@ class BuildingBlockList : public ::google::protobuf::MessageLite {
   inline void set_has_version();
   inline void clear_has_version();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::BuildingBlockRef > blockrefs_;
   ::google::protobuf::int32 version_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -1994,7 +2062,7 @@ class BuildingBlockList : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class BigTileConfig : public ::google::protobuf::MessageLite {
+class BigTileConfig : public ::google::protobuf::Message {
  public:
   BigTileConfig();
   virtual ~BigTileConfig();
@@ -2006,24 +2074,24 @@ class BigTileConfig : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const BigTileConfig& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const BigTileConfig* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BigTileConfig& default_instance();
 
   void Swap(BigTileConfig* other);
 
   // implements Message ----------------------------------------------
 
   BigTileConfig* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const BigTileConfig& from);
   void MergeFrom(const BigTileConfig& from);
   void Clear();
@@ -2034,6 +2102,7 @@ class BigTileConfig : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -2041,7 +2110,7 @@ class BigTileConfig : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -2062,16 +2131,14 @@ class BigTileConfig : public ::google::protobuf::MessageLite {
   // @@protoc_insertion_point(class_scope:com.telenav.proto.map.BigTileConfig)
  private:
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::RepeatedPtrField< ::com::telenav::proto::map::ZoomLevel > zoomlevel_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -2080,7 +2147,7 @@ class BigTileConfig : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class ZoomLevel : public ::google::protobuf::MessageLite {
+class ZoomLevel : public ::google::protobuf::Message {
  public:
   ZoomLevel();
   virtual ~ZoomLevel();
@@ -2092,24 +2159,24 @@ class ZoomLevel : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const ZoomLevel& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const ZoomLevel* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ZoomLevel& default_instance();
 
   void Swap(ZoomLevel* other);
 
   // implements Message ----------------------------------------------
 
   ZoomLevel* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const ZoomLevel& from);
   void MergeFrom(const ZoomLevel& from);
   void Clear();
@@ -2120,6 +2187,7 @@ class ZoomLevel : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -2127,7 +2195,7 @@ class ZoomLevel : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -2154,17 +2222,15 @@ class ZoomLevel : public ::google::protobuf::MessageLite {
   inline void set_has_power();
   inline void clear_has_power();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::google::protobuf::int32 level_;
   ::google::protobuf::int32 power_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_map_2evector_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_map_2evector_2eproto();
-  #endif
   friend void protobuf_AssignDesc_map_2evector_2eproto();
   friend void protobuf_ShutdownFile_map_2evector_2eproto();
 
@@ -2259,11 +2325,7 @@ inline void VectorMapRequest::clear_context() {
   clear_has_context();
 }
 inline const ::com::telenav::proto::Context& VectorMapRequest::context() const {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  return context_ != NULL ? *context_ : *default_instance().context_;
-#else
   return context_ != NULL ? *context_ : *default_instance_->context_;
-#endif
 }
 inline ::com::telenav::proto::Context* VectorMapRequest::mutable_context() {
   set_has_context();
@@ -2683,11 +2745,7 @@ inline void VectorMapTile::clear_buildingblocklist() {
   clear_has_buildingblocklist();
 }
 inline const ::com::telenav::proto::map::BuildingBlockList& VectorMapTile::buildingblocklist() const {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  return buildingblocklist_ != NULL ? *buildingblocklist_ : *default_instance().buildingblocklist_;
-#else
   return buildingblocklist_ != NULL ? *buildingblocklist_ : *default_instance_->buildingblocklist_;
-#endif
 }
 inline ::com::telenav::proto::map::BuildingBlockList* VectorMapTile::mutable_buildingblocklist() {
   set_has_buildingblocklist();
@@ -4296,11 +4354,7 @@ inline void PointFeature::clear_spline() {
   clear_has_spline();
 }
 inline const ::com::telenav::proto::map::Polyline& PointFeature::spline() const {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  return spline_ != NULL ? *spline_ : *default_instance().spline_;
-#else
   return spline_ != NULL ? *spline_ : *default_instance_->spline_;
-#endif
 }
 inline ::com::telenav::proto::map::Polyline* PointFeature::mutable_spline() {
   set_has_spline();
@@ -4670,6 +4724,47 @@ inline void ZoomLevel::set_power(::google::protobuf::int32 value) {
 }  // namespace proto
 }  // namespace telenav
 }  // namespace com
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::RoadSubType>() {
+  return ::com::telenav::proto::map::RoadSubType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::RoadDirection>() {
+  return ::com::telenav::proto::map::RoadDirection_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::RoadFunctionClass>() {
+  return ::com::telenav::proto::map::RoadFunctionClass_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::AreaType>() {
+  return ::com::telenav::proto::map::AreaType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::RingOrientation>() {
+  return ::com::telenav::proto::map::RingOrientation_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::PointType>() {
+  return ::com::telenav::proto::map::PointType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::LineType>() {
+  return ::com::telenav::proto::map::LineType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::FontStyle>() {
+  return ::com::telenav::proto::map::FontStyle_descriptor();
+}
+
+}  // namespace google
+}  // namespace protobuf
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

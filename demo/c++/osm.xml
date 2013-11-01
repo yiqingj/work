@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map background-color="#b5d0d0" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over" minimum-version="2.0.0">
+<FontSet name="book-fonts">
+    <Font face-name="DejaVu Sans Book" />
+    <Font face-name="unifont Medium" />
+</FontSet>
+<FontSet name="bold-fonts">
+    <Font face-name="DejaVu Sans Bold" />
+    <Font face-name="unifont Medium" />
+</FontSet>
+<FontSet name="oblique-fonts">
+    <Font face-name="DejaVu Sans Oblique" />
+    <Font face-name="unifont Medium" />
+</FontSet>
+<Style name="roads-text-name">
+    <Rule>
+        <Filter>[highway] = 'trunk' or [highway] = 'primary'</Filter>
+        <MaxScaleDenominator>100000</MaxScaleDenominator>
+        <MinScaleDenominator>50000</MinScaleDenominator>
+        <TextSymbolizer size="8" fill="black" placement="line" fontset-name="book-fonts" halo-radius="0">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'secondary'</Filter>
+        <MaxScaleDenominator>100000</MaxScaleDenominator>
+        <MinScaleDenominator>50000</MinScaleDenominator>
+        <TextSymbolizer size="8" fill="black" placement="line" fontset-name="book-fonts" halo-radius="1" halo-fill="#fed7a5">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'trunk' or [highway] = 'primary'</Filter>
+        <MaxScaleDenominator>50000</MaxScaleDenominator>
+        <MinScaleDenominator>25000</MinScaleDenominator>
+        <TextSymbolizer size="9" fill="black" placement="line" fontset-name="book-fonts" halo-radius="0">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'trunk' or [highway] = 'primary'</Filter>
+        <MaxScaleDenominator>25000</MaxScaleDenominator>
+        <TextSymbolizer size="10" fill="black" placement="line" fontset-name="book-fonts" halo-radius="0">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'secondary'</Filter>
+        <MaxScaleDenominator>50000</MaxScaleDenominator>
+        <MinScaleDenominator>25000</MinScaleDenominator>
+        <TextSymbolizer size="9" fill="black" placement="line" fontset-name="book-fonts" halo-radius="1" halo-fill="#fed7a5">[name]</TextSymbolizer>
+    </Rule><Rule>
+        <Filter>[highway] = 'secondary'</Filter>
+        <MaxScaleDenominator>25000</MaxScaleDenominator>
+        <TextSymbolizer size="10" fill="black" placement="line" fontset-name="book-fonts" halo-radius="1" halo-fill="#fed7a5">[name]</TextSymbolizer>
+    </Rule>
+    <Rule>
+        <Filter>[highway] = 'tertiary'</Filter>
+        <MaxScaleDenominator>25000</MaxScaleDenominator>
+        <MinScaleDenominator>5000</MinScaleDenominator>
+        <TextSymbolizer size="9" fill="#000" placement="line" fontset-name="book-fonts" halo-radius="1">[name]</TextSymbolizer>
+    </Rule>
+</Style>
+<Layer name="roads-text-name" status="on" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <StyleName>roads-text-name</StyleName>
+    <Datasource>
+        <Parameter name="table">
+            (select way,highway,name
+            from planet_osm_line
+            where waterway IS NULL
+            and leisure IS NULL
+            and landuse IS NULL
+            and name is not null
+            ) as roads
+        </Parameter>
+        <Parameter name="type">postgis</Parameter>
+        <Parameter name="password">telenav</Parameter>
+        <Parameter name="host">ec2-54-211-204-95.compute-1.amazonaws.com</Parameter>
+        <Parameter name="port">5432</Parameter>
+        <Parameter name="user">postgres</Parameter>
+        <Parameter name="dbname">openstreetmap</Parameter>
+        <!-- this should be 'false' if you are manually providing the 'extent' -->
+        <Parameter name="estimate_extent">false</Parameter>
+        <!-- manually provided extent in epsg 900913 for whole globe -->
+        <!-- providing this speeds up Mapnik database queries -->
+        <Parameter name="extent">-20037508,-19929239,20037508,19929239</Parameter>
+    </Datasource>
+</Layer>
+</Map>

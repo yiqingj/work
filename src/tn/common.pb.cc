@@ -2,7 +2,7 @@
 // source: common.proto
 
 #define INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION
-#include "common.pb.h"
+#include "mapnik/common.pb.h"
 
 #include <algorithm>
 
@@ -10,34 +10,350 @@
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
+#include <google/protobuf/descriptor.h>
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/reflection_ops.h>
+#include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
 namespace com {
 namespace telenav {
 namespace proto {
 
-void protobuf_ShutdownFile_common_2eproto() {
-  delete LatLon::default_instance_;
-  delete Address::default_instance_;
-  delete Street::default_instance_;
-  delete SearchQuery::default_instance_;
-  delete Facet::default_instance_;
-  delete Currency::default_instance_;
-  delete NameValuePair::default_instance_;
+namespace {
+
+const ::google::protobuf::Descriptor* LatLon_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LatLon_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Address_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Address_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Street_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Street_reflection_ = NULL;
+const ::google::protobuf::Descriptor* SearchQuery_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SearchQuery_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Facet_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Facet_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Currency_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Currency_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NameValuePair_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NameValuePair_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* CurrencyCode_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Country_descriptor_ = NULL;
+
+}  // namespace
+
+
+void protobuf_AssignDesc_common_2eproto() {
+  protobuf_AddDesc_common_2eproto();
+  const ::google::protobuf::FileDescriptor* file =
+    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
+      "common.proto");
+  GOOGLE_CHECK(file != NULL);
+  LatLon_descriptor_ = file->message_type(0);
+  static const int LatLon_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LatLon, lat_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LatLon, lon_),
+  };
+  LatLon_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LatLon_descriptor_,
+      LatLon::default_instance_,
+      LatLon_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LatLon, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LatLon, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LatLon));
+  Address_descriptor_ = file->message_type(1);
+  static const int Address_offsets_[13] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, formatted_address_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, house_number_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, suite_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, sub_street_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, street_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, cross_street_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, sub_locality_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, locality_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, city_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, county_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, state_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, country_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, postal_code_),
+  };
+  Address_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Address_descriptor_,
+      Address::default_instance_,
+      Address_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Address, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Address));
+  Street_descriptor_ = file->message_type(2);
+  static const int Street_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Street, dirs_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Street, body_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Street, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Street, formatted_name_),
+  };
+  Street_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Street_descriptor_,
+      Street::default_instance_,
+      Street_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Street, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Street, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Street));
+  SearchQuery_descriptor_ = file->message_type(3);
+  static const int SearchQuery_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchQuery, domain_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchQuery, category_),
+  };
+  SearchQuery_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SearchQuery_descriptor_,
+      SearchQuery::default_instance_,
+      SearchQuery_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchQuery, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchQuery, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SearchQuery));
+  Facet_descriptor_ = file->message_type(4);
+  static const int Facet_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Facet, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Facet, facet_data_),
+  };
+  Facet_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Facet_descriptor_,
+      Facet::default_instance_,
+      Facet_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Facet, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Facet, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Facet));
+  Currency_descriptor_ = file->message_type(5);
+  static const int Currency_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Currency, value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Currency, iso_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Currency, symbol_),
+  };
+  Currency_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Currency_descriptor_,
+      Currency::default_instance_,
+      Currency_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Currency, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Currency, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Currency));
+  NameValuePair_descriptor_ = file->message_type(6);
+  static const int NameValuePair_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NameValuePair, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NameValuePair, value_),
+  };
+  NameValuePair_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NameValuePair_descriptor_,
+      NameValuePair::default_instance_,
+      NameValuePair_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NameValuePair, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NameValuePair, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NameValuePair));
+  CurrencyCode_descriptor_ = file->enum_type(0);
+  Country_descriptor_ = file->enum_type(1);
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-void protobuf_AddDesc_common_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
+namespace {
 
-#else
+GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+inline void protobuf_AssignDescriptorsOnce() {
+  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
+                 &protobuf_AssignDesc_common_2eproto);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LatLon_descriptor_, &LatLon::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Address_descriptor_, &Address::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Street_descriptor_, &Street::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SearchQuery_descriptor_, &SearchQuery::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Facet_descriptor_, &Facet::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Currency_descriptor_, &Currency::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NameValuePair_descriptor_, &NameValuePair::default_instance());
+}
+
+}  // namespace
+
+void protobuf_ShutdownFile_common_2eproto() {
+  delete LatLon::default_instance_;
+  delete LatLon_reflection_;
+  delete Address::default_instance_;
+  delete Address_reflection_;
+  delete Street::default_instance_;
+  delete Street_reflection_;
+  delete SearchQuery::default_instance_;
+  delete SearchQuery_reflection_;
+  delete Facet::default_instance_;
+  delete Facet_reflection_;
+  delete Currency::default_instance_;
+  delete Currency_reflection_;
+  delete NameValuePair::default_instance_;
+  delete NameValuePair_reflection_;
+}
+
 void protobuf_AddDesc_common_2eproto() {
   static bool already_here = false;
   if (already_here) return;
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-#endif
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+    "\n\014common.proto\022\021com.telenav.proto\"\"\n\006Lat"
+    "Lon\022\013\n\003lat\030\001 \002(\001\022\013\n\003lon\030\002 \002(\001\"\321\002\n\007Addres"
+    "s\022\031\n\021formatted_address\030\n \001(\t\022\024\n\014house_nu"
+    "mber\030\024 \001(\t\022\r\n\005suite\030\036 \001(\t\022\022\n\nsub_street\030"
+    "( \001(\t\022)\n\006street\0302 \001(\0132\031.com.telenav.prot"
+    "o.Street\022/\n\014cross_street\030< \001(\0132\031.com.tel"
+    "enav.proto.Street\022\024\n\014sub_locality\030F \001(\t\022"
+    "\020\n\010locality\030P \001(\t\022\014\n\004city\030Z \001(\t\022\016\n\006count"
+    "y\030d \001(\t\022\r\n\005state\030n \001(\t\022+\n\007country\030x \001(\0162"
+    "\032.com.telenav.proto.Country\022\024\n\013postal_co"
+    "de\030\202\001 \001(\t\"J\n\006Street\022\014\n\004dirs\030\n \003(\t\022\014\n\004bod"
+    "y\030\024 \001(\t\022\014\n\004type\030\036 \001(\t\022\026\n\016formatted_name\030"
+    "( \001(\t\"/\n\013SearchQuery\022\016\n\006domain\030\n \003(\t\022\020\n\010"
+    "category\030\024 \003(\t\")\n\005Facet\022\014\n\004type\030\n \002(\t\022\022\n"
+    "\nfacet_data\030\024 \002(\t\"\\\n\010Currency\022\r\n\005value\030\n"
+    " \002(\002\0221\n\010iso_code\030\024 \002(\0162\037.com.telenav.pro"
+    "to.CurrencyCode\022\016\n\006symbol\030\036 \001(\t\",\n\rNameV"
+    "aluePair\022\014\n\004name\030\n \002(\t\022\r\n\005value\030\024 \002(\t*\307\r"
+    "\n\014CurrencyCode\022\010\n\003AED\020\220\006\022\010\n\003AFN\020\313\007\022\007\n\003AL"
+    "L\020\010\022\007\n\003AMD\0203\022\010\n\003ANG\020\224\004\022\010\n\003AOA\020\315\007\022\007\n\003ARS\020"
+    " \022\007\n\003AUD\020$\022\010\n\003AWG\020\225\004\022\010\n\003AZN\020\260\007\022\010\n\003BAM\020\321\007"
+    "\022\007\n\003BBD\0204\022\007\n\003BDT\0202\022\010\n\003BGN\020\317\007\022\007\n\003BHD\0200\022\007\n"
+    "\003BIF\020l\022\007\n\003BMD\020<\022\007\n\003BND\020`\022\007\n\003BOB\020D\022\010\n\003BOV"
+    "\020\330\007\022\010\n\003BRL\020\332\007\022\007\n\003BTN\020@\022\007\n\003BWP\020H\022\010\n\003BYR\020\316"
+    "\007\022\007\n\003BZD\020T\022\007\n\003CAD\020|\022\010\n\003CDF\020\320\007\022\010\n\003CHE\020\263\007\022"
+    "\010\n\003CHF\020\364\005\022\010\n\003CHW\020\264\007\022\010\n\003CLF\020\336\007\022\010\n\003CLP\020\230\001\022"
+    "\010\n\003CNY\020\234\001\022\010\n\003COP\020\252\001\022\010\n\003COU\020\312\007\022\010\n\003CRC\020\274\001\022"
+    "\010\n\003CUC\020\243\007\022\010\n\003CUP\020\300\001\022\010\n\003CVE\020\204\001\022\010\n\003CZK\020\313\001\022"
+    "\010\n\003DJF\020\206\002\022\010\n\003DKK\020\320\001\022\010\n\003DOP\020\326\001\022\007\n\003DZD\020\014\022\010"
+    "\n\003EGP\020\262\006\022\010\n\003ERN\020\350\001\022\010\n\003ETB\020\346\001\022\010\n\003EUR\020\322\007\022\010"
+    "\n\003FJD\020\362\001\022\010\n\003FKP\020\356\001\022\010\n\003GBP\020\272\006\022\010\n\003GEL\020\325\007\022\010"
+    "\n\003GHS\020\250\007\022\010\n\003GIP\020\244\002\022\010\n\003GMD\020\216\002\022\010\n\003GNF\020\304\002\022\010"
+    "\n\003GTQ\020\300\002\022\010\n\003GYD\020\310\002\022\010\n\003HKD\020\330\002\022\010\n\003HNL\020\324\002\022\010"
+    "\n\003HRK\020\277\001\022\010\n\003HTG\020\314\002\022\010\n\003HUF\020\334\002\022\010\n\003IDR\020\350\002\022\010"
+    "\n\003ILS\020\370\002\022\010\n\003INR\020\344\002\022\010\n\003IQD\020\360\002\022\010\n\003IRR\020\354\002\022\010"
+    "\n\003ISK\020\340\002\022\010\n\003JMD\020\204\003\022\010\n\003JOD\020\220\003\022\010\n\003JPY\020\210\003\022\010"
+    "\n\003KES\020\224\003\022\010\n\003KGS\020\241\003\022\007\n\003KHR\020t\022\010\n\003KMF\020\256\001\022\010\n"
+    "\003KPW\020\230\003\022\010\n\003KRW\020\232\003\022\010\n\003KWD\020\236\003\022\010\n\003KYD\020\210\001\022\010\n"
+    "\003KZT\020\216\003\022\010\n\003LAK\020\242\003\022\010\n\003LBP\020\246\003\022\010\n\003LKR\020\220\001\022\010\n"
+    "\003LRD\020\256\003\022\010\n\003LSL\020\252\003\022\010\n\003LTL\020\270\003\022\010\n\003LVL\020\254\003\022\010\n"
+    "\003LYD\020\262\003\022\010\n\003MAD\020\370\003\022\010\n\003MDL\020\362\003\022\010\n\003MGA\020\311\007\022\010\n"
+    "\003MKD\020\247\006\022\007\n\003MMK\020h\022\010\n\003MNT\020\360\003\022\010\n\003MOP\020\276\003\022\010\n\003"
+    "MRO\020\336\003\022\010\n\003MUR\020\340\003\022\010\n\003MVR\020\316\003\022\010\n\003MWK\020\306\003\022\010\n\003"
+    "MXN\020\344\003\022\010\n\003MXV\020\323\007\022\010\n\003MYR\020\312\003\022\010\n\003MZN\020\257\007\022\010\n\003"
+    "NAD\020\204\004\022\010\n\003NGN\020\266\004\022\010\n\003NIO\020\256\004\022\010\n\003NOK\020\302\004\022\010\n\003"
+    "NPR\020\214\004\022\010\n\003NZD\020\252\004\022\010\n\003OMR\020\200\004\022\010\n\003PAB\020\316\004\022\010\n\003"
+    "PEN\020\334\004\022\010\n\003PGK\020\326\004\022\010\n\003PHP\020\340\004\022\010\n\003PKR\020\312\004\022\010\n\003"
+    "PLN\020\331\007\022\010\n\003PYG\020\330\004\022\010\n\003QAR\020\372\004\022\010\n\003RON\020\262\007\022\010\n\003"
+    "RSD\020\255\007\022\010\n\003RUB\020\203\005\022\010\n\003RWF\020\206\005\022\010\n\003SAR\020\252\005\022\007\n\003"
+    "SBD\020Z\022\010\n\003SCR\020\262\005\022\010\n\003SDG\020\252\007\022\010\n\003SEK\020\360\005\022\010\n\003S"
+    "GD\020\276\005\022\010\n\003SHP\020\216\005\022\010\n\003SLL\020\266\005\022\010\n\003SOS\020\302\005\022\010\n\003S"
+    "RD\020\310\007\022\010\n\003SSP\020\330\005\022\010\n\003STD\020\246\005\022\010\n\003SYP\020\370\005\022\010\n\003S"
+    "ZL\020\354\005\022\010\n\003THB\020\374\005\022\010\n\003TJS\020\314\007\022\010\n\003TMT\020\246\007\022\010\n\003T"
+    "ND\020\224\006\022\010\n\003TOP\020\210\006\022\010\n\003TRY\020\265\007\022\010\n\003TTD\020\214\006\022\010\n\003T"
+    "WD\020\205\007\022\010\n\003TZS\020\302\006\022\010\n\003UAH\020\324\007\022\010\n\003UGX\020\240\006\022\010\n\003U"
+    "SD\020\310\006\022\010\n\003USN\020\345\007\022\010\n\003USS\020\346\007\022\010\n\003UYI\020\254\007\022\010\n\003U"
+    "YU\020\332\006\022\010\n\003UZS\020\334\006\022\010\n\003VEF\020\251\007\022\010\n\003VND\020\300\005\022\010\n\003V"
+    "UV\020\244\004\022\010\n\003WST\020\362\006\022\010\n\003XAF\020\266\007\022\010\n\003XAG\020\301\007\022\010\n\003X"
+    "AU\020\277\007\022\010\n\003XBA\020\273\007\022\010\n\003XBB\020\274\007\022\010\n\003XBC\020\275\007\022\010\n\003X"
+    "BD\020\276\007\022\010\n\003XCD\020\267\007\022\010\n\003XDR\020\300\007\022\010\n\003XOF\020\270\007\022\010\n\003X"
+    "PD\020\304\007\022\010\n\003XPF\020\271\007\022\010\n\003XPT\020\302\007\022\010\n\003YER\020\366\006\022\010\n\003Z"
+    "AR\020\306\005\022\010\n\003ZMW\020\307\007*\226\020\n\007Country\022\006\n\002AD\020\001\022\006\n\002A"
+    "E\020\002\022\006\n\002AF\020\003\022\006\n\002AG\020\004\022\006\n\002AI\020\005\022\006\n\002AL\020\006\022\006\n\002A"
+    "M\020\007\022\006\n\002AN\020\010\022\006\n\002AO\020\t\022\006\n\002AQ\020\n\022\006\n\002AR\020\013\022\006\n\002A"
+    "S\020\014\022\006\n\002AT\020\r\022\006\n\002AU\020\016\022\006\n\002AW\020\017\022\006\n\002AX\020\020\022\006\n\002A"
+    "Z\020\021\022\006\n\002BA\020\022\022\006\n\002BB\020\023\022\006\n\002BD\020\024\022\006\n\002BE\020\025\022\006\n\002B"
+    "F\020\026\022\006\n\002BG\020\027\022\006\n\002BH\020\030\022\006\n\002BI\020\031\022\006\n\002BJ\020\032\022\006\n\002B"
+    "L\020\033\022\006\n\002BM\020\034\022\006\n\002BN\020\035\022\006\n\002BO\020\036\022\006\n\002BR\020\037\022\006\n\002B"
+    "S\020 \022\006\n\002BT\020!\022\006\n\002BV\020\"\022\006\n\002BW\020#\022\006\n\002BY\020$\022\006\n\002B"
+    "Z\020%\022\006\n\002CA\020&\022\006\n\002CC\020\'\022\006\n\002CD\020(\022\006\n\002CF\020)\022\006\n\002C"
+    "G\020*\022\006\n\002CH\020+\022\006\n\002CI\020,\022\006\n\002CK\020-\022\006\n\002CL\020.\022\006\n\002C"
+    "M\020/\022\006\n\002CN\0200\022\006\n\002CO\0201\022\006\n\002CR\0202\022\006\n\002CU\0203\022\006\n\002C"
+    "V\0204\022\006\n\002CX\0205\022\006\n\002CY\0206\022\006\n\002CZ\0207\022\006\n\002DE\0208\022\006\n\002D"
+    "J\0209\022\006\n\002DK\020:\022\006\n\002DM\020;\022\006\n\002DO\020<\022\006\n\002DZ\020=\022\006\n\002E"
+    "C\020>\022\006\n\002EE\020\?\022\006\n\002EG\020@\022\006\n\002EH\020A\022\006\n\002ER\020B\022\006\n\002E"
+    "S\020C\022\006\n\002ET\020D\022\006\n\002FI\020E\022\006\n\002FJ\020F\022\006\n\002FK\020G\022\006\n\002F"
+    "M\020H\022\006\n\002FO\020I\022\006\n\002FR\020J\022\006\n\002GA\020K\022\006\n\002GB\020L\022\006\n\002G"
+    "D\020M\022\006\n\002GE\020N\022\006\n\002GF\020O\022\006\n\002GG\020P\022\006\n\002GH\020Q\022\006\n\002G"
+    "I\020R\022\006\n\002GL\020S\022\006\n\002GM\020T\022\006\n\002GN\020U\022\006\n\002GP\020V\022\006\n\002G"
+    "Q\020W\022\006\n\002GR\020X\022\006\n\002GS\020Y\022\006\n\002GT\020Z\022\006\n\002GU\020[\022\006\n\002G"
+    "W\020\\\022\006\n\002GY\020]\022\006\n\002HK\020^\022\006\n\002HM\020_\022\006\n\002HN\020`\022\006\n\002H"
+    "R\020a\022\006\n\002HT\020b\022\006\n\002HU\020c\022\006\n\002ID\020d\022\006\n\002IE\020e\022\006\n\002I"
+    "L\020f\022\006\n\002IM\020g\022\006\n\002IO\020i\022\006\n\002IQ\020j\022\006\n\002IR\020k\022\006\n\002I"
+    "S\020l\022\006\n\002IT\020m\022\006\n\002JE\020n\022\006\n\002JM\020o\022\006\n\002JO\020p\022\006\n\002J"
+    "P\020q\022\006\n\002KE\020r\022\006\n\002KG\020s\022\006\n\002KH\020t\022\006\n\002KI\020u\022\006\n\002K"
+    "M\020v\022\006\n\002KN\020w\022\006\n\002KP\020x\022\006\n\002KR\020y\022\006\n\002KW\020z\022\006\n\002K"
+    "Y\020{\022\006\n\002KZ\020|\022\006\n\002LA\020}\022\006\n\002LB\020~\022\006\n\002LC\020\177\022\007\n\002L"
+    "I\020\200\001\022\007\n\002LK\020\201\001\022\007\n\002LR\020\202\001\022\007\n\002LS\020\203\001\022\007\n\002LT\020\204\001"
+    "\022\007\n\002LU\020\205\001\022\007\n\002LV\020\206\001\022\007\n\002LY\020\207\001\022\007\n\002MA\020\210\001\022\007\n\002"
+    "MC\020\211\001\022\007\n\002MD\020\212\001\022\007\n\002ME\020\213\001\022\007\n\002MF\020\214\001\022\007\n\002MG\020\215"
+    "\001\022\007\n\002MH\020\216\001\022\007\n\002MK\020\217\001\022\007\n\002ML\020\220\001\022\007\n\002MM\020\221\001\022\007\n"
+    "\002MN\020\222\001\022\007\n\002MO\020\223\001\022\007\n\002MP\020\224\001\022\007\n\002MQ\020\225\001\022\007\n\002MR\020"
+    "\226\001\022\007\n\002MS\020\227\001\022\007\n\002MT\020\230\001\022\007\n\002MU\020\231\001\022\007\n\002MV\020\232\001\022\007"
+    "\n\002MW\020\233\001\022\007\n\002MX\020\234\001\022\007\n\002MY\020\235\001\022\007\n\002MZ\020\236\001\022\007\n\002NA"
+    "\020\237\001\022\007\n\002NC\020\240\001\022\007\n\002NE\020\241\001\022\007\n\002NF\020\242\001\022\007\n\002NG\020\243\001\022"
+    "\007\n\002NI\020\244\001\022\007\n\002NL\020\245\001\022\007\n\002NP\020\247\001\022\007\n\002NR\020\250\001\022\007\n\002N"
+    "U\020\251\001\022\007\n\002NZ\020\252\001\022\007\n\002OM\020\253\001\022\007\n\002PA\020\254\001\022\007\n\002PE\020\255\001"
+    "\022\007\n\002PF\020\256\001\022\007\n\002PG\020\257\001\022\007\n\002PH\020\260\001\022\007\n\002PK\020\261\001\022\007\n\002"
+    "PL\020\262\001\022\007\n\002PM\020\263\001\022\007\n\002PN\020\264\001\022\007\n\002PR\020\265\001\022\007\n\002PS\020\266"
+    "\001\022\007\n\002PT\020\267\001\022\007\n\002PW\020\270\001\022\007\n\002PY\020\271\001\022\007\n\002QA\020\272\001\022\007\n"
+    "\002RE\020\273\001\022\007\n\002RO\020\274\001\022\007\n\002RS\020\275\001\022\007\n\002RU\020\276\001\022\007\n\002RW\020"
+    "\277\001\022\007\n\002SA\020\300\001\022\007\n\002SB\020\301\001\022\007\n\002SC\020\302\001\022\007\n\002SD\020\303\001\022\007"
+    "\n\002SE\020\304\001\022\007\n\002SG\020\305\001\022\007\n\002SH\020\306\001\022\007\n\002SI\020\307\001\022\007\n\002SJ"
+    "\020\310\001\022\007\n\002SK\020\311\001\022\007\n\002SL\020\312\001\022\007\n\002SM\020\313\001\022\007\n\002SN\020\314\001\022"
+    "\007\n\002SO\020\315\001\022\007\n\002SR\020\316\001\022\007\n\002ST\020\317\001\022\007\n\002SV\020\320\001\022\007\n\002S"
+    "Y\020\321\001\022\007\n\002SZ\020\322\001\022\007\n\002TC\020\323\001\022\007\n\002TD\020\324\001\022\007\n\002TF\020\325\001"
+    "\022\007\n\002TG\020\326\001\022\007\n\002TH\020\327\001\022\007\n\002TJ\020\330\001\022\007\n\002TK\020\331\001\022\007\n\002"
+    "TL\020\332\001\022\007\n\002TM\020\333\001\022\007\n\002TN\020\334\001\022\007\n\002TO\020\335\001\022\007\n\002TR\020\336"
+    "\001\022\007\n\002TT\020\337\001\022\007\n\002TV\020\340\001\022\007\n\002TW\020\341\001\022\007\n\002TZ\020\342\001\022\007\n"
+    "\002UA\020\343\001\022\007\n\002UG\020\344\001\022\007\n\002UM\020\345\001\022\007\n\002US\020\346\001\022\007\n\002UY\020"
+    "\347\001\022\007\n\002UZ\020\350\001\022\007\n\002VA\020\351\001\022\007\n\002VC\020\352\001\022\007\n\002VE\020\353\001\022\007"
+    "\n\002VG\020\354\001\022\007\n\002VI\020\355\001\022\007\n\002VN\020\356\001\022\007\n\002VU\020\357\001\022\007\n\002WF"
+    "\020\360\001\022\007\n\002WS\020\361\001\022\007\n\002YE\020\362\001\022\007\n\002YT\020\363\001\022\007\n\002ZA\020\364\001\022"
+    "\007\n\002ZM\020\365\001B*\n\030com.telenav.proto.commonB\014Co"
+    "mmonProtocP\001", 4572);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "common.proto", &protobuf_RegisterTypes);
   LatLon::default_instance_ = new LatLon();
   Address::default_instance_ = new Address();
   Street::default_instance_ = new Street();
@@ -55,20 +371,16 @@ void protobuf_AddDesc_common_2eproto() {
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_common_2eproto);
 }
 
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_common_2eproto_once_);
-void protobuf_AddDesc_common_2eproto() {
-  ::google::protobuf::::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_common_2eproto_once_,
-                 &protobuf_AddDesc_common_2eproto_impl);
-}
-#else
 // Force AddDescriptors() to be called at static initialization time.
 struct StaticDescriptorInitializer_common_2eproto {
   StaticDescriptorInitializer_common_2eproto() {
     protobuf_AddDesc_common_2eproto();
   }
 } static_descriptor_initializer_common_2eproto_;
-#endif
+const ::google::protobuf::EnumDescriptor* CurrencyCode_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CurrencyCode_descriptor_;
+}
 bool CurrencyCode_IsValid(int value) {
   switch(value) {
     case 8:
@@ -251,6 +563,10 @@ bool CurrencyCode_IsValid(int value) {
   }
 }
 
+const ::google::protobuf::EnumDescriptor* Country_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Country_descriptor_;
+}
 bool Country_IsValid(int value) {
   switch(value) {
     case 1:
@@ -511,7 +827,7 @@ const int LatLon::kLonFieldNumber;
 #endif  // !_MSC_VER
 
 LatLon::LatLon()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -519,7 +835,7 @@ void LatLon::InitAsDefaultInstance() {
 }
 
 LatLon::LatLon(const LatLon& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -536,11 +852,7 @@ LatLon::~LatLon() {
 }
 
 void LatLon::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -549,12 +861,13 @@ void LatLon::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* LatLon::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LatLon_descriptor_;
+}
+
 const LatLon& LatLon::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_common_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -570,6 +883,7 @@ void LatLon::Clear() {
     lon_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool LatLon::MergePartialFromCodedStream(
@@ -615,7 +929,8 @@ bool LatLon::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -636,6 +951,29 @@ void LatLon::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->lon(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LatLon::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required double lat = 1;
+  if (has_lat()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->lat(), target);
+  }
+
+  // required double lon = 2;
+  if (has_lon()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->lon(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int LatLon::ByteSize() const {
@@ -653,15 +991,27 @@ int LatLon::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void LatLon::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const LatLon*>(&from));
+void LatLon::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LatLon* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LatLon*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void LatLon::MergeFrom(const LatLon& from) {
@@ -674,6 +1024,13 @@ void LatLon::MergeFrom(const LatLon& from) {
       set_lon(from.lon());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LatLon::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void LatLon::CopyFrom(const LatLon& from) {
@@ -693,12 +1050,17 @@ void LatLon::Swap(LatLon* other) {
     std::swap(lat_, other->lat_);
     std::swap(lon_, other->lon_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string LatLon::GetTypeName() const {
-  return "com.telenav.proto.LatLon";
+::google::protobuf::Metadata LatLon::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LatLon_descriptor_;
+  metadata.reflection = LatLon_reflection_;
+  return metadata;
 }
 
 
@@ -721,27 +1083,17 @@ const int Address::kPostalCodeFieldNumber;
 #endif  // !_MSC_VER
 
 Address::Address()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
 void Address::InitAsDefaultInstance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  street_ = const_cast< ::com::telenav::proto::Street*>(
-      ::com::telenav::proto::Street::internal_default_instance());
-#else
   street_ = const_cast< ::com::telenav::proto::Street*>(&::com::telenav::proto::Street::default_instance());
-#endif
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  cross_street_ = const_cast< ::com::telenav::proto::Street*>(
-      ::com::telenav::proto::Street::internal_default_instance());
-#else
   cross_street_ = const_cast< ::com::telenav::proto::Street*>(&::com::telenav::proto::Street::default_instance());
-#endif
 }
 
 Address::Address(const Address& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -799,11 +1151,7 @@ void Address::SharedDtor() {
   if (postal_code_ != &::google::protobuf::internal::kEmptyString) {
     delete postal_code_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
     delete street_;
     delete cross_street_;
   }
@@ -814,12 +1162,13 @@ void Address::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* Address::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Address_descriptor_;
+}
+
 const Address& Address::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_common_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -892,6 +1241,7 @@ void Address::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool Address::MergePartialFromCodedStream(
@@ -906,6 +1256,9 @@ bool Address::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_formatted_address()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->formatted_address().data(), this->formatted_address().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -920,6 +1273,9 @@ bool Address::MergePartialFromCodedStream(
          parse_house_number:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_house_number()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->house_number().data(), this->house_number().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -934,6 +1290,9 @@ bool Address::MergePartialFromCodedStream(
          parse_suite:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_suite()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->suite().data(), this->suite().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -948,6 +1307,9 @@ bool Address::MergePartialFromCodedStream(
          parse_sub_street:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_sub_street()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->sub_street().data(), this->sub_street().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -990,6 +1352,9 @@ bool Address::MergePartialFromCodedStream(
          parse_sub_locality:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_sub_locality()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->sub_locality().data(), this->sub_locality().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1004,6 +1369,9 @@ bool Address::MergePartialFromCodedStream(
          parse_locality:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_locality()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->locality().data(), this->locality().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1018,6 +1386,9 @@ bool Address::MergePartialFromCodedStream(
          parse_city:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_city()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->city().data(), this->city().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1032,6 +1403,9 @@ bool Address::MergePartialFromCodedStream(
          parse_county:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_county()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->county().data(), this->county().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1046,6 +1420,9 @@ bool Address::MergePartialFromCodedStream(
          parse_state:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_state()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->state().data(), this->state().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1064,6 +1441,8 @@ bool Address::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::Country_IsValid(value)) {
             set_country(static_cast< ::com::telenav::proto::Country >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(120, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -1079,6 +1458,9 @@ bool Address::MergePartialFromCodedStream(
          parse_postal_code:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_postal_code()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->postal_code().data(), this->postal_code().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1092,7 +1474,8 @@ bool Address::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1105,66 +1488,93 @@ void Address::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional string formatted_address = 10;
   if (has_formatted_address()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->formatted_address().data(), this->formatted_address().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->formatted_address(), output);
   }
 
   // optional string house_number = 20;
   if (has_house_number()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->house_number().data(), this->house_number().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->house_number(), output);
   }
 
   // optional string suite = 30;
   if (has_suite()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->suite().data(), this->suite().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       30, this->suite(), output);
   }
 
   // optional string sub_street = 40;
   if (has_sub_street()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sub_street().data(), this->sub_street().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       40, this->sub_street(), output);
   }
 
   // optional .com.telenav.proto.Street street = 50;
   if (has_street()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       50, this->street(), output);
   }
 
   // optional .com.telenav.proto.Street cross_street = 60;
   if (has_cross_street()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       60, this->cross_street(), output);
   }
 
   // optional string sub_locality = 70;
   if (has_sub_locality()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sub_locality().data(), this->sub_locality().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       70, this->sub_locality(), output);
   }
 
   // optional string locality = 80;
   if (has_locality()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->locality().data(), this->locality().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       80, this->locality(), output);
   }
 
   // optional string city = 90;
   if (has_city()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->city().data(), this->city().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       90, this->city(), output);
   }
 
   // optional string county = 100;
   if (has_county()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->county().data(), this->county().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       100, this->county(), output);
   }
 
   // optional string state = 110;
   if (has_state()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->state().data(), this->state().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       110, this->state(), output);
   }
@@ -1177,10 +1587,146 @@ void Address::SerializeWithCachedSizes(
 
   // optional string postal_code = 130;
   if (has_postal_code()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->postal_code().data(), this->postal_code().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       130, this->postal_code(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Address::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string formatted_address = 10;
+  if (has_formatted_address()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->formatted_address().data(), this->formatted_address().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->formatted_address(), target);
+  }
+
+  // optional string house_number = 20;
+  if (has_house_number()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->house_number().data(), this->house_number().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->house_number(), target);
+  }
+
+  // optional string suite = 30;
+  if (has_suite()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->suite().data(), this->suite().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        30, this->suite(), target);
+  }
+
+  // optional string sub_street = 40;
+  if (has_sub_street()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sub_street().data(), this->sub_street().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        40, this->sub_street(), target);
+  }
+
+  // optional .com.telenav.proto.Street street = 50;
+  if (has_street()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        50, this->street(), target);
+  }
+
+  // optional .com.telenav.proto.Street cross_street = 60;
+  if (has_cross_street()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        60, this->cross_street(), target);
+  }
+
+  // optional string sub_locality = 70;
+  if (has_sub_locality()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->sub_locality().data(), this->sub_locality().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        70, this->sub_locality(), target);
+  }
+
+  // optional string locality = 80;
+  if (has_locality()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->locality().data(), this->locality().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        80, this->locality(), target);
+  }
+
+  // optional string city = 90;
+  if (has_city()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->city().data(), this->city().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        90, this->city(), target);
+  }
+
+  // optional string county = 100;
+  if (has_county()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->county().data(), this->county().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        100, this->county(), target);
+  }
+
+  // optional string state = 110;
+  if (has_state()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->state().data(), this->state().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        110, this->state(), target);
+  }
+
+  // optional .com.telenav.proto.Country country = 120;
+  if (has_country()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      120, this->country(), target);
+  }
+
+  // optional string postal_code = 130;
+  if (has_postal_code()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->postal_code().data(), this->postal_code().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        130, this->postal_code(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int Address::ByteSize() const {
@@ -1280,15 +1826,27 @@ int Address::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void Address::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const Address*>(&from));
+void Address::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Address* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Address*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void Address::MergeFrom(const Address& from) {
@@ -1336,6 +1894,13 @@ void Address::MergeFrom(const Address& from) {
       set_postal_code(from.postal_code());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Address::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Address::CopyFrom(const Address& from) {
@@ -1365,12 +1930,17 @@ void Address::Swap(Address* other) {
     std::swap(country_, other->country_);
     std::swap(postal_code_, other->postal_code_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string Address::GetTypeName() const {
-  return "com.telenav.proto.Address";
+::google::protobuf::Metadata Address::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Address_descriptor_;
+  metadata.reflection = Address_reflection_;
+  return metadata;
 }
 
 
@@ -1384,7 +1954,7 @@ const int Street::kFormattedNameFieldNumber;
 #endif  // !_MSC_VER
 
 Street::Street()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1392,7 +1962,7 @@ void Street::InitAsDefaultInstance() {
 }
 
 Street::Street(const Street& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1419,11 +1989,7 @@ void Street::SharedDtor() {
   if (formatted_name_ != &::google::protobuf::internal::kEmptyString) {
     delete formatted_name_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1432,12 +1998,13 @@ void Street::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* Street::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Street_descriptor_;
+}
+
 const Street& Street::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_common_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1467,6 +2034,7 @@ void Street::Clear() {
   }
   dirs_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool Street::MergePartialFromCodedStream(
@@ -1482,6 +2050,10 @@ bool Street::MergePartialFromCodedStream(
          parse_dirs:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_dirs()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->dirs(this->dirs_size() - 1).data(),
+            this->dirs(this->dirs_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1497,6 +2069,9 @@ bool Street::MergePartialFromCodedStream(
          parse_body:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_body()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->body().data(), this->body().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1511,6 +2086,9 @@ bool Street::MergePartialFromCodedStream(
          parse_type:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_type()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->type().data(), this->type().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1525,6 +2103,9 @@ bool Street::MergePartialFromCodedStream(
          parse_formatted_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_formatted_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->formatted_name().data(), this->formatted_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1538,7 +2119,8 @@ bool Street::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1551,28 +2133,92 @@ void Street::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated string dirs = 10;
   for (int i = 0; i < this->dirs_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->dirs(i).data(), this->dirs(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->dirs(i), output);
   }
 
   // optional string body = 20;
   if (has_body()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->body().data(), this->body().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->body(), output);
   }
 
   // optional string type = 30;
   if (has_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       30, this->type(), output);
   }
 
   // optional string formatted_name = 40;
   if (has_formatted_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->formatted_name().data(), this->formatted_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       40, this->formatted_name(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Street::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated string dirs = 10;
+  for (int i = 0; i < this->dirs_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->dirs(i).data(), this->dirs(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(10, this->dirs(i), target);
+  }
+
+  // optional string body = 20;
+  if (has_body()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->body().data(), this->body().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->body(), target);
+  }
+
+  // optional string type = 30;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        30, this->type(), target);
+  }
+
+  // optional string formatted_name = 40;
+  if (has_formatted_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->formatted_name().data(), this->formatted_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        40, this->formatted_name(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int Street::ByteSize() const {
@@ -1608,15 +2254,27 @@ int Street::ByteSize() const {
       this->dirs(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void Street::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const Street*>(&from));
+void Street::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Street* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Street*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void Street::MergeFrom(const Street& from) {
@@ -1633,6 +2291,13 @@ void Street::MergeFrom(const Street& from) {
       set_formatted_name(from.formatted_name());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Street::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Street::CopyFrom(const Street& from) {
@@ -1653,12 +2318,17 @@ void Street::Swap(Street* other) {
     std::swap(type_, other->type_);
     std::swap(formatted_name_, other->formatted_name_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string Street::GetTypeName() const {
-  return "com.telenav.proto.Street";
+::google::protobuf::Metadata Street::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Street_descriptor_;
+  metadata.reflection = Street_reflection_;
+  return metadata;
 }
 
 
@@ -1670,7 +2340,7 @@ const int SearchQuery::kCategoryFieldNumber;
 #endif  // !_MSC_VER
 
 SearchQuery::SearchQuery()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1678,7 +2348,7 @@ void SearchQuery::InitAsDefaultInstance() {
 }
 
 SearchQuery::SearchQuery(const SearchQuery& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1693,11 +2363,7 @@ SearchQuery::~SearchQuery() {
 }
 
 void SearchQuery::SharedDtor() {
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1706,12 +2372,13 @@ void SearchQuery::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* SearchQuery::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SearchQuery_descriptor_;
+}
+
 const SearchQuery& SearchQuery::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_common_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1725,6 +2392,7 @@ void SearchQuery::Clear() {
   domain_.Clear();
   category_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool SearchQuery::MergePartialFromCodedStream(
@@ -1740,6 +2408,10 @@ bool SearchQuery::MergePartialFromCodedStream(
          parse_domain:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_domain()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->domain(this->domain_size() - 1).data(),
+            this->domain(this->domain_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1755,6 +2427,10 @@ bool SearchQuery::MergePartialFromCodedStream(
          parse_category:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_category()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->category(this->category_size() - 1).data(),
+            this->category(this->category_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1769,7 +2445,8 @@ bool SearchQuery::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1782,16 +2459,53 @@ void SearchQuery::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // repeated string domain = 10;
   for (int i = 0; i < this->domain_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->domain(i).data(), this->domain(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->domain(i), output);
   }
 
   // repeated string category = 20;
   for (int i = 0; i < this->category_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->category(i).data(), this->category(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->category(i), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SearchQuery::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated string domain = 10;
+  for (int i = 0; i < this->domain_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->domain(i).data(), this->domain(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(10, this->domain(i), target);
+  }
+
+  // repeated string category = 20;
+  for (int i = 0; i < this->category_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->category(i).data(), this->category(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(20, this->category(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int SearchQuery::ByteSize() const {
@@ -1811,21 +2525,40 @@ int SearchQuery::ByteSize() const {
       this->category(i));
   }
 
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void SearchQuery::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const SearchQuery*>(&from));
+void SearchQuery::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SearchQuery* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SearchQuery*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void SearchQuery::MergeFrom(const SearchQuery& from) {
   GOOGLE_CHECK_NE(&from, this);
   domain_.MergeFrom(from.domain_);
   category_.MergeFrom(from.category_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SearchQuery::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void SearchQuery::CopyFrom(const SearchQuery& from) {
@@ -1844,12 +2577,17 @@ void SearchQuery::Swap(SearchQuery* other) {
     domain_.Swap(&other->domain_);
     category_.Swap(&other->category_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string SearchQuery::GetTypeName() const {
-  return "com.telenav.proto.SearchQuery";
+::google::protobuf::Metadata SearchQuery::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SearchQuery_descriptor_;
+  metadata.reflection = SearchQuery_reflection_;
+  return metadata;
 }
 
 
@@ -1861,7 +2599,7 @@ const int Facet::kFacetDataFieldNumber;
 #endif  // !_MSC_VER
 
 Facet::Facet()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -1869,7 +2607,7 @@ void Facet::InitAsDefaultInstance() {
 }
 
 Facet::Facet(const Facet& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -1892,11 +2630,7 @@ void Facet::SharedDtor() {
   if (facet_data_ != &::google::protobuf::internal::kEmptyString) {
     delete facet_data_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -1905,12 +2639,13 @@ void Facet::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* Facet::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Facet_descriptor_;
+}
+
 const Facet& Facet::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_common_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -1934,6 +2669,7 @@ void Facet::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool Facet::MergePartialFromCodedStream(
@@ -1948,6 +2684,9 @@ bool Facet::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_type()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->type().data(), this->type().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1962,6 +2701,9 @@ bool Facet::MergePartialFromCodedStream(
          parse_facet_data:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_facet_data()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->facet_data().data(), this->facet_data().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1975,7 +2717,8 @@ bool Facet::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -1988,16 +2731,55 @@ void Facet::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string type = 10;
   if (has_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->type(), output);
   }
 
   // required string facet_data = 20;
   if (has_facet_data()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->facet_data().data(), this->facet_data().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->facet_data(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Facet::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string type = 10;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->type().data(), this->type().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->type(), target);
+  }
+
+  // required string facet_data = 20;
+  if (has_facet_data()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->facet_data().data(), this->facet_data().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->facet_data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int Facet::ByteSize() const {
@@ -2019,15 +2801,27 @@ int Facet::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void Facet::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const Facet*>(&from));
+void Facet::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Facet* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Facet*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void Facet::MergeFrom(const Facet& from) {
@@ -2040,6 +2834,13 @@ void Facet::MergeFrom(const Facet& from) {
       set_facet_data(from.facet_data());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Facet::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Facet::CopyFrom(const Facet& from) {
@@ -2059,12 +2860,17 @@ void Facet::Swap(Facet* other) {
     std::swap(type_, other->type_);
     std::swap(facet_data_, other->facet_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string Facet::GetTypeName() const {
-  return "com.telenav.proto.Facet";
+::google::protobuf::Metadata Facet::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Facet_descriptor_;
+  metadata.reflection = Facet_reflection_;
+  return metadata;
 }
 
 
@@ -2077,7 +2883,7 @@ const int Currency::kSymbolFieldNumber;
 #endif  // !_MSC_VER
 
 Currency::Currency()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -2085,7 +2891,7 @@ void Currency::InitAsDefaultInstance() {
 }
 
 Currency::Currency(const Currency& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -2106,11 +2912,7 @@ void Currency::SharedDtor() {
   if (symbol_ != &::google::protobuf::internal::kEmptyString) {
     delete symbol_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -2119,12 +2921,13 @@ void Currency::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* Currency::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Currency_descriptor_;
+}
+
 const Currency& Currency::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_common_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -2145,6 +2948,7 @@ void Currency::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool Currency::MergePartialFromCodedStream(
@@ -2179,6 +2983,8 @@ bool Currency::MergePartialFromCodedStream(
                  input, &value)));
           if (::com::telenav::proto::CurrencyCode_IsValid(value)) {
             set_iso_code(static_cast< ::com::telenav::proto::CurrencyCode >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(20, value);
           }
         } else {
           goto handle_uninterpreted;
@@ -2194,6 +3000,9 @@ bool Currency::MergePartialFromCodedStream(
          parse_symbol:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_symbol()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->symbol().data(), this->symbol().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2207,7 +3016,8 @@ bool Currency::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -2231,10 +3041,47 @@ void Currency::SerializeWithCachedSizes(
 
   // optional string symbol = 30;
   if (has_symbol()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->symbol().data(), this->symbol().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       30, this->symbol(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Currency::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required float value = 10;
+  if (has_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->value(), target);
+  }
+
+  // required .com.telenav.proto.CurrencyCode iso_code = 20;
+  if (has_iso_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      20, this->iso_code(), target);
+  }
+
+  // optional string symbol = 30;
+  if (has_symbol()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->symbol().data(), this->symbol().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        30, this->symbol(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int Currency::ByteSize() const {
@@ -2260,15 +3107,27 @@ int Currency::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void Currency::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const Currency*>(&from));
+void Currency::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Currency* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Currency*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void Currency::MergeFrom(const Currency& from) {
@@ -2284,6 +3143,13 @@ void Currency::MergeFrom(const Currency& from) {
       set_symbol(from.symbol());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Currency::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Currency::CopyFrom(const Currency& from) {
@@ -2304,12 +3170,17 @@ void Currency::Swap(Currency* other) {
     std::swap(iso_code_, other->iso_code_);
     std::swap(symbol_, other->symbol_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string Currency::GetTypeName() const {
-  return "com.telenav.proto.Currency";
+::google::protobuf::Metadata Currency::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Currency_descriptor_;
+  metadata.reflection = Currency_reflection_;
+  return metadata;
 }
 
 
@@ -2321,7 +3192,7 @@ const int NameValuePair::kValueFieldNumber;
 #endif  // !_MSC_VER
 
 NameValuePair::NameValuePair()
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
 }
 
@@ -2329,7 +3200,7 @@ void NameValuePair::InitAsDefaultInstance() {
 }
 
 NameValuePair::NameValuePair(const NameValuePair& from)
-  : ::google::protobuf::MessageLite() {
+  : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
@@ -2352,11 +3223,7 @@ void NameValuePair::SharedDtor() {
   if (value_ != &::google::protobuf::internal::kEmptyString) {
     delete value_;
   }
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  if (this != &default_instance()) {
-  #else
   if (this != default_instance_) {
-  #endif
   }
 }
 
@@ -2365,12 +3232,13 @@ void NameValuePair::SetCachedSize(int size) const {
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
+const ::google::protobuf::Descriptor* NameValuePair::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NameValuePair_descriptor_;
+}
+
 const NameValuePair& NameValuePair::default_instance() {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  protobuf_AddDesc_common_2eproto();
-#else
   if (default_instance_ == NULL) protobuf_AddDesc_common_2eproto();
-#endif
   return *default_instance_;
 }
 
@@ -2394,6 +3262,7 @@ void NameValuePair::Clear() {
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
 }
 
 bool NameValuePair::MergePartialFromCodedStream(
@@ -2408,6 +3277,9 @@ bool NameValuePair::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2422,6 +3294,9 @@ bool NameValuePair::MergePartialFromCodedStream(
          parse_value:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_value()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->value().data(), this->value().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2435,7 +3310,8 @@ bool NameValuePair::MergePartialFromCodedStream(
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
           return true;
         }
-        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
         break;
       }
     }
@@ -2448,16 +3324,55 @@ void NameValuePair::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // required string name = 10;
   if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       10, this->name(), output);
   }
 
   // required string value = 20;
   if (has_value()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->value().data(), this->value().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
       20, this->value(), output);
   }
 
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NameValuePair::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string name = 10;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->name(), target);
+  }
+
+  // required string value = 20;
+  if (has_value()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->value().data(), this->value().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        20, this->value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
 }
 
 int NameValuePair::ByteSize() const {
@@ -2479,15 +3394,27 @@ int NameValuePair::ByteSize() const {
     }
 
   }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
   return total_size;
 }
 
-void NameValuePair::CheckTypeAndMergeFrom(
-    const ::google::protobuf::MessageLite& from) {
-  MergeFrom(*::google::protobuf::down_cast<const NameValuePair*>(&from));
+void NameValuePair::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NameValuePair* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NameValuePair*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
 }
 
 void NameValuePair::MergeFrom(const NameValuePair& from) {
@@ -2500,6 +3427,13 @@ void NameValuePair::MergeFrom(const NameValuePair& from) {
       set_value(from.value());
     }
   }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NameValuePair::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void NameValuePair::CopyFrom(const NameValuePair& from) {
@@ -2519,12 +3453,17 @@ void NameValuePair::Swap(NameValuePair* other) {
     std::swap(name_, other->name_);
     std::swap(value_, other->value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
   }
 }
 
-::std::string NameValuePair::GetTypeName() const {
-  return "com.telenav.proto.NameValuePair";
+::google::protobuf::Metadata NameValuePair::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NameValuePair_descriptor_;
+  metadata.reflection = NameValuePair_reflection_;
+  return metadata;
 }
 
 

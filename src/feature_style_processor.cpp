@@ -39,6 +39,8 @@
 #include <mapnik/svg/output/svg_renderer.hpp>
 #endif
 
+#include <mapnik/telenav_protobuf_renderer.h>
+
 namespace mapnik
 {
 
@@ -56,5 +58,5 @@ template class feature_style_processor<grid_renderer<grid> >;
 #endif
 
 template class feature_style_processor<agg_renderer<image_32> >;
-
+template class feature_style_processor<tn_renderer<VectorMapTile> >;
 }

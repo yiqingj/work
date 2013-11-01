@@ -33,6 +33,8 @@
 
 #include <mapnik/symbolizer_helpers.hpp>
 
+#include <mapnik/json/geojson_generator.hpp>
+
 // boost
 #include <boost/math/special_functions/round.hpp>
 
@@ -41,7 +43,7 @@
 
 #include <mapnik/well_known_srs.hpp>
 
-#include "telenav_protobuf_renderer.h"
+#include "mapnik/telenav_protobuf_renderer.h"
 
 using namespace com::telenav::proto;
 using namespace com::telenav::proto::map;
@@ -51,12 +53,10 @@ namespace mapnik
 {
     // constructor
     template <typename T>
-    tn_renderer<T>::tn_renderer(Map const& m, T & protobuf)
+    tn_renderer<T>::tn_renderer(Map const& m, T & protobuf,double scale_factor, unsigned offset_x, unsigned offset_y)
     : feature_style_processor<tn_renderer>(m, scale_factor),
     protobuf_(protobuf),
-    internal_buffer_(),
-    current_buffer_(&protobuf),
-    t_(m.width(),m.height(),m.get_current_extent(),0,0),
+    t_(m.width(),m.height(),m.get_current_extent(),offset_x,offset_y),
     style_level_compositing_(false),
     font_engine_(),
     font_manager_(font_engine_),
@@ -66,15 +66,14 @@ namespace mapnik
     {
         setup(m);
     }
+    template <typename T>
+    tn_renderer<T>::~tn_renderer() {}
     
     template <typename T>
     void tn_renderer<T>::setup(Map const &m)
     {
         
     }
-    
-    template <typename T>
-    tn_renderer<T>::~tn_renderer() {}
     
     template <typename T>
     void tn_renderer<T>::start_map_processing(Map const& map)
@@ -144,28 +143,10 @@ namespace mapnik
             {
                 t_.set_offset(radius);
             }
-            int offset = t_.offset();
-            unsigned target_width = width_;
-            unsigned target_height = height_;
-            target_width = width_ + (offset * 2);
-            target_height = height_ + (offset * 2);
-            
-            if (!internal_buffer_ ||
-                (internal_buffer_->width() < target_width ||
-                 internal_buffer_->height() < target_height))
-            {
-                internal_buffer_ = std::make_shared<buffer_type>(target_width,target_height);
-            }
-            else
-            {
-                internal_buffer_->set_background(color(0,0,0,0)); // fill with transparent colour
-            }
-            current_buffer_ = internal_buffer_.get();
         }
         else
         {
             t_.set_offset(0);
-            current_buffer_ = &protobuf_;
         }
     }
     
@@ -175,6 +156,8 @@ namespace mapnik
         MAPNIK_LOG_DEBUG(tn_renderer) << "tn_renderer: End processing style";
     }
     
+    using std::numeric_limits;
+
     template <typename T>
     void tn_renderer<T>::process(text_symbolizer const& sym,
                                   mapnik::feature_impl & feature,
@@ -188,10 +171,19 @@ namespace mapnik
                                           scale_factor_,
                                           t_, font_manager_, *detector_,
                                           clip_box);
+
+        VectorMapTile & tile = protobuf_;
         
-        VectorMapTile & tile = current_buffer_;
+        std::string json;
+        mapnik::json::feature_generator g;
+        if (!g.generate(json,feature))
+        {
+            throw std::runtime_error("Failed to generate GeoJSON");
+        }
         
-        
+        std::cout.precision(numeric_limits<double>::digits10 + 1);
+        std::cout<< "Feature: " << json << std::endl;
+
         while (helper.next())
         {
             placements_type const& placements = helper.placements();
@@ -203,50 +195,73 @@ namespace mapnik
                 Polyline *spline = pf->mutable_spline();
                 
                 text_path const& path = placements[ii];
-                int lat =0, lon =0;
+                std::cout << "Path: " << ii << std::endl;
+                std::cout << "  Center: " << path.center.x <<","<<path.center.y << std::endl;
+                int olat =0, olon =0;
+                double cx = path.center.x;
+                double cy = path.center.y;
                 for (std::size_t i = 0; i < path.num_nodes(); ++i)
                 {
                     char_info_ptr c;
-                    double x, y, angle; //pixel position 
+                    double x, y, angle; //pixel position
                     path.vertex(c, x, y, angle);
+                    x+=cx;
+                    y+=cy;
+                    t_.backward(&x,&y);
+                    char ch = c->c;
+                    //std::cout << "  node: " << ch <<","<< x << "," << y <<std::endl;
                     merc2lonlat(&x, &y, 1);
-                    lat = y * 1000000 - lat;
-                    lon = x * 1000000 - lon;
-                    spline->add_latlon(lat);
-                    spline->add_latlon(lon);
+                    std::cout << "  latlon: " << ch <<","<< x << "," << y <<std::endl;
+                    int lat = y * 1000000;
+                    int lon = x * 1000000;
+                    spline->add_latlon(lat - olat);
+                    spline->add_latlon(lon- olon);
+                    olat = lat;
+                    olon = lon;
+                    
                 }
             }
         }
     }
     
-    void process(point_symbolizer const& sym,
+    template <typename T>
+    void tn_renderer<T>::process(point_symbolizer const& sym,
                  mapnik::feature_impl & feature,
                  proj_transform const& prj_trans){}
-    void process(line_symbolizer const& sym,
+    template <typename T>
+    void tn_renderer<T>::process(line_symbolizer const& sym,
                  mapnik::feature_impl & feature,
                  proj_transform const& prj_trans){}
-    void process(line_pattern_symbolizer const& sym,
+    template <typename T>
+    void tn_renderer<T>::process(line_pattern_symbolizer const& sym,
                  mapnik::feature_impl & feature,
                  proj_transform const& prj_trans){}
-    void process(polygon_symbolizer const& sym,
+    template <typename T>
+    void tn_renderer<T>::process(polygon_symbolizer const& sym,
                  mapnik::feature_impl & feature,
-                 proj_transform const& prj_trans);
-    void process(polygon_pattern_symbolizer const& sym,
-                 mapnik::feature_impl & feature,
-                 proj_transform const& prj_trans){}
-    void process(raster_symbolizer const& sym,
-                 mapnik::feature_impl & feature,
-                 proj_transform const& prj_trans){}
-    void process(shield_symbolizer const& sym,
+                                 proj_transform const& prj_trans){}
+    template <typename T>
+    void tn_renderer<T>::process(polygon_pattern_symbolizer const& sym,
                  mapnik::feature_impl & feature,
                  proj_transform const& prj_trans){}
-    void process(building_symbolizer const& sym,
+    template <typename T>
+    void tn_renderer<T>::process(raster_symbolizer const& sym,
                  mapnik::feature_impl & feature,
                  proj_transform const& prj_trans){}
-    void process(markers_symbolizer const& sym,
+    template <typename T>
+    void tn_renderer<T>::process(shield_symbolizer const& sym,
                  mapnik::feature_impl & feature,
                  proj_transform const& prj_trans){}
-    void process(debug_symbolizer const& sym,
+    template <typename T>
+    void tn_renderer<T>::process(building_symbolizer const& sym,
+                 mapnik::feature_impl & feature,
+                 proj_transform const& prj_trans){}
+    template <typename T>
+    void tn_renderer<T>::process(markers_symbolizer const& sym,
+                 mapnik::feature_impl & feature,
+                 proj_transform const& prj_trans){}
+    template <typename T>
+    void tn_renderer<T>::process(debug_symbolizer const& sym,
                  feature_impl & feature,
                  proj_transform const& prj_trans){}
 
@@ -258,4 +273,7 @@ namespace mapnik
         //pixmap_.painted(painted);
     }
     
+    template class tn_renderer<VectorMapTile>;
 }
+
+

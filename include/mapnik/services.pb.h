@@ -20,9 +20,11 @@
 #endif
 
 #include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/message_lite.h>
+#include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
+#include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
 namespace com {
@@ -52,6 +54,16 @@ const ResponseFormat ResponseFormat_MIN = html;
 const ResponseFormat ResponseFormat_MAX = xml;
 const int ResponseFormat_ARRAYSIZE = ResponseFormat_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* ResponseFormat_descriptor();
+inline const ::std::string& ResponseFormat_Name(ResponseFormat value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ResponseFormat_descriptor(), value);
+}
+inline bool ResponseFormat_Parse(
+    const ::std::string& name, ResponseFormat* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ResponseFormat>(
+    ResponseFormat_descriptor(), name, value);
+}
 enum InternetConnectionType {
   OFFLINE = 10,
   CELLULAR = 11,
@@ -62,9 +74,19 @@ const InternetConnectionType InternetConnectionType_MIN = OFFLINE;
 const InternetConnectionType InternetConnectionType_MAX = WIFI;
 const int InternetConnectionType_ARRAYSIZE = InternetConnectionType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* InternetConnectionType_descriptor();
+inline const ::std::string& InternetConnectionType_Name(InternetConnectionType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    InternetConnectionType_descriptor(), value);
+}
+inline bool InternetConnectionType_Parse(
+    const ::std::string& name, InternetConnectionType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<InternetConnectionType>(
+    InternetConnectionType_descriptor(), name, value);
+}
 // ===================================================================
 
-class Context : public ::google::protobuf::MessageLite {
+class Context : public ::google::protobuf::Message {
  public:
   Context();
   virtual ~Context();
@@ -76,24 +98,24 @@ class Context : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const Context& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const Context* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Context& default_instance();
 
   void Swap(Context* other);
 
   // implements Message ----------------------------------------------
 
   Context* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const Context& from);
   void MergeFrom(const Context& from);
   void Clear();
@@ -104,6 +126,7 @@ class Context : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -111,7 +134,7 @@ class Context : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -164,6 +187,8 @@ class Context : public ::google::protobuf::MessageLite {
   inline void set_has_network_context();
   inline void clear_has_network_context();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::com::telenav::proto::ApplicationContext* application_context_;
   ::com::telenav::proto::UserContext* user_context_;
   ::com::telenav::proto::TransactionContext* transaction_context_;
@@ -172,11 +197,7 @@ class Context : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_services_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_services_2eproto();
-  #endif
   friend void protobuf_AssignDesc_services_2eproto();
   friend void protobuf_ShutdownFile_services_2eproto();
 
@@ -185,7 +206,7 @@ class Context : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class ApplicationContext : public ::google::protobuf::MessageLite {
+class ApplicationContext : public ::google::protobuf::Message {
  public:
   ApplicationContext();
   virtual ~ApplicationContext();
@@ -197,24 +218,24 @@ class ApplicationContext : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const ApplicationContext& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const ApplicationContext* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ApplicationContext& default_instance();
 
   void Swap(ApplicationContext* other);
 
   // implements Message ----------------------------------------------
 
   ApplicationContext* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const ApplicationContext& from);
   void MergeFrom(const ApplicationContext& from);
   void Clear();
@@ -225,6 +246,7 @@ class ApplicationContext : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -232,7 +254,7 @@ class ApplicationContext : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -283,6 +305,8 @@ class ApplicationContext : public ::google::protobuf::MessageLite {
   inline void set_has_application_name();
   inline void clear_has_application_name();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* application_id_;
   ::std::string* application_signature_;
   ::std::string* application_name_;
@@ -290,11 +314,7 @@ class ApplicationContext : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_services_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_services_2eproto();
-  #endif
   friend void protobuf_AssignDesc_services_2eproto();
   friend void protobuf_ShutdownFile_services_2eproto();
 
@@ -303,7 +323,7 @@ class ApplicationContext : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class UserContext : public ::google::protobuf::MessageLite {
+class UserContext : public ::google::protobuf::Message {
  public:
   UserContext();
   virtual ~UserContext();
@@ -315,24 +335,24 @@ class UserContext : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const UserContext& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const UserContext* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UserContext& default_instance();
 
   void Swap(UserContext* other);
 
   // implements Message ----------------------------------------------
 
   UserContext* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const UserContext& from);
   void MergeFrom(const UserContext& from);
   void Clear();
@@ -343,6 +363,7 @@ class UserContext : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -350,7 +371,7 @@ class UserContext : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -387,17 +408,15 @@ class UserContext : public ::google::protobuf::MessageLite {
   inline void set_has_user_id();
   inline void clear_has_user_id();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* secure_token_;
   ::std::string* user_id_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_services_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_services_2eproto();
-  #endif
   friend void protobuf_AssignDesc_services_2eproto();
   friend void protobuf_ShutdownFile_services_2eproto();
 
@@ -406,7 +425,7 @@ class UserContext : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class TransactionContext : public ::google::protobuf::MessageLite {
+class TransactionContext : public ::google::protobuf::Message {
  public:
   TransactionContext();
   virtual ~TransactionContext();
@@ -418,24 +437,24 @@ class TransactionContext : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const TransactionContext& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const TransactionContext* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TransactionContext& default_instance();
 
   void Swap(TransactionContext* other);
 
   // implements Message ----------------------------------------------
 
   TransactionContext* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const TransactionContext& from);
   void MergeFrom(const TransactionContext& from);
   void Clear();
@@ -446,6 +465,7 @@ class TransactionContext : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -453,7 +473,7 @@ class TransactionContext : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -499,6 +519,8 @@ class TransactionContext : public ::google::protobuf::MessageLite {
   inline void set_has_transaction_timestamp();
   inline void clear_has_transaction_timestamp();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* transaction_id_;
   ::std::string* transaction_name_;
   ::google::protobuf::uint64 transaction_timestamp_;
@@ -506,11 +528,7 @@ class TransactionContext : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_services_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_services_2eproto();
-  #endif
   friend void protobuf_AssignDesc_services_2eproto();
   friend void protobuf_ShutdownFile_services_2eproto();
 
@@ -519,7 +537,7 @@ class TransactionContext : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class NetworkContext : public ::google::protobuf::MessageLite {
+class NetworkContext : public ::google::protobuf::Message {
  public:
   NetworkContext();
   virtual ~NetworkContext();
@@ -531,24 +549,24 @@ class NetworkContext : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const NetworkContext& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const NetworkContext* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NetworkContext& default_instance();
 
   void Swap(NetworkContext* other);
 
   // implements Message ----------------------------------------------
 
   NetworkContext* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const NetworkContext& from);
   void MergeFrom(const NetworkContext& from);
   void Clear();
@@ -559,6 +577,7 @@ class NetworkContext : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -566,7 +585,7 @@ class NetworkContext : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -626,6 +645,8 @@ class NetworkContext : public ::google::protobuf::MessageLite {
   inline void set_has_ip();
   inline void clear_has_ip();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* mobile_carrier_;
   ::std::string* bandwidth_;
   ::std::string* ip_;
@@ -634,11 +655,7 @@ class NetworkContext : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_services_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_services_2eproto();
-  #endif
   friend void protobuf_AssignDesc_services_2eproto();
   friend void protobuf_ShutdownFile_services_2eproto();
 
@@ -647,7 +664,7 @@ class NetworkContext : public ::google::protobuf::MessageLite {
 };
 // -------------------------------------------------------------------
 
-class ServiceStatus : public ::google::protobuf::MessageLite {
+class ServiceStatus : public ::google::protobuf::Message {
  public:
   ServiceStatus();
   virtual ~ServiceStatus();
@@ -659,24 +676,24 @@ class ServiceStatus : public ::google::protobuf::MessageLite {
     return *this;
   }
 
-  static const ServiceStatus& default_instance();
-
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  // Returns the internal default instance pointer. This function can
-  // return NULL thus should not be used by the user. This is intended
-  // for Protobuf internal code. Please use default_instance() declared
-  // above instead.
-  static inline const ServiceStatus* internal_default_instance() {
-    return default_instance_;
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
   }
-  #endif
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ServiceStatus& default_instance();
 
   void Swap(ServiceStatus* other);
 
   // implements Message ----------------------------------------------
 
   ServiceStatus* New() const;
-  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
   void CopyFrom(const ServiceStatus& from);
   void MergeFrom(const ServiceStatus& from);
   void Clear();
@@ -687,6 +704,7 @@ class ServiceStatus : public ::google::protobuf::MessageLite {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -694,7 +712,7 @@ class ServiceStatus : public ::google::protobuf::MessageLite {
   void SetCachedSize(int size) const;
   public:
 
-  ::std::string GetTypeName() const;
+  ::google::protobuf::Metadata GetMetadata() const;
 
   // nested types ----------------------------------------------------
 
@@ -740,6 +758,8 @@ class ServiceStatus : public ::google::protobuf::MessageLite {
   inline void set_has_info_link();
   inline void clear_has_info_link();
 
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
   ::std::string* message_;
   ::std::string* info_link_;
   ::google::protobuf::int32 status_;
@@ -747,11 +767,7 @@ class ServiceStatus : public ::google::protobuf::MessageLite {
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
-  #ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  friend void  protobuf_AddDesc_services_2eproto_impl();
-  #else
   friend void  protobuf_AddDesc_services_2eproto();
-  #endif
   friend void protobuf_AssignDesc_services_2eproto();
   friend void protobuf_ShutdownFile_services_2eproto();
 
@@ -780,11 +796,7 @@ inline void Context::clear_application_context() {
   clear_has_application_context();
 }
 inline const ::com::telenav::proto::ApplicationContext& Context::application_context() const {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  return application_context_ != NULL ? *application_context_ : *default_instance().application_context_;
-#else
   return application_context_ != NULL ? *application_context_ : *default_instance_->application_context_;
-#endif
 }
 inline ::com::telenav::proto::ApplicationContext* Context::mutable_application_context() {
   set_has_application_context();
@@ -822,11 +834,7 @@ inline void Context::clear_user_context() {
   clear_has_user_context();
 }
 inline const ::com::telenav::proto::UserContext& Context::user_context() const {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  return user_context_ != NULL ? *user_context_ : *default_instance().user_context_;
-#else
   return user_context_ != NULL ? *user_context_ : *default_instance_->user_context_;
-#endif
 }
 inline ::com::telenav::proto::UserContext* Context::mutable_user_context() {
   set_has_user_context();
@@ -864,11 +872,7 @@ inline void Context::clear_transaction_context() {
   clear_has_transaction_context();
 }
 inline const ::com::telenav::proto::TransactionContext& Context::transaction_context() const {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  return transaction_context_ != NULL ? *transaction_context_ : *default_instance().transaction_context_;
-#else
   return transaction_context_ != NULL ? *transaction_context_ : *default_instance_->transaction_context_;
-#endif
 }
 inline ::com::telenav::proto::TransactionContext* Context::mutable_transaction_context() {
   set_has_transaction_context();
@@ -906,11 +910,7 @@ inline void Context::clear_network_context() {
   clear_has_network_context();
 }
 inline const ::com::telenav::proto::NetworkContext& Context::network_context() const {
-#ifdef GOOGLE_PROTOBUF_NO_STATIC_INITIALIZER
-  return network_context_ != NULL ? *network_context_ : *default_instance().network_context_;
-#else
   return network_context_ != NULL ? *network_context_ : *default_instance_->network_context_;
-#endif
 }
 inline ::com::telenav::proto::NetworkContext* Context::mutable_network_context() {
   set_has_network_context();
@@ -1866,6 +1866,23 @@ inline void ServiceStatus::set_allocated_info_link(::std::string* info_link) {
 }  // namespace proto
 }  // namespace telenav
 }  // namespace com
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::ResponseFormat>() {
+  return ::com::telenav::proto::ResponseFormat_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::InternetConnectionType>() {
+  return ::com::telenav::proto::InternetConnectionType_descriptor();
+}
+
+}  // namespace google
+}  // namespace protobuf
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

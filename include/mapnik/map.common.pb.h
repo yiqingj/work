@@ -22,6 +22,7 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 // @@protoc_insertion_point(includes)
 
 namespace com {
@@ -58,6 +59,16 @@ const RoadType RoadType_MIN = RT_UNKNOWN;
 const RoadType RoadType_MAX = RT_SERVICE;
 const int RoadType_ARRAYSIZE = RoadType_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* RoadType_descriptor();
+inline const ::std::string& RoadType_Name(RoadType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    RoadType_descriptor(), value);
+}
+inline bool RoadType_Parse(
+    const ::std::string& name, RoadType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RoadType>(
+    RoadType_descriptor(), name, value);
+}
 enum MapServiceStatus {
   MAP_OK = 11200,
   MAP_NO_CONTENT = 11204,
@@ -85,6 +96,16 @@ const MapServiceStatus MapServiceStatus_MIN = MAP_OK;
 const MapServiceStatus MapServiceStatus_MAX = PEDESTRIAN_ON_HIGHWAY;
 const int MapServiceStatus_ARRAYSIZE = MapServiceStatus_MAX + 1;
 
+const ::google::protobuf::EnumDescriptor* MapServiceStatus_descriptor();
+inline const ::std::string& MapServiceStatus_Name(MapServiceStatus value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    MapServiceStatus_descriptor(), value);
+}
+inline bool MapServiceStatus_Parse(
+    const ::std::string& name, MapServiceStatus* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<MapServiceStatus>(
+    MapServiceStatus_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -100,6 +121,23 @@ const int MapServiceStatus_ARRAYSIZE = MapServiceStatus_MAX + 1;
 }  // namespace proto
 }  // namespace telenav
 }  // namespace com
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::RoadType>() {
+  return ::com::telenav::proto::map::RoadType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::com::telenav::proto::map::MapServiceStatus>() {
+  return ::com::telenav::proto::map::MapServiceStatus_descriptor();
+}
+
+}  // namespace google
+}  // namespace protobuf
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 
