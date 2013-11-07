@@ -58,7 +58,7 @@ int main ( int argc , char** argv)
         Map m(256,256);
         load_map(m,"osm.xml");
         m.zoom_to_box(box2d<double>(-13581636.9338,4493274.27072,-13581331.1857,4493580.01883));
-        
+        //m.zoom_to_box(box2d<double>(-13589892.1329,4490828.28581,-13580108.1933,4500612.22543));
         VectorMapTile tile;
         tn_renderer<VectorMapTile> ren(m, tile);
 

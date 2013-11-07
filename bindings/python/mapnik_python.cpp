@@ -107,6 +107,8 @@ void export_wkt_reader();
 #include <mapnik/mapped_memory_cache.hpp>
 #endif
 
+#include <mapnik/telenav_protobuf_renderer.h>
+
 void clear_cache()
 {
     mapnik::marker_cache::instance().clear();
@@ -138,6 +140,32 @@ void render(const mapnik::Map& map,
     mapnik::agg_renderer<mapnik::image_32> ren(map,image,scale_factor,offset_x, offset_y);
     ren.apply();
 
+}
+
+void render_pb(const mapnik::Map& map,
+		std::string const& file)
+{
+    python_unblock_auto_block b;
+    VectorMapTile tile;
+    mapnik::tn_renderer<VectorMapTile> ren(map,tile);
+    ren.apply();
+    std::cout << "c++ writing to file...";
+    std::fstream output(file, std::ios::out | std::ios::trunc | std::ios::binary);
+	if (!tile.SerializeToOstream(&output)) {
+		std::cerr << "Failed to write tile." << std::endl;
+	}
+	output.close();
+}
+
+std::string render_pb2(const mapnik::Map& map)
+{
+    python_unblock_auto_block b;
+    VectorMapTile tile;
+    mapnik::tn_renderer<VectorMapTile> ren(map,tile);
+    ren.apply();
+    std::string value;
+	tile.SerializeToString(&value);
+	return value;
 }
 
 void render_with_detector(
@@ -611,6 +639,11 @@ BOOST_PYTHON_MODULE(_mapnik)
         "\n"
         );
 
+    def("render_pb",&render_pb2,
+            "\n"
+            "TODO\n"
+            "\n"
+            );
 
     def("render", &render, render_overloads(
             "\n"

@@ -181,8 +181,10 @@ namespace mapnik
             throw std::runtime_error("Failed to generate GeoJSON");
         }
         
-        std::cout.precision(numeric_limits<double>::digits10 + 1);
-        std::cout<< "Feature: " << json << std::endl;
+        //std::cout.precision(numeric_limits<double>::digits10 + 1);
+        //std::cout<< "Feature: " << json << std::endl;
+
+        //std::cout << feature.get("name");
 
         while (helper.next())
         {
@@ -191,12 +193,13 @@ namespace mapnik
             {
                 PointFeature *pf = tile.add_pf();
                 pf->set_maintype(PT_ROAD); //for now treat all of them as road label.
-                pf->set_subtype("");
+                pf->set_subtype("a");
+                pf->set_name(feature.get("name").to_string());
                 Polyline *spline = pf->mutable_spline();
                 
                 text_path const& path = placements[ii];
-                std::cout << "Path: " << ii << std::endl;
-                std::cout << "  Center: " << path.center.x <<","<<path.center.y << std::endl;
+                //std::cout << "Path: " << ii << std::endl;
+                //std::cout << "  Center: " << path.center.x <<","<<path.center.y << std::endl;
                 int olat =0, olon =0;
                 double cx = path.center.x;
                 double cy = path.center.y;
@@ -205,13 +208,13 @@ namespace mapnik
                     char_info_ptr c;
                     double x, y, angle; //pixel position
                     path.vertex(c, x, y, angle);
-                    x+=cx;
-                    y+=cy;
-                    t_.backward(&x,&y);
                     char ch = c->c;
-                    //std::cout << "  node: " << ch <<","<< x << "," << y <<std::endl;
+                    //std::cout << "vertex: " << ch <<","<< x << "," << y << "," << angle << std::endl;
+                    x+=cx;
+                    y = cy - y;
+                    t_.backward(&x,&y);
                     merc2lonlat(&x, &y, 1);
-                    std::cout << "  latlon: " << ch <<","<< x << "," << y <<std::endl;
+                    //std::cout << "  latlon: " << ch <<","<< x << "," << y <<std::endl;
                     int lat = y * 1000000;
                     int lon = x * 1000000;
                     spline->add_latlon(lat - olat);
