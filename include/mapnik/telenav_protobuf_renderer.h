@@ -150,6 +150,9 @@ namespace mapnik {
         std::shared_ptr<label_collision_detector4> detector_;
         box2d<double> query_extent_;
         void setup(Map const& m);
+        RoadType  match_tn_road_type(std::string const& highway);
+        AreaType  match_tn_area_type(std::string const& highway);
+        const std::string match_tn_point_type(std::string const& highway);
     };
 }
 

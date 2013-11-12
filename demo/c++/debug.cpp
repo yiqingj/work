@@ -56,13 +56,17 @@ int main ( int argc , char** argv)
         freetype_engine::register_font(mapnik_dir + "/lib/mapnik/fonts/DejaVuSans-BoldOblique.ttf");
         freetype_engine::register_font(mapnik_dir + "/lib/mapnik/fonts/unifont-5.1.20080907.ttf");
         Map m(256,256);
-        load_map(m,"osm.xml");
-        m.zoom_to_box(box2d<double>(-13581636.9338,4493274.27072,-13581331.1857,4493580.01883));
+        std::cout << "loading map..." << std:: endl;
+        load_map(m,"../../style-sheet/osm-simple.xml");
+
+        //5278, 12709, 15
+        m.zoom_to_box(box2d<double>(-13582554.1782,4493274.27072,-13581331.1857,4494497.26317));
         //m.zoom_to_box(box2d<double>(-13589892.1329,4490828.28581,-13580108.1933,4500612.22543));
         VectorMapTile tile;
         tn_renderer<VectorMapTile> ren(m, tile);
-
+        std::cout << "Rendering..." << std:: endl;
         ren.apply();
+        std::cout << tile.DebugString() << std::endl;
         std::string msg("These maps have been rendered to protobuf in the current directory:\n");
         msg += "tile.proto";
         std::fstream output("tile.proto", std::ios::out | std::ios::trunc | std::ios::binary);
