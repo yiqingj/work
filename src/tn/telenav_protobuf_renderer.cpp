@@ -160,11 +160,11 @@ void tn_renderer<T>::process(text_symbolizer const& sym,
 
 	VectorMapTile & tile = protobuf_;
 
-	std::string json;
-	mapnik::json::feature_generator g;
-	if (!g.generate(json, feature)) {
-		throw std::runtime_error("Failed to generate GeoJSON");
-	}
+//	std::string json;
+//	mapnik::json::feature_generator g;
+//	if (!g.generate(json, feature)) {
+//		throw std::runtime_error("Failed to generate GeoJSON");
+//	}
 
 	//std::cout.precision(numeric_limits<double>::digits10 + 1);
 	//std::cout<< "Feature: " << json << std::endl;
@@ -190,7 +190,7 @@ void tn_renderer<T>::process(text_symbolizer const& sym,
 				char_info_ptr c;
 				double x, y, angle; //pixel position
 				path.vertex(c, x, y, angle);
-				char ch = c->c;
+				//char ch = c->c;
 				//std::cout << "vertex: " << ch <<","<< x << "," << y << "," << angle << std::endl;
 				x += cx;
 				y = cy - y;
@@ -212,19 +212,22 @@ void tn_renderer<T>::process(text_symbolizer const& sym,
 template<typename T>
 void tn_renderer<T>::process(point_symbolizer const& sym,
 		mapnik::feature_impl & feature, proj_transform const& prj_trans) {
-	if (!feature.has_key("highway")) {
-		return; // only handles highways for now.
-	}
-	std::string highway = feature.get("highway").to_string();
 
-	std::cout << "Feature(PF): " << highway << "," << feature.get("name")
-			<< std::endl;
+	std::string kind = feature.get("kind").to_string();
+	std::string name = feature.get("name").to_string();
+	//std::cout << "Feature(PF): " << kind << "," << feature.get("name") << std::endl;
 	VectorMapTile & tile = protobuf_;
 
 	PointFeature *pf = tile.add_pf();
 	pf->set_maintype(PT_ROAD);
 	pf->set_subtype("a");
-	pf->set_name("test name");
+	if(!name.empty()){
+		pf->set_name(name);
+	}else if(!kind.empty()){
+		pf->set_name(kind);
+	}else{
+		pf->set_name("what??");
+	}
 
 	for (std::size_t i = 0; i < feature.num_geometries(); ++i) {
 		geometry_type const& geom = feature.get_geometry(i);
@@ -242,8 +245,13 @@ void tn_renderer<T>::process(point_symbolizer const& sym,
 		merc2lonlat(&x, &y, 1);
 		int lat = y * 1000000;
 		int lon = x * 1000000;
-		pf->add_latlon(lat);
-		pf->add_latlon(lon);
+		Polyline *spline = pf->mutable_spline();
+		spline->add_latlon(lat);
+		spline->add_latlon(lon-300);
+		spline->add_latlon(0);
+		spline->add_latlon(300);
+		spline->add_latlon(0);
+		spline->add_latlon(300);
 	}
 }
 
@@ -257,7 +265,7 @@ void tn_renderer<T>::process(line_symbolizer const& sym,
 	std::string highway = feature.get("highway").to_string();
 	std::string name = feature.get("name").to_string();
 
-	std::cout << "Feature(LF): " << highway << "," << name << std::endl;
+	//std::cout << "Feature(LF): " << highway << "," << name << std::endl;
 //	std::string json;
 //	mapnik::json::feature_generator g;
 //	if (!g.generate(json, feature)) {
@@ -299,13 +307,8 @@ void tn_renderer<T>::process(line_pattern_symbolizer const& sym,
 template<typename T>
 void tn_renderer<T>::process(polygon_symbolizer const& sym,
 		mapnik::feature_impl & feature, proj_transform const& prj_trans) {
-	if (!feature.has_key("highway")) {
-		return; // only handles highways for now.
-	}
-	std::string highway = feature.get("highway").to_string();
-
-	std::cout << "Feature(AF): " << highway << "," << feature.get("name").to_string() << "," << feature.get("osm_id").to_string()
-			<< std::endl;
+	std::string kind = feature.get("kind").to_string();
+	//std::cout << "Feature(AF): " << kind << "," << feature.get("osm_id").to_string() << std::endl;
 //	std::string json;
 //	mapnik::json::feature_generator g;
 //	if (!g.generate(json, feature)) {
@@ -313,16 +316,14 @@ void tn_renderer<T>::process(polygon_symbolizer const& sym,
 //	}
 //  std::cout << "Feature: " << json << std::endl;
 	VectorMapTile & tile = protobuf_;
-
 	AreaFeature *af = tile.add_af();
-	af->set_maintype(match_tn_area_type(highway));
+	af->set_maintype(match_tn_area_type(kind));
 	af->set_subtype("900150");
 
 	for (geometry_type & geom : feature.paths()) {
 		if (geom.size() > 1) {
 			Polygon *ring = af->add_rings();
 			int olat = 0, olon = 0;
-			std::cout << geom.size() << std::endl;
 			for (std::size_t i = 0; i < geom.size(); i++) {
 				double x, y;
 				geom.vertex(&x, &y);
@@ -389,7 +390,12 @@ RoadType tn_renderer<T>::match_tn_road_type(std::string const& highway) {
 }
 
 template<typename T>
-AreaType tn_renderer<T>::match_tn_area_type(std::string const& highway) {
+AreaType tn_renderer<T>::match_tn_area_type(std::string const& kind) {
+	if (kind == "park" || kind == "forest") {
+		return BK_AREA_PARK;
+	}else if (kind == "ocean" || kind == "water" || kind == "riverbank" || kind == "lake" || kind == "playa"){
+		return BK_AREA_WATER;
+	}
 	return BK_AREA_UNKNOWN;
 }
 

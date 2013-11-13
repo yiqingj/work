@@ -582,7 +582,8 @@ std::string postgis_datasource::populate_tokens(std::string const& sql, double s
 std::shared_ptr<IResultSet> postgis_datasource::get_resultset(std::shared_ptr<Connection> &conn, std::string const& sql, CnxPool_ptr const& pool, processor_context_ptr ctx) const
 {
 
-    if (!ctx)
+    //std::cout << sql << std::endl;
+	if (!ctx)
     {
         // ! asynchronous_request_
         if (cursor_fetch_size_ > 0)
