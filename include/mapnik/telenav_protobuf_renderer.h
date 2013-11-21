@@ -152,7 +152,7 @@ namespace mapnik {
         void setup(Map const& m);
         RoadType  match_tn_road_type(std::string const& highway);
         AreaType  match_tn_area_type(std::string const& highway);
-        const std::string match_tn_point_type(std::string const& highway);
+        std::string match_tn_point_type(std::string const& highway) const;
     };
 }
 

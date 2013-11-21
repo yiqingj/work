@@ -171,13 +171,16 @@ void tn_renderer<T>::process(text_symbolizer const& sym,
 
 	//std::cout << feature.get("name");
 
+	std::string highway = feature.get("highway").to_string();
+	std::string name = feature.get("name").to_string();
+
 	while (helper.next()) {
 		placements_type const& placements = helper.placements();
 		for (unsigned int ii = 0; ii < placements.size(); ++ii) {
 			PointFeature *pf = tile.add_pf();
 			pf->set_maintype(PT_ROAD); //for now treat all of them as road label.
 			pf->set_subtype("a");
-			pf->set_name(feature.get("name").to_string());
+			pf->set_name(name);
 			Polyline *spline = pf->mutable_spline();
 
 			text_path const& path = placements[ii];
@@ -399,9 +402,16 @@ AreaType tn_renderer<T>::match_tn_area_type(std::string const& kind) {
 	return BK_AREA_UNKNOWN;
 }
 
-const std::string match_tn_point_type(std::string const& highway) {
+template<typename T>
+std::string tn_renderer<T>::match_tn_point_type(std::string const& highway) const {
 	// not implemented yet, for now I just use PT_ROAD for all point features.
-	return std::string("");
+	if (highway == "trunk" || highway == "primary"){
+		return "h";
+	}else if(highway == "secondary" || highway == "tertiary"){
+		return "a";
+	}else {
+		return "s";
+	}
 }
 
 template class tn_renderer<VectorMapTile> ;
